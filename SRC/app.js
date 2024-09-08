@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import authRoutes from './routes/auth.routes.js';
 
 // Se llaman las rutas
 import { FRONTEND_URL } from "./Configuracion/configuracion.js";
@@ -22,6 +23,9 @@ app.use(
 // App ocupa las librerias necesarias
 app.use(morgan("dev"));
 app.use(express.json());
+//Morgan primero muestra la peticion, y despues ejecutamos authRoutes
+app.use("/sys", authRoutes);
+//Usamos el método json de express para que pueda leer los datos (convertirlos a JSON)
 app.use(cookieParser());
 
 // Rutas para los usuarios y para los deportivos
