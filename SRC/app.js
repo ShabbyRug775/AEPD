@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
+import parqueRoutes from "./routes/parque.routes.js";
 import authRoutes from './routes/auth.routes.js';
 
 // Se llaman las rutas
@@ -30,7 +31,7 @@ app.use(cookieParser());
 app.use("/sys", authRoutes);
 
 // Rutas para los usuarios y para los deportivos
-
+app.use("/api",parqueRoutes);
 
 
 // Se llama al cliente
