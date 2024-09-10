@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Rutas para los usuarios y para los deportivos
-app.use("/Api/auth", authRoutes);
+app.use("/Api/usuario", authRoutes);
 app.use("/Api", parqueRoutes);
 
 // Se llama al cliente

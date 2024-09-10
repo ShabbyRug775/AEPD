@@ -4,7 +4,7 @@ import { Router } from "express";
 // Se llaman los controladores desde parque_controller
 import { 
 
-    infoParque
+    consulsParksRequest
 
 } from "../Controladores/parque.controller.js";
 
@@ -12,7 +12,7 @@ import {
 const router = Router();
 
 // Ruta de consultas de parque //
-router.get('/infoParque', infoParque);
+router.get('/consulsParksRequest', consulsParksRequest);
 
 // Se exporta el router con las rutas
 export default router;

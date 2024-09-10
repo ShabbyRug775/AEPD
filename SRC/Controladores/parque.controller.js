@@ -1,5 +1,5 @@
 // Controlador para la ruta /infoParque
-export const infoParque = async (req, res) => {
+export const consulsParksRequest = async (req, res) => {
 
   try {
 

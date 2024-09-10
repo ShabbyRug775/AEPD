@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, Message, Button, Input, Label } from "../Componentes/UI";
-import { LogInSchema } from "../Esquemas/usuario";
+import { LogInEsquema } from "../Esquemas/usuario";
 
 // Funcion de LogIn
 export function LogInPage() {
@@ -17,7 +17,7 @@ export function LogInPage() {
         handleSubmit,
         formState: { errors },
 
-    } = useForm({ resolver: zodResolver(LogInSchema) });
+    } = useForm({ resolver: zodResolver(LogInEsquema) });
 
     // Constante de verificacion de errores
     const { LogIn, errors: loginErrors, isAuthenticated } = usarUsuario();
@@ -30,7 +30,7 @@ export function LogInPage() {
     // Si se corroboran los datos lo manda a articulos
     useEffect(() => {
       if (isAuthenticated) {
-        navigate("/articulos");
+        navigate("/EspDepPage");
       }
     }, [isAuthenticated]);
 
@@ -49,17 +49,17 @@ export function LogInPage() {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <Label htmlFor="correo"> Correo: </Label>
+                    <Label htmlFor="email"> Correo: </Label>
 
                     <Input
                       label="Escribe tu correo"
                       type="email"
                       name="correo"
                       placeholder="youremail@domain.tld"
-                      {...register("correo", { required: true })}
+                      {...register("email", { required: true })}
                     />
                     
-                    <p>{errors.correo?.message}</p>
+                    <p>{errors.email?.message}</p>
 
                     <Label htmlFor="password"> Contraseña: </Label>
 

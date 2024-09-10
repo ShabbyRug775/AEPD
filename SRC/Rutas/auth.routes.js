@@ -5,31 +5,30 @@ import { Router } from 'express';
 //Importamos desde auth.routes.js
 import { 
 
-    registrar, 
-    login, 
-    logout, 
-    perfil,
+    SignInUp, 
+    LogIn, 
+    LogOut, 
     verifyToken
 
-} from '../Controladores/auth.controlador.js';
+} from '../Controladores/auth.controller.js';
 
 //Importamos de Middlewares
 //import { authRequired } from '../Middlewares/auth.middleware.js';
 //Importamos a validador.js
 import { validarEsquema } from '../Middlewares/validador.middleware.js';
 //Importamos el esquema de validaciones de auth.esquema.js
-import { registroEsquema, loginEsquema } from '../Esquemas/auth.schema.js';
+import { SignInUpEsquema, LogInEsquema } from '../Esquemas/auth.schema.js';
 
 //Se guarda el objeto en router para peticiones post, get, delete etc
 const router = Router();
 //Post registrar usuario -- compara el esquema enviado con el de registro
-router.post('/registrar', validarEsquema(registroEsquema), registrar);
+router.post('/SignInUp', validarEsquema(SignInUpEsquema), SignInUp);
 //Post login usuario --- compara el esquema enviado con el de login
-router.post('/login', validarEsquema(loginEsquema), login);
+router.post('/LogIn', validarEsquema(LogInEsquema), LogIn);
 // Ruta para verificar el token //
 router.get("/verifyToken", verifyToken);
 //Post logout usuario
-router.post('/logout', verifyToken, logout);
+router.post('/LogOut', verifyToken, LogOut);
 //Get Perfil usuario
 //Primero valida token antes de pasar al perfil
 //router.get('/perfil', authRequired, perfil);

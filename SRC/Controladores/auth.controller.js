@@ -12,7 +12,7 @@ import { createAccessToken } from '../Libs/jwt.js';
 //Funciones registrar y login que van a tener request y response
 //Se exportan para mandarlas a auth.routes de routes
 /*REGISTRAR USUARIO*/
-export const registrar = async (req, res) => {
+export const SignInUp = async (req, res) => {
 
     try {
         /*Crea el objeto y después guarda los datos
@@ -21,7 +21,7 @@ export const registrar = async (req, res) => {
         //Creamos el objeto que contiene los datos(los definidos en user.model.js)
         const { nombreusuario, username, email, password } = req.body;
         // Se busca si hay un usuario con un correo ya usado
-        const usarioEncontrado = await usuario.findOne({ email });
+        const usarioEncontrado = await Usuario.findOne({ email });
         // Si lo encuentra manda un mensaje
         if (usarioEncontrado) return res.status(400).json({
 
@@ -71,7 +71,7 @@ export const registrar = async (req, res) => {
 };
 /*LOGIN USUARIO*/
 //Se exportan para mandarlas a auth.routes de routes
-export const login = async (req, res) => {
+export const LogIn = async (req, res) => {
     
     try {
         //Solo guardamos email y password que es lo que se pide para login
@@ -127,26 +127,6 @@ export const login = async (req, res) => {
     }
 };
 
-/* PERFIL USUARIO (mientras se realiza html)*/
-export const perfil = async (req, res) => {
-
-    //Todos los datos de usuario se guardan
-    const usuarioFound = await Usuario.findById(req.user.id);
-
-    //usuario no encontrado
-    if (!usuarioFound) return res.status(400).json({ message: "Usuario no encontrado" });
-    
-    //Regresa datos del usuario
-    return res.json({
-
-        id: usuarioFound._id,
-        nombreusuario: usuarioFound.nombreusuario,
-        username: usuarioFound.username,
-        email: usuarioFound.email
-
-    });
-};
-
 /*VERIFICACIÓN DE TOKEN ACTIVO*/
 // Verificación del token
 export const verifyToken = async (req, res) => {
@@ -183,7 +163,7 @@ export const verifyToken = async (req, res) => {
 
 /*LOGOUT USUARIO*/
 //Se exporta logout para hacer una ruta post en auth.routes
-export const logout = (req, res) => {
+export const LogOut = (req, res) => {
 
     //Expira el token
     res.cookie('token', "", {
