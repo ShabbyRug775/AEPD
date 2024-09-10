@@ -7,6 +7,7 @@ import { z } from 'zod';
 
 /* Validación de Registro*/
 export const registroEsquema = z.object({ //Esquema de registro
+
     nombreusuario: z.string({
         required_error: 'El Nombre de Usuario es requerido',
     }),
@@ -23,18 +24,13 @@ export const registroEsquema = z.object({ //Esquema de registro
     }).min({
         required_error: 'La contraseña debe tener al menos 6 caracteres',
     })
+    
 });
 
 /* Validación de login*/
 export const loginEsquema = z.object({ //Esquema de login
-    email: z.string({
-        required_error: 'El Correo es requerido',
-    }).email({
-        required_error: 'Correo inválido',
-    }),
-    password: z.string({
-        required_error: 'Introduce tu contraseña',
-    }).min({
-        required_error: 'La contraseña debe tener al menos 6 caracteres',
-    })
+    
+    email: z.string().email(),
+    password: z.string().min(6),
+
 });
