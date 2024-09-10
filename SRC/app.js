@@ -4,13 +4,14 @@ import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import parqueRoutes from "./routes/parque.routes.js";
+import authRoutes from './routes/auth.routes.js';
 
 // Se llaman las rutas
 import { FRONTEND_URL } from "./Configuracion/configuracion.js";
 
 // Constante para llamar express
 const app = express();
-
+/*
 app.use(
 
   cors({
@@ -19,11 +20,15 @@ app.use(
   })
 
 );
-
+*/
 // App ocupa las librerias necesarias
+app.use(cors());
 app.use(morgan("dev"));
+//Usamos el método json de express para que pueda leer los datos (convertirlos a JSON)
 app.use(express.json());
 app.use(cookieParser());
+//Morgan primero muestra la peticion, y despues ejecutamos authRoutes
+app.use("/sys", authRoutes);
 
 // Rutas para los usuarios y para los deportivos
 app.use("/api",parqueRoutes);
