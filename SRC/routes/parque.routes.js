@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { mapa, infoParque } from "../controllers/auth.controller.js";
+import { mapa, infoParque} from "../controllers/parque.controller.js";
 
 const router = Router()
 
