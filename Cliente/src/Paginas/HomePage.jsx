@@ -11,7 +11,7 @@ function HomePage() {
 
           <header className="bg-zinc-800 p-10">
 
-            <h1 className="text-5xl py-2 font-bold">Espacio Públicos Deportivos</h1>
+            <h1 className="text-5xl py-2 font-bold">Espacios Públicos Deportivos</h1>
 
             <p className="text-md text-slate-400">
               Página diseñada para visualizar espacios deportivos en la ciudad de México.
