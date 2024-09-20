@@ -10,11 +10,11 @@ const UsuarioContexto = createContext();
 // Constante para usar el usuario
 export const usarUsuario = () => {
 
-    const context = useContext(UsuarioContexto);
+  const context = useContext(UsuarioContexto);
 
-    if (!context) throw new Error("usarUsuario debe ser utilizado dentro de un usuarioProvider");
+  if (!context) throw new Error("usarUsuario debe ser utilizado dentro de un usuarioProvider");
 
-    return context;
+  return context;
 
 };
 
@@ -70,13 +70,13 @@ export const UsuarioProvider = ({ children }) => {
   useEffect(() => {
     async function checkLogin() {
       const cookies = Cookies.get();
-
+      //Comprueba si no hay un token
       if (!cookies.token) {
         setIsAuthenticated(false);
         setLoading(false);
         return;
       }
-
+      //Si hay un token lo verifica
       try {
         const res = await verifyTokenRequest(cookies.token);
         console.log(res);
@@ -84,7 +84,7 @@ export const UsuarioProvider = ({ children }) => {
         setIsAuthenticated(true);
         setUser(res.data);
         setLoading(false);
-        
+        //Si es valido entonces el usuario esta autenticado
       } catch (error) {
         console.log(error);
         setIsAuthenticated(false);
@@ -95,7 +95,7 @@ export const UsuarioProvider = ({ children }) => {
   }, []);
 
   return (
-    
+
     <UsuarioContexto.Provider
       value={{
         Usuario,

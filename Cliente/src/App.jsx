@@ -17,6 +17,8 @@ import SignInUpPage from "./Paginas/SignInUpPage";
 import { LogInPage } from "./Paginas/LogInPage";
 // Ruta para las consultas
 import { EspDepPage } from "./Paginas/EspDepPage";
+//Exportamos ProfilePage
+import ProfilePage from './Paginas/ProfilePage';
 
 
 //Creamos las rutas en la funcion
@@ -39,8 +41,13 @@ function App() {
                             <Route path='/LogInPage' element={<LogInPage />} />
                             <Route path='/SignInUpPage' element={<SignInUpPage />} />
                             <Route path='/EspDep' element={<EspDepPage />} />
-
+                        //Se define el elemento que engloba a todas las variables protegidas
+                            <Route element={<RutaProtegida />}>
+                                <Route path='/Perfil' element={<ProfilePage />} />
+                            </Route>
                         </Routes>
+
+
 
                     </main>
 
@@ -48,7 +55,7 @@ function App() {
 
             </ParqueProvider>
 
-        </UsuarioProvider>
+        </UsuarioProvider >
 
     )
 }

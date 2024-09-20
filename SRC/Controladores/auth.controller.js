@@ -46,7 +46,7 @@ export const SignInUp = async (req, res) => {
 
         //Solo guardamos el id dle usuartio en el token
         const token = await createAccessToken({ id: usuarioGuardado._id });
-        
+
         // Se manda el token para revisión
         res.cookie("token", token, {
 
@@ -72,7 +72,7 @@ export const SignInUp = async (req, res) => {
 /*LOGIN USUARIO*/
 //Se exportan para mandarlas a auth.routes de routes
 export const LogIn = async (req, res) => {
-    
+
     try {
         //Solo guardamos email y password que es lo que se pide para login
         const { email, password } = req.body;
@@ -83,26 +83,26 @@ export const LogIn = async (req, res) => {
         //Usamos el modelo de usuario para buscar un usuario por email
         const usuarioFound = await Usuario.findOne({ email });
         //Si no encuentra al usuario
-        if (!usuarioFound) return res.status(400).json({ 
+        if (!usuarioFound) return res.status(400).json({
 
             // Mensaje de usuario no encontrado
-            message: ["Usuario no encontrado"] 
+            message: ["Usuario no encontrado"]
 
         });
 
         //Comparamos la contraseña del cliente con la del objeto
         const isMatch = await bcrypt.compare(password, usuarioFound.password);
         //Si la contraseña no es correcta
-        if (!isMatch) return res.status(400).json({ 
+        if (!isMatch) return res.status(400).json({
 
             // Mensaje de contraseña incorrecta
-            message: ["Contraseña incorrecta"] 
+            message: ["Contraseña incorrecta"]
 
         });
 
         //Si encuentra al usuario creamos token con su id
         const token = await createAccessToken({ id: usuarioFound._id });
-        
+
         // Se manda el token para revisión
         res.cookie("token", token, {
 
@@ -115,6 +115,7 @@ export const LogIn = async (req, res) => {
         res.json({
 
             id: usuarioFound._id,
+            nombreusuario: usuarioFound.nombreusuario,
             username: usuarioFound.username,
             email: usuarioFound.email,
 
@@ -144,17 +145,18 @@ export const verifyToken = async (req, res) => {
         if (error) return res.sendStatus(401);
 
         // Se busca al usuario por su id
-        const usarioEncontrado = await Usuario.findById(user.id);
+        const usuarioEncontrado = await Usuario.findById(user.id);
 
         // Si no se encuentra se manda un mensaje de error
-        if (!usarioEncontrado) return res.sendStatus(401);
+        if (!usuarioEncontrado) return res.sendStatus(401);
 
         // Se regresa la información del usuario
         return res.json({
 
-            id: usarioEncontrado._id,
-            nombreusuario: usarioEncontrado.nombreusuario,
-            email: usarioEncontrado.email
+            id: usuarioEncontrado._id,
+            nombreusuario: usuarioEncontrado.nombreusuario,
+            username: usuarioEncontrado.username,
+            email: usuarioEncontrado.email
 
         });
 

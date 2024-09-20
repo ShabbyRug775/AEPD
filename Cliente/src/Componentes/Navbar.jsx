@@ -21,6 +21,9 @@ export function Navbar() {
               <ButtonLink to="/EspDepPage"> Deportivos </ButtonLink>
             </li>
             <li>
+              <ButtonLink to="/Perfil"> Perfil</ButtonLink>
+            </li>
+            <li>
               <Link to="/" onClick={() => LogOut()}>
                 Cerrar sesión
               </Link>

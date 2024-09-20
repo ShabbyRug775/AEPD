@@ -6,7 +6,7 @@ import { usarUsuario } from "../Contexto/usuarioContexto";
 export const RutaProtegida = () => {
 
     // Cuando se haya autentificado le manda el contexto de usuario
-    const {isAuthenticated, loading } = usarUsuario();
+    const { isAuthenticated, loading } = usarUsuario();
     console.log(loading, isAuthenticated);
     // Si está cargando manda un titulo de "Cargando"
     if (loading) return <h1>Cargando...</h1>;
@@ -14,5 +14,5 @@ export const RutaProtegida = () => {
     if (!isAuthenticated && !loading) return <Navigate to="/LogInPage" replace />;
     // Retorna outlet
     return <Outlet />;
-    
+
 };

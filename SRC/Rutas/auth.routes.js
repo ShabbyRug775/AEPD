@@ -3,11 +3,11 @@
 
 import { Router } from 'express';
 //Importamos desde auth.routes.js
-import { 
+import {
 
-    SignInUp, 
-    LogIn, 
-    LogOut, 
+    SignInUp,
+    LogIn,
+    LogOut,
     verifyToken
 
 } from '../Controladores/auth.controller.js';
