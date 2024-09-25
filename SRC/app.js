@@ -5,7 +5,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 
 // Se llaman las rutas
-import parqueRoutes from "./Rutas/parque.routes.js";
+import deportivoRoutes from "./Rutas/deportivo.routes.js";
 import authRoutes from './Rutas/auth.routes.js';
 import { FRONTEND_URL } from "./Configuracion/configuracion.js";
 
@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 // Rutas para los usuarios y para los deportivos
 app.use("/Api/usuario", authRoutes);
-app.use("/Api", parqueRoutes);
+app.use("/Api", deportivoRoutes);
 
 // Se llama al cliente
 const path = await import("path");

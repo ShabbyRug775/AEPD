@@ -111,9 +111,9 @@ function SignInUpPage() {
           )}
           <Button> Registrar </Button>
         </form>
-        <p>
+        <p className="flex gap-x-2 justify-between">
           ¿Ya tienes una cuenta?
-          <Link className="text-sky-500" to="/LogInPage">
+          <Link className="text-lime-800" to="/LogInPage">
             Iniciar Sesión
           </Link>
         </p>

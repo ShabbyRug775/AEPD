@@ -3,10 +3,28 @@
 @tailwind utilities;
 
 body {
-    background: #202020;
-    color: white;
+    background: rgb(249, 253, 242);
+    color: black;
 }
 
 .content-container {
     height: calc(100vh - theme("spacing.20"));
 }
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(236 252 203);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(163 230 53);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(101 163 13);
+}
+  
