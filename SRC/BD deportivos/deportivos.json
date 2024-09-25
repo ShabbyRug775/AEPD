@@ -1,0 +1,84 @@
+{
+    "espacios_deportivos": [
+      {
+        "nombre": "",
+        "tipo": "",
+        "direccion": {
+          "calle": "",
+          "colonia": "",
+          "alcaldia": ""
+        },
+        "coordenadas": {
+          "latitud": 0,
+          "longitud": 0
+        },
+        "horarios": {
+          "lunes": "",
+          "martes": "",
+          "miercoles": "",
+          "jueves": "",
+          "viernes": "",
+          "sabado": "",
+          "domingo": "",
+          "dias_festivos": "",
+          "dias_especiales": ""
+        },
+        "servicios": {
+          "alberca": "",
+          "auditorio": "",
+          "baños": "",
+          "cancha_basquetbol": "",
+          "cancha_beisbol": "",
+          "cancha_futbol": "",
+          "cancha_futbol_americano": "",
+          "cancha_voleibol": "",
+          "comedores": "",
+          "clinica": "",
+          "estacionamiento": "",
+          "estadio": "",
+          "gradas": "",
+          "modulo_vigilancia": "",
+          "pista_atletismo": "",
+          "palapas": "",
+          "regaderas": "",
+          "teatro": "",
+          "wifi": ""
+        },
+        "equipos": {
+          "nombre_equipo": "",
+          "numero_integrantes": "",
+          "deporte": "",
+          "entrenador": "",
+          "patrocinador": "",
+          "horario_entrenamiento": ""
+        },
+        "costo": "",
+        "encargado": "",
+        "contacto": {
+          "correo": "",
+          "telefono": "",
+          "pagina_web": "",
+          "redes_sociales": [
+            "", "", ""
+          ]
+        },
+        "accesibilidad": [
+          "", "", ""
+        ],
+        "reportes_sugerencias": [
+          "", "", ""
+        ],
+        "vendedores": {
+          "nombre_vendedor": "",
+          "horario_vendedor": "",
+          "producto_vendedor": {
+            "nombre_producto": "",
+            "coste_producto": ""
+          },
+          "reportes_vendedor": ""
+        }, 
+        "fotos": []
+      }
+    ]
+  }
+  

@@ -1,14 +1,14 @@
 // Controlador para la ruta /infoParque
-export const consulsParksRequest = async (req, res) => {
+export const consulsDeporRequest = async (req, res) => {
 
   try {
 
-    const park = await Parque.findById(req.params.id);
+    const sports = await Deportivo.findById(req.params.id);
     // Si no lo encuentra manda un mensaje de error
-    if (!park) return res.status(404).json({ message: "Parque no encontrado." });
+    if (!sports) return res.status(404).json({ message: "Deportivo no encontrado." });
 
     // Manda el articulo encontrado
-    return res.json(park);
+    return res.json(sports);
 
   } catch (error) {
 

@@ -7,9 +7,10 @@ export function Navbar() {
   console.log(isAuthenticated, Usuario)
 
   return (
-    <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
+    <nav className="bg-lime-900 flex justify-between py-5 px-10 text-lime-50 w-full fixed top-0 left-0">
+
       <h1 className="text-2xl font-bold">
-        <Link to={isAuthenticated ? "/EspDep" : "/"}> Espacios Deportivos </Link>
+        <Link to={isAuthenticated ? "/" : "/"}> Espacios Deportivos </Link>
       </h1>
       <ul className="flex gap-x-2">
         {isAuthenticated ? (

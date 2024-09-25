@@ -30,7 +30,8 @@ export function LogInPage() {
     // Si se corroboran los datos lo manda a articulos
     useEffect(() => {
       if (isAuthenticated) {
-        navigate("/EspDepPage");
+        navigate("/HomePage");
+        window.location.reload(); // Refresca la página
       }
     }, [isAuthenticated]);
 
@@ -76,7 +77,7 @@ export function LogInPage() {
                 </form>
 
                 <p className="flex gap-x-2 justify-between">
-                    ¿No tienes una cuenta? <Link to="/SignInUpPage" className="text-sky-500"> Crear cuenta </Link>
+                    ¿No tienes una cuenta? <Link to="/SignInUpPage" className="text-lime-800"> Crear cuenta </Link>
                 </p>
 
             </Card>
