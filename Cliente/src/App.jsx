@@ -19,6 +19,8 @@ import SignInUpPage from "./Paginas/SignInUpPage";
 import { LogInPage } from "./Paginas/LogInPage";
 // Ruta para las consultas
 import { EspDepPage } from "./Paginas/EspDepPage";
+// Ruta Mapa
+import Mapa from "./Paginas/Mapa";
 
 
 //Creamos las rutas en la funcion
@@ -42,6 +44,7 @@ function App() {
                             <Route path='/LogInPage' element={<LogInPage />} />
                             <Route path='/SignInUpPage' element={<SignInUpPage />} />
                             <Route path='/EspDep' element={<EspDepPage />} />
+                            <Route path='/Mapa' element={<Mapa />} />
 
                         </Routes>
 
