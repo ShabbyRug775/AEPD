@@ -1,10 +1,24 @@
-import React from 'react'
-import { Marker } from 'react-leaflet'
+import React from 'react';
+import { Marker, Popup } from 'react-leaflet';
 
-const Markers = () => {
-  return (
-    <Marker position={{lat: '19.372632218014548', lng:'-99.24124002297789'}} />
-  )
-}
+const Markers = (props) => {
+  const { places } = props;
+  
+  const markers = places.map((place, i) => (
+    <Marker key={i} position={place.geometry}>
+      <Popup>
+        <span style={{ fontSize: '16px', fontWeight: 'bold' }}>
+          {place.name}
+        </span>
+        <br />
+        <span style={{ fontSize: '12px' }}>
+          Coordenadas: {place.geometry[0].toFixed(6)}, {place.geometry[1].toFixed(6)}
+        </span>
+      </Popup>
+    </Marker>
+  ));
 
-export default Markers
+  return markers;
+};
+
+export default Markers;

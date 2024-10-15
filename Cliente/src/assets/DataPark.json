@@ -1,0 +1,76 @@
+{
+    "places": [
+      {
+        "name": "Parque México",
+        "geometry": [19.41178376094771, -99.16951405936145] 
+      },
+      {
+        "name": "Bosque de Chapultepec",
+        "geometry": [19.419785035636732, -99.18943434586824]
+      },
+      {
+        "name": "Parque Lincoln",
+        "geometry": [19.42972180997604, -99.19735073237511]
+      },
+      {
+        "name": "Parque España",
+        "geometry": [19.415600915809165, -99.17118520723926]
+      },
+      {
+        "name": "Deportivo Benito Juárez",
+        "geometry": [19.484333859746606, -99.1343994]
+      },
+      {
+        "name": "Deportivo Plan Sexenal",
+        "geometry": [19.45524342301482, -99.17235653237455]
+      },
+      {
+        "name": "Parque Bicentenario",
+        "geometry": [19.467973444494245, -99.19603884401747]
+      },
+      {
+        "name": "Parque Hundido",
+        "geometry": [19.37853508644123, -99.17848971148408]
+      },
+      {
+        "name": "Deportivo Magdalena Mixhuca",
+        "geometry": [19.407810665895717, -99.09149921703285]
+      },
+      {
+        "name": "Deportivo Oceanía",
+        "geometry": [19.448602831716187, -99.08085465381127]
+      },
+      {
+        "name": "Parque La Mexicana",
+        "geometry": [19.35719515003916, -99.26945192867709]
+      },
+      {
+        "name": "Parque Lineal Ave Fénix",
+        "geometry": [19.448370948702305, -99.10250607285353]
+      },
+      {
+        "name": "Parque Ecológico Xochimilco",
+        "geometry": [19.29825630654174, -99.09458527096278]
+      },
+      {
+        "name": "Parque Cuitláhuac",
+        "geometry": [19.362072934588543, -99.04466964771927]
+      },
+      {
+        "name": "Parque Cantera",
+        "geometry": [19.310484036300995, -99.16495571757932]
+      },
+      {
+        "name": "Parque Lineal Vicente Guerrero",
+        "geometry": [19.358084039238513, -99.05820344401981]
+      },
+      {
+        "name": "Parque Althea",
+        "geometry": [19.315155373950684, -99.1228288981502]
+      },
+      {
+        "name": "Plaza Morelia / Jardín Garibaldi",
+        "geometry": [19.424700326699284, -99.15552094826242]
+      }
+    ]
+  }
