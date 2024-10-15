@@ -1,0 +1,39 @@
+.bg-lime-50 {
+    background-color: rgb(236, 252, 203); /* Fondo de color claro */
+  }
+  
+  .espacio-item {
+    display: flex; /* Muestra el item como un contenedor flex */
+    margin-bottom: 20px; /* Espacio entre los items */
+    padding: 10px; /* Espacio interno */
+    border: 1px solid rgb(163, 230, 53); /* Borde de color verde claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: rgb(255, 255, 255); /* Fondo blanco para cada item */
+  }
+  
+  .espacio-imagen {
+    width: 150px; /* Ancho de la imagen */
+    height: 150px; /* Alto de la imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    margin-right: 20px; /* Espacio a la derecha de la imagen */
+  }
+  
+  .espacio-info {
+    flex: 1; /* La información toma el espacio restante */
+  }
+  
+  .espacio-nombre {
+    font-size: 24px; /* Tamaño grande para el nombre */
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin: 0; /* Eliminar márgenes por defecto */
+    color: rgb(101, 163, 13); /* Color del nombre */
+  }
+  
+  .text-center {
+    text-align: center; /* Centrar el texto del encabezado */
+    color: rgb(101, 163, 13); /* Color del encabezado */
+  }
+  
+  h1 {
+    color: rgb(101, 163, 13); /* Color del título principal */
+  }  
