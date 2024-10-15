@@ -45,7 +45,7 @@ function App() {
                             <Route path='/HomePage' element={<HomePage />} />
                             <Route path='/LogInPage' element={<LogInPage />} />
                             <Route path='/SignInUpPage' element={<SignInUpPage />} />
-                            <Route path='/EspDep' element={<EspDepPage />} />
+                            <Route path='/EspDepPage' element={<EspDepPage />} />
                             <Route path='/Mapa' element={<Mapa />} />
                             <Route path='/EspDepList' element={<EspDepList />} />
 

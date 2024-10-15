@@ -1,84 +1,464 @@
-{
-    "espacios_deportivos": [
+[
+  {
+    "nombre": "Parque de los Venados",
+    "ubicacionGeografica": {
+      "latitud": 19.372057,
+      "longitud": -99.195703
+    },
+    "direccion": "Av. Universidad 1000, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-01",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 2,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "06:00 - 20:00",
+      "sabadoDomingo": "07:00 - 18:00"
+    },
+    "costo": "Gratis",
+    "canchas": [
       {
-        "nombre": "",
-        "tipo": "",
-        "direccion": {
-          "calle": "",
-          "colonia": "",
-          "alcaldia": ""
+        "etiqueta": "",
+        "deporte": "",
+        "medidas": {
+          "largo": "",
+          "ancho": ""
         },
-        "coordenadas": {
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
           "latitud": 0,
           "longitud": 0
+        }
+      }
+    ],
+    "negocios": [
+      {
+        "nombre": "",
+        "dueno": "",
+        "serviciosProductos": [],
+        "horario": {
+          "lunesViernes": "",
+          "sabadoDomingo": ""
         },
-        "horarios": {
-          "lunes": "",
-          "martes": "",
-          "miercoles": "",
-          "jueves": "",
-          "viernes": "",
-          "sabado": "",
-          "domingo": "",
-          "dias_festivos": "",
-          "dias_especiales": ""
-        },
-        "servicios": {
-          "alberca": "",
-          "auditorio": "",
-          "baños": "",
-          "cancha_basquetbol": "",
-          "cancha_beisbol": "",
-          "cancha_futbol": "",
-          "cancha_futbol_americano": "",
-          "cancha_voleibol": "",
-          "comedores": "",
-          "clinica": "",
-          "estacionamiento": "",
-          "estadio": "",
-          "gradas": "",
-          "modulo_vigilancia": "",
-          "pista_atletismo": "",
-          "palapas": "",
-          "regaderas": "",
-          "teatro": "",
-          "wifi": ""
-        },
-        "equipos": {
-          "nombre_equipo": "",
-          "numero_integrantes": "",
-          "deporte": "",
-          "entrenador": "",
-          "patrocinador": "",
-          "horario_entrenamiento": ""
-        },
-        "costo": "",
-        "encargado": "",
-        "contacto": {
-          "correo": "",
-          "telefono": "",
-          "pagina_web": "",
-          "redes_sociales": [
-            "", "", ""
+        "tipodenegocio": "",
+        "ubicacion": "",
+        "descripcion": "",
+        "fotos": [
+          ""
+        ]
+      }
+    ],
+    "cursosYTorneos": [
+      {
+        "nombre": "",
+        "objetivo": "",
+        "descripcion": "",
+        "modalidad": "",
+        "fechasProgramadas": [],
+        "numeroDeHoras": 0,
+        "precio": 0,
+        "ligaInscripciones": "",
+        "calificacionesUsuarios": 0,
+        "comentarios": [],
+        "ubicacionDelCurso": "",
+        "tipoDeReconocimiento": "",
+        "empresaQueLoRespalda": "",
+        "prerrequisitos": [],
+        "materialEquipamientoRequerido": [],
+        "conocimientosPreviosONivelDeExperiencia": ""
+      }
+    ],
+    "partidas": [
+      {
+        "nombre": "",
+        "lugar": "",
+        "fecha": "",
+        "duracion": "",
+        "descripcion": "",
+        "deporte": "",
+        "empresaQueLoRealiza": "",
+        "publicoDirigido": "",
+        "nivelDeExperiencia": "",
+        "detalles": {
+          "lugarDeReunion": "",
+          "horaDeSalida": "",
+          "transporte": "",
+          "indicaciones": [
+            ""
           ]
-        },
-        "accesibilidad": [
-          "", "", ""
-        ],
-        "reportes_sugerencias": [
-          "", "", ""
-        ],
-        "vendedores": {
-          "nombre_vendedor": "",
-          "horario_vendedor": "",
-          "producto_vendedor": {
-            "nombre_producto": "",
-            "coste_producto": ""
-          },
-          "reportes_vendedor": ""
-        }, 
-        "fotos": []
+        }
       }
     ]
+  },
+  {
+    "nombre": "Parque de Chapultepec",
+    "ubicacionGeografica": {
+      "latitud": 19.419161,
+      "longitud": -99.184464
+    },
+    "direccion": "Av. Paseo de la Reforma, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-02",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 3,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "06:00 - 20:00",
+      "sabadoDomingo": "07:00 - 18:00"
+    },
+    "costo": "Gratis",
+    "canchas": [
+      {
+        "etiqueta": "",
+        "deporte": "",
+        "medidas": {
+          "largo": "",
+          "ancho": ""
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "latitud": 0,
+          "longitud": 0
+        }
+      }
+    ],
+    "negocios": [
+      {
+        "nombre": "",
+        "dueno": "",
+        "serviciosProductos": [],
+        "horario": {
+          "lunesViernes": "",
+          "sabadoDomingo": ""
+        },
+        "tipodenegocio": "",
+        "ubicacion": "",
+        "descripcion": "",
+        "fotos": [
+          ""
+        ]
+      }
+    ],
+    "cursosYTorneos": [
+      {
+        "nombre": "",
+        "objetivo": "",
+        "descripcion": "",
+        "modalidad": "",
+        "fechasProgramadas": [],
+        "numeroDeHoras": 0,
+        "precio": 0,
+        "ligaInscripciones": "",
+        "calificacionesUsuarios": 0,
+        "comentarios": [],
+        "ubicacionDelCurso": "",
+        "tipoDeReconocimiento": "",
+        "empresaQueLoRespalda": "",
+        "prerrequisitos": [],
+        "materialEquipamientoRequerido": [],
+        "conocimientosPreviosONivelDeExperiencia": ""
+      }
+    ],
+    "partidas": [
+      {
+        "nombre": "",
+        "lugar": "",
+        "fecha": "",
+        "duracion": "",
+        "descripcion": "",
+        "deporte": "",
+        "empresaQueLoRealiza": "",
+        "publicoDirigido": "",
+        "nivelDeExperiencia": "",
+        "detalles": {
+          "lugarDeReunion": "",
+          "horaDeSalida": "",
+          "transporte": "",
+          "indicaciones": [
+            ""
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "nombre": "Parque Tezozómoc",
+    "ubicacionGeografica": {
+      "latitud": 19.35344,
+      "longitud": -99.169905
+    },
+    "direccion": "Av. Tezozómoc, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-03",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": false,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 1,
+    "aceptaMascotas": false,
+    "horario": {
+      "lunesViernes": "07:00 - 19:00",
+      "sabadoDomingo": "08:00 - 17:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque La Mexicana",
+    "ubicacionGeografica": {
+      "latitud": 19.392188,
+      "longitud": -99.206425
+    },
+    "direccion": "Av. Santa Fe, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-04",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 4,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "06:00 - 22:00",
+      "sabadoDomingo": "07:00 - 21:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque Bicentenario",
+    "ubicacionGeografica": {
+      "latitud": 19.478052,
+      "longitud": -99.196811
+    },
+    "direccion": "Eje 4 Norte, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-05",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 2,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "07:00 - 19:00",
+      "sabadoDomingo": "08:00 - 17:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque de la Ciudad de México",
+    "ubicacionGeografica": {
+      "latitud": 19.396836,
+      "longitud": -99.164788
+    },
+    "direccion": "Eje 1 Norte, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-06",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 2,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "06:00 - 20:00",
+      "sabadoDomingo": "07:00 - 18:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque de los Dinamos",
+    "ubicacionGeografica": {
+      "latitud": 19.415224,
+      "longitud": -99.188365
+    },
+    "direccion": "Camino a los Dinamos, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-07",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": false,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 3,
+    "aceptaMascotas": false,
+    "horario": {
+      "lunesViernes": "07:00 - 19:00",
+      "sabadoDomingo": "08:00 - 17:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque Nacional Cumbres del Ajusco",
+    "ubicacionGeografica": {
+      "latitud": 19.287113,
+      "longitud": -99.186102
+    },
+    "direccion": "Camino al Ajusco, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-08",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 2,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "06:00 - 18:00",
+      "sabadoDomingo": "07:00 - 17:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque de la Bombilla",
+    "ubicacionGeografica": {
+      "latitud": 19.382891,
+      "longitud": -99.197992
+    },
+    "direccion": "Av. México 350, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-09",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": true,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 1,
+    "aceptaMascotas": true,
+    "horario": {
+      "lunesViernes": "07:00 - 20:00",
+      "sabadoDomingo": "08:00 - 19:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
+  },
+  {
+    "nombre": "Parque Ecológico de Xochimilco",
+    "ubicacionGeografica": {
+      "latitud": 19.286208,
+      "longitud": -99.159805
+    },
+    "direccion": "Av. Xochimilco, Ciudad de México",
+    "fotoPrincipal": "",
+    "fotosSecundarias": [
+      "",
+      ""
+    ],
+    "fechaDeRegistro": "2024-01-10",
+    "tipoDeEspacio": "Parque",
+    "servicios": {
+      "baños": true,
+      "comercios": false,
+      "vigilancia": true
+    },
+    "puertasDeEntrada": 1,
+    "aceptaMascotas": false,
+    "horario": {
+      "lunesViernes": "06:00 - 18:00",
+      "sabadoDomingo": "07:00 - 17:00"
+    },
+    "costo": "Gratis",
+    "canchas": [],
+    "negocios": [],
+    "cursosYTorneos": [],
+    "partidas": []
   }
-  
+]

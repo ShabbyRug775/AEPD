@@ -3,15 +3,12 @@ import { useEffect } from "react";
 import { usarDeportivo } from "../Contexto/deportivoContexto";
 import { ParqueCard } from "../Componentes/deportivos/DeportivoCard";
 import { ImFileEmpty } from "react-icons/im";
-import { Link } from "react-router-dom";
-import MapView from "../Componentes/MapView";
-import '../App.css'
 
 export function EspDepPage() {
-  const { Deportivo, consulsParks } = usarDeportivo();
+  const { Deportivo, consulsDepor } = usarDeportivo();
 
   useEffect(() => {
-    consulsParks();
+    consulsDepor();
   }, []);
 
   return (

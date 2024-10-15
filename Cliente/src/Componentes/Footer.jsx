@@ -18,6 +18,9 @@ export function Footer() {
                         <li>
                             <Link to="/EspDepPage"> Deportivos </Link>
                         </li>
+                        <li>
+                            <Link to="/Mapa"> Mapa Deportivos </Link>
+                        </li>
                     </>
                 ) : (
                     <>
@@ -26,6 +29,9 @@ export function Footer() {
                         </li>
                         <li>
                             <Link to="/EspDepPage"> Deportivos </Link>
+                        </li>
+                        <li>
+                            <Link to="/Mapa"> Mapa Deportivos </Link>
                         </li>
                         <li>
                             <Link to="/LogInPage"> Iniciar sesión </Link>

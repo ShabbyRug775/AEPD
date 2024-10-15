@@ -30,7 +30,10 @@ function SignInUpPage() {
 
   // Si se corroboran los datos lo manda a espacios deportivos
   useEffect(() => {
-    if (isAuthenticated) navigate("/EspDepPage");
+    if (isAuthenticated) {
+      navigate("/EspDepPage");
+      window.location.reload(); // Refresca la página
+    }
   }, [isAuthenticated]);
 
   // Retorna el HTML de la página

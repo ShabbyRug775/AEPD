@@ -22,6 +22,9 @@ export function Navbar() {
               <ButtonLink to="/EspDepPage"> Deportivos </ButtonLink>
             </li>
             <li>
+              <ButtonLink to="/Mapa"> Mapa Deportivos </ButtonLink>
+            </li>
+            <li>
               <Link to="/" onClick={() => LogOut()}>
                 Cerrar sesión
               </Link>
@@ -29,6 +32,12 @@ export function Navbar() {
           </>
         ) : (
           <>
+            <li>
+              <ButtonLink to="/EspDepPage"> Deportivos </ButtonLink>
+            </li>
+            <li>
+              <ButtonLink to="/Mapa"> Mapa Deportivos </ButtonLink>
+            </li>
             <li>
               <ButtonLink to="/LogInPage"> Iniciar sesión </ButtonLink>
             </li>
