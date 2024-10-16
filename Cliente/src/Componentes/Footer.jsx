@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { usarUsuario } from "../Contexto/usuarioContexto";
-import { ButtonLink } from "./UI/ButtonLink";
 
 export function Footer() {
 

@@ -38,7 +38,7 @@ export function LogInPage() {
     // Retorna el HTML de la página
     return (
 
-        <div className="h-[calc(100vh-100px)] flex items-center justify-center">
+        <div className="h-[calc(100vh-100px)] flex items-center justify-center mt-20">
 
             <Card>
 

@@ -10,7 +10,6 @@ export function ParqueCard({ Deportivo }) {
       <p className="text-slate-300">{Deportivo.direccion}</p>
       <p className="text-slate-300">{Deportivo.fechaDeRegistro}</p>
       <p className="text-slate-300">{Deportivo.costo}</p>
-      <p className="text-slate-300">{Deportivo.horario}</p>
     </Card>
   );
 }

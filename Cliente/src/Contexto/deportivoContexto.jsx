@@ -23,15 +23,15 @@ export const usarDeportivo = () => {
 
 export function DeportivoProvider({ children }) {
   
-  const [Deportivo, setPark] = useState([]);
+  const [Deportivos, setPark] = useState([]);
 
-  // Consultas de parques
+  // Consultas de deportivos
   const consulsDepor = async () => {
     const res = await consulsDeporRequest();
     setPark(res.data);
   };
 
-  // Consulta inidividual de parques
+  // Consulta inidividual de deportivo
   const consulDepor = async (id) => {
     try {
       const res = await consulDeporRequest(id);
@@ -45,7 +45,7 @@ export function DeportivoProvider({ children }) {
 
     <DeportivoContexto.Provider
       value={{
-        Deportivo,
+        Deportivos,
         consulsDepor,
         consulDepor
       }}

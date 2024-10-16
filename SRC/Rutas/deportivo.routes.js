@@ -4,15 +4,18 @@ import { Router } from "express";
 // Se llaman los controladores desde parque_controller
 import { 
 
-    consulsDeporRequest
+    consulsDeports,
+    consulDeport
 
 } from "../Controladores/deportivo.controller.js";
 
 // Constante del router
 const router = Router();
 
-// Ruta de consultas de parque //
-router.get('/consulsDeporRequest', consulsDeporRequest);
+// Ruta de consultas de deportivos //
+router.get('/deportivos', consulsDeports);
+// Ruta de consultas de deportivos individual //
+router.get('/deportivos/:id', consulDeport);
 
 // Se exporta el router con las rutas
 export default router;

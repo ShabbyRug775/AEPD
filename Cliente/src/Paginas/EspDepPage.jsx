@@ -5,15 +5,15 @@ import { ParqueCard } from "../Componentes/deportivos/DeportivoCard";
 import { ImFileEmpty } from "react-icons/im";
 
 export function EspDepPage() {
-  const { Deportivo, consulsDepor } = usarDeportivo();
+  const { Deportivos, consulsDepor } = usarDeportivo();
 
   useEffect(() => {
     consulsDepor();
   }, []);
 
   return (
-    <>
-      {Deportivo.length === 0 && (
+    <body className="bg-lime-50 p-10 mt-20">
+      {Deportivos.length === 0 && (
         <div className="flex justify-center items-center p-10">
           <div>
             <ImFileEmpty className="text-6xl text-gray-400 m-auto my-2" />
@@ -25,11 +25,11 @@ export function EspDepPage() {
       )}
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {Deportivo.map((Deportivo) => (
+        {Deportivos.map((Deportivo) => (
           <ParqueCard Deportivo={Deportivo} key={Deportivo._id} />
         ))}
       </div>
-    </>
+    </body>
     
   );
 }

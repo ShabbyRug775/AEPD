@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 // Rutas para los usuarios y para los deportivos
 app.use("/Api/usuario", authRoutes);
-app.use("/Api", deportivoRoutes);
+app.use("/Api/", deportivoRoutes);
 
 // Se llama al cliente
 const path = await import("path");

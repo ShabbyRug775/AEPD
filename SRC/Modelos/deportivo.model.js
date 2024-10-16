@@ -9,28 +9,8 @@ const deportivoSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    // Tipo de espacio deportivo
-    tipo: {
-      type: String,
-      required: true,
-    },
-    // Dirección del espacio deportivo
-    direccion: {
-      calle: {
-        type: String,
-        required: true,
-      },
-      colonia: {
-        type: String,
-        required: true,
-      },
-      alcaldia: {
-        type: String,
-        required: true,
-      },
-    },
-    // Coordenadas geográficas
-    coordenadas: {
+    // Ubicación geográfica del espacio deportivo
+    ubicacionGeografica: {
       latitud: {
         type: Number,
         required: true,
@@ -40,125 +20,143 @@ const deportivoSchema = mongoose.Schema(
         required: true,
       },
     },
-    // Horarios de operación
-    horarios: {
-      lunes: {
-        type: String,
-        default: "",
-      },
-      martes: {
-        type: String,
-        default: "",
-      },
-      miercoles: {
-        type: String,
-        default: "",
-      },
-      jueves: {
-        type: String,
-        default: "",
-      },
-      viernes: {
-        type: String,
-        default: "",
-      },
-      sabado: {
-        type: String,
-        default: "",
-      },
-      domingo: {
-        type: String,
-        default: "",
-      },
-      dias_festivos: {
-        type: String,
-        default: "",
-      },
-      dias_especiales: {
-        type: String,
-        default: "",
-      },
+    // Dirección del espacio deportivo
+    direccion: {
+      type: String,
+      required: true,
+    },
+    // Foto principal del espacio deportivo
+    fotoPrincipal: {
+      type: String,
+      default: "",
+    },
+    // Fotos secundarias del espacio deportivo
+    fotosSecundarias: {
+      type: [String],
+      default: ["", ""],
+    },
+    // Fecha de registro
+    fechaDeRegistro: {
+      type: String,
+      default: "2024-01-01",
+    },
+    // Tipo de espacio deportivo
+    tipoDeEspacio: {
+      type: String,
+      required: true,
     },
     // Servicios disponibles
     servicios: {
-      alberca: { type: String, default: "" },
-      auditorio: { type: String, default: "" },
-      baños: { type: String, default: "" },
-      cancha_basquetbol: { type: String, default: "" },
-      cancha_beisbol: { type: String, default: "" },
-      cancha_futbol: { type: String, default: "" },
-      cancha_futbol_americano: { type: String, default: "" },
-      cancha_voleibol: { type: String, default: "" },
-      comedores: { type: String, default: "" },
-      clinica: { type: String, default: "" },
-      estacionamiento: { type: String, default: "" },
-      estadio: { type: String, default: "" },
-      gradas: { type: String, default: "" },
-      modulo_vigilancia: { type: String, default: "" },
-      pista_atletismo: { type: String, default: "" },
-      palapas: { type: String, default: "" },
-      regaderas: { type: String, default: "" },
-      teatro: { type: String, default: "" },
-      wifi: { type: String, default: "" },
+      baños: { type: Boolean, default: false },
+      comercios: { type: Boolean, default: false },
+      vigilancia: { type: Boolean, default: false },
     },
-    // Información sobre equipos deportivos
-    equipos: {
-      nombre_equipo: { type: String, default: "" },
-      numero_integrantes: { type: String, default: "" },
-      deporte: { type: String, default: "" },
-      entrenador: { type: String, default: "" },
-      patrocinador: { type: String, default: "" },
-      horario_entrenamiento: { type: String, default: "" },
+    // Número de puertas de entrada
+    puertasDeEntrada: {
+      type: Number,
+      default: 1,
+    },
+    // Acepta mascotas
+    aceptaMascotas: {
+      type: Boolean,
+      default: false,
+    },
+    // Horarios de operación
+    horario: {
+      lunesViernes: {
+        type: String,
+        default: "",
+      },
+      sabadoDomingo: {
+        type: String,
+        default: "",
+      },
     },
     // Costo del uso del espacio deportivo
     costo: {
       type: String,
-      default: "",
+      default: "Gratis",
     },
-    // Información de contacto
-    contacto: {
-      correo: {
-        type: String,
-        required: true,
+    // Información sobre las canchas disponibles
+    canchas: [
+      {
+        etiqueta: { type: String, default: "" },
+        deporte: { type: String, default: "" },
+        medidas: {
+          largo: { type: String, default: "" },
+          ancho: { type: String, default: "" },
+        },
+        tipodesuelo: { type: String, default: "" },
+        senalamientos: { type: String, default: "" },
+        equipamiento: { type: [String], default: [] },
+        iluminacion: { type: Boolean, default: false },
+        techado: { type: Boolean, default: false },
+        gradas: { type: Boolean, default: false },
+        baños: { type: Boolean, default: false },
+        vestidores: { type: Boolean, default: false },
+        ubicacionGeografica: {
+          latitud: { type: Number, default: 0 },
+          longitud: { type: Number, default: 0 },
+        },
       },
-      telefono: {
-        type: String,
-        required: true,
+    ],
+    // Información sobre negocios en el espacio deportivo
+    negocios: [
+      {
+        nombre: { type: String, default: "" },
+        dueno: { type: String, default: "" },
+        serviciosProductos: { type: [String], default: [] },
+        horario: {
+          lunesViernes: { type: String, default: "" },
+          sabadoDomingo: { type: String, default: "" },
+        },
+        tipodenegocio: { type: String, default: "" },
+        ubicacion: { type: String, default: "" },
+        descripcion: { type: String, default: "" },
+        fotos: { type: [String], default: [""] },
       },
-      pagina_web: {
-        type: String,
-        default: "",
+    ],
+    // Información sobre cursos y torneos
+    cursosYTorneos: [
+      {
+        nombre: { type: String, default: "" },
+        objetivo: { type: String, default: "" },
+        descripcion: { type: String, default: "" },
+        modalidad: { type: String, default: "" },
+        fechasProgramadas: { type: [String], default: [] },
+        numeroDeHoras: { type: Number, default: 0 },
+        precio: { type: Number, default: 0 },
+        ligaInscripciones: { type: String, default: "" },
+        calificacionesUsuarios: { type: Number, default: 0 },
+        comentarios: { type: [String], default: [] },
+        ubicacionDelCurso: { type: String, default: "" },
+        tipoDeReconocimiento: { type: String, default: "" },
+        empresaQueLoRespalda: { type: String, default: "" },
+        prerrequisitos: { type: [String], default: [] },
+        materialEquipamientoRequerido: { type: [String], default: [] },
+        conocimientosPreviosONivelDeExperiencia: { type: String, default: "" },
       },
-      redes_sociales: {
-        type: [String],
-        default: [],
+    ],
+    // Información sobre partidas y eventos
+    partidas: [
+      {
+        nombre: { type: String, default: "" },
+        lugar: { type: String, default: "" },
+        fecha: { type: String, default: "" },
+        duracion: { type: String, default: "" },
+        descripcion: { type: String, default: "" },
+        deporte: { type: String, default: "" },
+        empresaQueLoRealiza: { type: String, default: "" },
+        publicoDirigido: { type: String, default: "" },
+        nivelDeExperiencia: { type: String, default: "" },
+        detalles: {
+          lugarDeReunion: { type: String, default: "" },
+          horaDeSalida: { type: String, default: "" },
+          transporte: { type: String, default: "" },
+          indicaciones: { type: [String], default: [""] },
+        },
       },
-    },
-    // Opciones de accesibilidad
-    accesibilidad: {
-      type: [String],
-      default: [],
-    },
-    // Reportes y sugerencias de usuarios
-    reportes_sugerencias: {
-      type: [String],
-      default: [],
-    },
-    // Información sobre vendedores en el espacio deportivo
-    vendedores: {
-      nombre_vendedor: { type: String, default: "" },
-      horario_vendedor: { type: String, default: "" },
-      producto_vendedor: {
-        nombre_producto: { type: String, default: "" },
-        coste_producto: { type: String, default: "" },
-      },
-      reportes_vendedor: { type: String, default: "" },
-    },
-    // URLs de fotos del espacio deportivo
-    fotos: {
-      type: [String],
-      default: [],
-    },
+    ],
   },
   {
     // Agrega automáticamente `createdAt` y `updatedAt`

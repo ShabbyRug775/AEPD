@@ -28,41 +28,30 @@ import EspDepList from "./Paginas/EspDepList";
 //Creamos las rutas en la funcion
 function App() {
     return (
-
-        <UsuarioProvider>
-
+        <>
             <DeportivoProvider>
-
-                <BrowserRouter>
-
-                    <main className="container content-container mx-auto px-10 md:px-0">
-
-                        <Navbar />
-                        
-                        <Routes>
-
-                            <Route path='/' element={<HomePage />} />
-                            <Route path='/HomePage' element={<HomePage />} />
-                            <Route path='/LogInPage' element={<LogInPage />} />
-                            <Route path='/SignInUpPage' element={<SignInUpPage />} />
-                            <Route path='/EspDepPage' element={<EspDepPage />} />
-                            <Route path='/Mapa' element={<Mapa />} />
-                            <Route path='/EspDepList' element={<EspDepList />} />
-
-                        </Routes>
-
-                        <Footer />
-
-                    </main>
-
-                </BrowserRouter>
-
+                <UsuarioProvider>
+                    <BrowserRouter>
+                        <main className="container content-container mx-auto px-10 md:px-0">
+                            <Navbar />
+                            <Routes>
+                                <Route path="/" element={<HomePage />} />
+                                <Route path="/HomePage" element={<HomePage />} />
+                                <Route path="/LogInPage" element={<LogInPage />} />
+                                <Route path="/SignInUpPage" element={<SignInUpPage />} />
+                                <Route path="/EspDepPage" element={<EspDepPage />} />
+                                <Route path="/Mapa" element={<Mapa />} />
+                                <Route path="/EspDepList" element={<EspDepList />} />
+                            </Routes>
+                            <Footer />
+                        </main>
+                    </BrowserRouter>
+                </UsuarioProvider>
             </DeportivoProvider>
-
-        </UsuarioProvider>
-
-    )
+        </>
+    );
 }
+
 
 // Se exporta App
 export default App;

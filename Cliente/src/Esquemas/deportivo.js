@@ -2,114 +2,134 @@ import { z } from "zod";
 
 // Esquema para crear espacios deportivos
 export const crearDeportivoSchema = z.object({
-  // Lista de espacios deportivos (puede haber más de uno)
-  espacios_deportivos: z.array(
+  // Nombre del espacio deportivo
+  nombre: z.string({
+    required_error: "Se requiere un nombre de espacio deportivo",
+  }),
+  // Ubicación geográfica del espacio deportivo
+  ubicacionGeografica: z.object({
+    latitud: z.number({
+      required_error: "Se requiere una latitud",
+    }),
+    longitud: z.number({
+      required_error: "Se requiere una longitud",
+    }),
+  }),
+  // Dirección del espacio deportivo
+  direccion: z.string({
+    required_error: "Se requiere una dirección",
+  }),
+  // Foto principal del espacio deportivo
+  fotoPrincipal: z.string().optional(),
+  // Fotos secundarias del espacio deportivo
+  fotosSecundarias: z.array(z.string()).optional(),
+  // Fecha de registro
+  fechaDeRegistro: z.string({
+    required_error: "Se requiere una fecha de registro",
+  }),
+  // Tipo de espacio deportivo (ej: parque, gimnasio, etc.)
+  tipoDeEspacio: z.string({
+    required_error: "Se requiere un tipo de espacio deportivo",
+  }),
+  // Servicios disponibles en el espacio deportivo
+  servicios: z.object({
+    baños: z.boolean(),
+    comercios: z.boolean(),
+    vigilancia: z.boolean(),
+  }),
+  // Número de puertas de entrada
+  puertasDeEntrada: z.number(),
+  // Si el espacio acepta mascotas
+  aceptaMascotas: z.boolean(),
+  // Horarios de funcionamiento
+  horario: z.object({
+    lunesViernes: z.string({
+      required_error: "Se requiere un horario para lunes a viernes",
+    }),
+    sabadoDomingo: z.string({
+      required_error: "Se requiere un horario para sábado y domingo",
+    }),
+  }),
+  // Costo del uso del espacio deportivo
+  costo: z.string(),
+  // Información de las canchas
+  canchas: z.array(
     z.object({
-      // Nombre del espacio deportivo
-      nombre: z.string({
-        required_error: "Se requiere un nombre de espacio deportivo",
-      }),
-      // Tipo de espacio deportivo (ej: parque, gimnasio, etc.)
-      tipo: z.string({
-        required_error: "Se requiere un tipo de espacio deportivo",
-      }),
-      // Dirección del espacio deportivo
-      direccion: z.object({
-        // Calle donde se ubica
-        calle: z.string({
-          required_error: "Se requiere una calle",
-        }),
-        // Colonia del espacio deportivo
-        colonia: z.string({
-          required_error: "Se requiere una colonia",
-        }),
-        // Alcaldía o municipio donde se ubica
-        alcaldia: z.string({
-          required_error: "Se requiere una alcaldía",
-        }),
-      }),
-      // Coordenadas del espacio deportivo
-      coordenadas: z.object({
-        // Latitud en coordenadas geográficas
-        latitud: z.number({
-          required_error: "Se requiere una latitud",
-        }),
-        // Longitud en coordenadas geográficas
-        longitud: z.number({
-          required_error: "Se requiere una longitud",
-        }),
-      }),
-      // Horarios de funcionamiento
-      horarios: z.object({
-        // Horarios por día de la semana
-        lunes: z.string(),
-        martes: z.string(),
-        miercoles: z.string(),
-        jueves: z.string(),
-        viernes: z.string(),
-        sabado: z.string(),
-        domingo: z.string(),
-        // Horarios en días festivos
-        dias_festivos: z.string(),
-        // Horarios en días especiales
-        dias_especiales: z.string(),
-      }),
-      // Servicios disponibles en el espacio deportivo
-      servicios: z.object({
-        alberca: z.string(),                                // Si hay alberca
-        auditorio: z.string(),                              // Si hay auditorio
-        baños: z.string(),                                  // Si hay baños
-        cancha_basquetbol: z.string(),                      // Si hay cancha de básquetbol
-        cancha_beisbol: z.string(),                         // Si hay cancha de béisbol
-        cancha_futbol: z.string(),                          // Si hay cancha de fútbol
-        cancha_futbol_americano: z.string(),                // Si hay cancha de fútbol americano
-        cancha_voleibol: z.string(),                        // Si hay cancha de voleibol
-        comedores: z.string(),                              // Si hay comedores
-        clinica: z.string(),                                // Si hay clínica
-        estacionamiento: z.string(),                        // Si hay estacionamiento
-        estadio: z.string(),                                // Si hay estadio
-        gradas: z.string(),                                 // Si hay gradas
-        modulo_vigilancia: z.string(),                      // Si hay módulo de vigilancia
-        pista_atletismo: z.string(),                        // Si hay pista de atletismo
-        palapas: z.string(),                                // Si hay palapas
-        regaderas: z.string(),                              // Si hay regaderas
-        teatro: z.string(),                                 // Si hay teatro
-        wifi: z.string(),                                   // Si hay wifi
-      }),
-      // Información sobre equipos deportivos que usan el espacio (opcional)
-      equipos: z.object({
-        nombre_equipo: z.string(),                          // Nombre del equipo
-        numero_integrantes: z.string(),                     // Número de integrantes
-        deporte: z.string(),                                // Deporte que practican
-        entrenador: z.string(),                             // Nombre del entrenador
-        patrocinador: z.string(),                           // Nombre del patrocinador
-        horario_entrenamiento: z.string(),                  // Horario de entrenamiento
+      etiqueta: z.string().optional(),
+      deporte: z.string().optional(),
+      medidas: z.object({
+        largo: z.string().optional(),
+        ancho: z.string().optional(),
       }).optional(),
-      // Costo del uso del espacio deportivo
-      costo: z.string(),
-      // Información de contacto del espacio deportivo
-      contacto: z.object({
-        correo: z.string().email(),                         // Correo electrónico
-        telefono: z.string(),                               // Teléfono de contacto
-        pagina_web: z.string().optional(),                  // Página web (opcional)
-        redes_sociales: z.array(z.string()).optional(),     // Redes sociales (opcional)
-      }),
-      // Opciones de accesibilidad (opcional)
-      accesibilidad: z.array(z.string()).optional(),
-      // Reportes y sugerencias de los usuarios (opcional)
-      reportes_sugerencias: z.array(z.string()).optional(),
-      // Información sobre los vendedores en el espacio deportivo (opcional)
-      vendedores: z.object({
-        nombre_vendedor: z.string(),                        // Nombre del vendedor
-        horario_vendedor: z.string(),                       // Horario de venta
-        producto_vendedor: z.object({
-          nombre_producto: z.string(),                      // Nombre del producto vendido
-          coste_producto: z.string(),                       // Costo del producto vendido
-        }),
-        reportes_vendedor: z.string(),                      // Reportes sobre el vendedor
+      tipodesuelo: z.string().optional(),
+      senalamientos: z.string().optional(),
+      equipamiento: z.array(z.string()).optional(),
+      iluminacion: z.boolean().optional(),
+      techado: z.boolean().optional(),
+      gradas: z.boolean().optional(),
+      baños: z.boolean().optional(),
+      vestidores: z.boolean().optional(),
+      ubicacionGeografica: z.object({
+        latitud: z.number().optional(),
+        longitud: z.number().optional(),
       }).optional(),
-      // Lista de URLs de fotos del espacio deportivo (opcional)
+    })
+  ).optional(),
+  // Información sobre los negocios en el espacio deportivo
+  negocios: z.array(
+    z.object({
+      nombre: z.string().optional(),
+      dueno: z.string().optional(),
+      serviciosProductos: z.array(z.string()).optional(),
+      horario: z.object({
+        lunesViernes: z.string().optional(),
+        sabadoDomingo: z.string().optional(),
+      }).optional(),
+      tipodenegocio: z.string().optional(),
+      ubicacion: z.string().optional(),
+      descripcion: z.string().optional(),
       fotos: z.array(z.string()).optional(),
     })
-  ),
+  ).optional(),
+  // Información sobre cursos y torneos
+  cursosYTorneos: z.array(
+    z.object({
+      nombre: z.string().optional(),
+      objetivo: z.string().optional(),
+      descripcion: z.string().optional(),
+      modalidad: z.string().optional(),
+      fechasProgramadas: z.array(z.string()).optional(),
+      numeroDeHoras: z.number().optional(),
+      precio: z.number().optional(),
+      ligaInscripciones: z.string().optional(),
+      calificacionesUsuarios: z.number().optional(),
+      comentarios: z.array(z.string()).optional(),
+      ubicacionDelCurso: z.string().optional(),
+      tipoDeReconocimiento: z.string().optional(),
+      empresaQueLoRespalda: z.string().optional(),
+      prerrequisitos: z.array(z.string()).optional(),
+      materialEquipamientoRequerido: z.array(z.string()).optional(),
+      conocimientosPreviosONivelDeExperiencia: z.string().optional(),
+    })
+  ).optional(),
+  // Información sobre partidas y eventos deportivos
+  partidas: z.array(
+    z.object({
+      nombre: z.string().optional(),
+      lugar: z.string().optional(),
+      fecha: z.string().optional(),
+      duracion: z.string().optional(),
+      descripcion: z.string().optional(),
+      deporte: z.string().optional(),
+      empresaQueLoRealiza: z.string().optional(),
+      publicoDirigido: z.string().optional(),
+      nivelDeExperiencia: z.string().optional(),
+      detalles: z.object({
+        lugarDeReunion: z.string().optional(),
+        horaDeSalida: z.string().optional(),
+        transporte: z.string().optional(),
+        indicaciones: z.array(z.string()).optional(),
+      }).optional(),
+    })
+  ).optional(),
 });
