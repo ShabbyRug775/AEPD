@@ -20,7 +20,7 @@ import { LogInPage } from "./Paginas/LogInPage";
 // Ruta para las consultas
 import { EspDepPage } from "./Paginas/EspDepPage";
 // Ruta Mapa
-import Mapa from "./Paginas/Mapa";
+import { Mapa } from "./Paginas/Mapa";
 // Ruta lista de espacios deportivos
 import EspDepList from "./Paginas/EspDepList";
 
@@ -39,8 +39,9 @@ function App() {
                                 <Route path="/HomePage" element={<HomePage />} />
                                 <Route path="/LogInPage" element={<LogInPage />} />
                                 <Route path="/SignInUpPage" element={<SignInUpPage />} />
-                                <Route path="/EspDepPage" element={<EspDepPage />} />
+                                <Route path="/deportivos" element={<EspDepPage />} />
                                 <Route path="/Mapa" element={<Mapa />} />
+                                <Route path="/deportivos/:id" element={<Mapa />} />
                                 <Route path="/EspDepList" element={<EspDepList />} />
                             </Routes>
                             <Footer />
