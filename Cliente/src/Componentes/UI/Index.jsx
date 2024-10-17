@@ -4,4 +4,7 @@ export { Card } from "./Card";
 export { Input } from "./Input";
 export { Message } from "./Message";
 export { Label } from "./Label";
+export { Text } from "./Text";
+export { Select } from "./Select";
+export { Checkbox } from "./Checkbox";
 import { Textarea } from "./Textarea";
