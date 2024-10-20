@@ -32,7 +32,7 @@ function App() {
             <DeportivoProvider>
                 <UsuarioProvider>
                     <BrowserRouter>
-                        <main className="container content-container mx-auto px-10 md:px-0">
+                        <main className="container content-container mx-auto px-10 md:px-0 flex-1">
                             <Navbar />
                             <Routes>
                                 <Route path="/" element={<HomePage />} />

@@ -1,8 +1,9 @@
+// Mapa.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { usarDeportivo } from "../Contexto/deportivoContexto";
 import { DeportivoCard_idv } from "../Componentes/deportivos/DeportivoCardIndividual";
-import MapView from "../Componentes/MapView";
+import MapView from "../Componentes/deportivos/mapView";
 import '../App.css';
 
 export function Mapa() {
@@ -21,21 +22,22 @@ export function Mapa() {
     }, [params.id, consulDepor]);
 
     return (
-        <body className="bg-lime-100 p-10 mt-20">
-            <div className="flex flex-wrap gap-4">
-                <div className="flex-1">
+        <body className="bg-lime-100 p-10 mt-20 flex flex-col items-center gap-10 h-dvh">
                     {Deportivo ? (
                         <DeportivoCard_idv Deportivo={Deportivo} key={Deportivo._id} />
                     ) : (
                         <p>Cargando...</p>
                     )}
-                </div>
 
-                <section className="section">
-                    <MapView />
-                </section>
-            </div>
+            {Deportivo ? (
+                <MapView 
+                            lat={Deportivo.ubicacionGeografica.latitud} 
+                            lng={Deportivo.ubicacionGeografica.longitud} 
+                            name={Deportivo.nombre} // Pasamos el nombre del deportivo
+                />
+             ) : (
+                <p>Cargando mapa...</p>
+            )}
         </body>
-
     );
 }

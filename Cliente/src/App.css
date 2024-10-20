@@ -37,7 +37,7 @@
     }
   }
 
- .leaflet-container {
-  width: 75vw;
-  height: 80vh;
- } 
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+  }

@@ -31,7 +31,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-lime-900 flex justify-between py-5 px-10 text-lime-50 w-full fixed top-0 left-0">
+    <nav className="bg-lime-900 flex justify-between py-5 px-10 text-lime-50 w-full fixed top-0 left-0 ">
       <h1 className="text-2xl font-bold text-lime-100">
         <Link to="/"> Espacios Deportivos </Link>
       </h1>

@@ -3,7 +3,7 @@ import { ButtonLink, Card } from "../UI";
 export function ParqueCard({ Deportivo }) {
 
   return (
-    <Card>
+    <Card className="w-full h-dvh">
       <header className="flex justify-between">
         <h1 className="text-2xl font-bold">{Deportivo.nombre}</h1>
       </header>
