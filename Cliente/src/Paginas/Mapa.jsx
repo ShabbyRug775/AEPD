@@ -23,20 +23,18 @@ export function Mapa() {
 
     return (
         <body className="bg-lime-100 p-10 mt-20 flex flex-col items-center gap-10 h-dvh">
-                    {Deportivo ? (
-                        <DeportivoCard_idv Deportivo={Deportivo} key={Deportivo._id} />
-                    ) : (
-                        <p>Cargando...</p>
-                    )}
-
             {Deportivo ? (
-                <MapView 
-                            lat={Deportivo.ubicacionGeografica.latitud} 
-                            lng={Deportivo.ubicacionGeografica.longitud} 
-                            name={Deportivo.nombre} // Pasamos el nombre del deportivo
-                />
-             ) : (
-                <p>Cargando mapa...</p>
+                <>
+                    <DeportivoCard_idv Deportivo={Deportivo} key={Deportivo._id} />
+                    <MapView 
+                        lat={Deportivo.ubicacionGeografica.latitud} 
+                        lng={Deportivo.ubicacionGeografica.longitud} 
+                        name={Deportivo.nombre}
+                        canchaCoordinates={Deportivo.canchas[0]?.ubicacionGeografica}
+                    />
+                </>
+            ) : (
+                <p>Cargando...</p>
             )}
         </body>
     );
