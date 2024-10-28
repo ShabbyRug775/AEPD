@@ -9,7 +9,8 @@ import {
     LogIn,
     LogOut,
     verifyToken,
-    Profile/*
+    Profile
+    /*
     SendFriendRequest 
     UpdateProfile,
     DeleteProfile*/

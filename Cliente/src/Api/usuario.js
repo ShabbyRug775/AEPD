@@ -1,5 +1,4 @@
 // Se manda a llamar axios
-import { Usuario } from "../../../SRC/Middlewares/auth.middleware";
 import axios from "./axios";
 
 // Request de registro de usuario
