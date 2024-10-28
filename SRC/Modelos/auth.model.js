@@ -28,7 +28,42 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        /*
+        fotoPerfil: {
+            type: String,
+            default: ""
+        }, */
+        nivelPermiso: {
+            type: Number,
+            required: true,
+            min: 0,
+            max: 5,
+            default: 0
         }
+        /*
+                solAmistad: [
+                    {
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: 'User' // Referencia a otros usuarios que enviaron solicitud
+                    }
+                ],
+        
+                amigos: [
+                    {
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: 'User' // Referencia a usuarios que son amigos
+                    }
+                ]
+        
+                
+                partidasCreadas: [
+                {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Partida' // Referencia a partidas creadas por el usuario
+                }
+                ] 
+        */
     }
 );
 

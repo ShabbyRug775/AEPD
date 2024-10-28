@@ -53,6 +53,17 @@ export function Navbar() {
               <li>
                 <ButtonLink to="/deportivos"> Deportivos </ButtonLink>
               </li>
+              {/*SE MUESTRAN LAS PAGINAS DE ACUERDO AL PERMISO DEL USUARIO*/}
+              {Usuario.nivelPermiso >= 0 && (
+                <li>
+                  <ButtonLink to="/Profile"> Perfil </ButtonLink>
+                </li>
+              )}
+              {/*Usuario.nivelPermiso >= 0 && (
+                <li>
+                  <ButtonLink to="/Solamistad"> Deportivos </ButtonLink>
+                </li>
+              )*/}
               <li>
                 <Link to="/" onClick={() => LogOut()}>
                   Cerrar sesión

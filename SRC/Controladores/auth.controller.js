@@ -38,6 +38,7 @@ export const SignInUp = async (req, res) => {
             username,
             email,
             password: hashPass,
+            nivelPermiso,
 
         });
 
@@ -46,7 +47,7 @@ export const SignInUp = async (req, res) => {
 
         //Solo guardamos el id dle usuartio en el token
         const token = await createAccessToken({ id: usuarioGuardado._id });
-        
+
         // Se manda el token para revisión
         res.cookie("token", token, {
 
@@ -60,7 +61,8 @@ export const SignInUp = async (req, res) => {
 
             id: usuarioGuardado._id,
             username: usuarioGuardado.username,
-            email: usuarioGuardado.email
+            email: usuarioGuardado.email,
+            nivelPermiso: usuarioGuardado.nivelPermiso,
 
         });
 
@@ -72,7 +74,7 @@ export const SignInUp = async (req, res) => {
 /*LOGIN USUARIO*/
 //Se exportan para mandarlas a auth.routes de routes
 export const LogIn = async (req, res) => {
-    
+
     try {
         //Solo guardamos email y password que es lo que se pide para login
         const { email, password } = req.body;
@@ -83,26 +85,26 @@ export const LogIn = async (req, res) => {
         //Usamos el modelo de usuario para buscar un usuario por email
         const usuarioFound = await Usuario.findOne({ email });
         //Si no encuentra al usuario
-        if (!usuarioFound) return res.status(400).json({ 
+        if (!usuarioFound) return res.status(400).json({
 
             // Mensaje de usuario no encontrado
-            message: ["Usuario no encontrado"] 
+            message: ["Usuario no encontrado"]
 
         });
 
         //Comparamos la contraseña del cliente con la del objeto
         const isMatch = await bcrypt.compare(password, usuarioFound.password);
         //Si la contraseña no es correcta
-        if (!isMatch) return res.status(400).json({ 
+        if (!isMatch) return res.status(400).json({
 
             // Mensaje de contraseña incorrecta
-            message: ["Contraseña incorrecta"] 
+            message: ["Contraseña incorrecta"]
 
         });
 
         //Si encuentra al usuario creamos token con su id
         const token = await createAccessToken({ id: usuarioFound._id });
-        
+
         // Se manda el token para revisión
         res.cookie("token", token, {
 
@@ -117,6 +119,7 @@ export const LogIn = async (req, res) => {
             id: usuarioFound._id,
             username: usuarioFound.username,
             email: usuarioFound.email,
+            nivelPermiso: usuarioFound.nivelPermiso,
 
         });
     } catch (error) {
@@ -154,7 +157,8 @@ export const verifyToken = async (req, res) => {
 
             id: usarioEncontrado._id,
             nombreusuario: usarioEncontrado.nombreusuario,
-            email: usarioEncontrado.email
+            email: usarioEncontrado.email,
+            nivelPermiso: usarioEncontrado.nivelPermiso,
 
         });
 
@@ -175,3 +179,24 @@ export const LogOut = (req, res) => {
     // Retorna el status de la sesión
     return res.sendStatus(200);
 };
+
+/* PERFIL USUARIO */
+// Obtener el perfil del usuario junto con sus solicitudes de amistad y amigos
+export const Profile = async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.Usuario.id);
+
+        if (!usuario) return res.status(404).json({ message: "Usuario no encontrado" });
+
+        res.json({
+            id: usuario._id,
+            nombreusuario: usuario.nombreusuario,
+            username: usuario.username,
+            email: usuario.email,
+
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
