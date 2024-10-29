@@ -87,10 +87,10 @@ export function ParqueCard({ Deportivo }) {
           <>
             {Usuario.nivelPermiso == 5 && (
               <>
-                <ButtonLink to={`/deportivos/${Deportivo._id}`}> Visualizar </ButtonLink>
                 <ButtonLink to={`/EspDepUpdate/${Deportivo._id}`}> Actualizar espacio deportivo </ButtonLink>
               </>
             )}
+            <ButtonLink to={`/deportivos/${Deportivo._id}`}> Visualizar </ButtonLink>
           </>
         ) : (
           <>

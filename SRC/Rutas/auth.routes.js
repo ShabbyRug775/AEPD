@@ -9,7 +9,8 @@ import {
     LogIn,
     LogOut,
     verifyToken,
-    Profile
+    Profile,
+    consulsUsuarios
     /*
     SendFriendRequest 
     UpdateProfile,
@@ -25,8 +26,6 @@ import { validarEsquema } from '../Middlewares/validador.middleware.js';
 import { SignInUpEsquema, LogInEsquema } from '../Esquemas/auth.schema.js';
 //Importamos middleware para permisos de usuario
 import { Usuario } from '../Middlewares/auth.middleware.js';
-//Importamos controlador para búsqueda de usuarios
-import { consulsUsuarios } from '../Controladores/auth.controller.js';
 
 //Se guarda el objeto en router para peticiones post, get, delete etc
 const router = Router();
@@ -41,7 +40,7 @@ router.post('/LogOut', verifyToken, LogOut);
 //Get Perfil usuario
 router.get('/Profile', Usuario, Profile); //Primero valida sesion antes de pasar al perfil
 //Get Usuarios en la app
-router.get('/Usuarios', Usuario, consulsUsuarios);//Para buscar usuarios en la aplicación primero verifica que tenga sesión iniciada
+router.get('/consulsUsuarios', Usuario, consulsUsuarios);//Para buscar usuarios en la aplicación primero verifica que tenga sesión iniciada
 /*Update Perfil usuario
 router.put('/Profile', verifyToken, UpdateProfile);
 //Delete Perfil usuario

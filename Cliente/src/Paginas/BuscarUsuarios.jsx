@@ -44,33 +44,41 @@ export function BuscarUsuarios() {
     }, []);
 
     useEffect(() => {
-        // Filtrar los usuarios basándose en los filtros
         const applyFilters = () => {
-            let results = Usuario;
-
-            // Filtrar por nombre usuario
+            let results = Usuario; // Asegúrate de que esto sea un array
+    
+            console.log('Usuario:', Usuario); // Verifica qué contiene Usuario
+    
+            if (!Array.isArray(results)) {
+                results = []; // Asegúrate de que results sea un array
+            }
+    
+            // Filtrado por nombre usuario
             if (filters.nombreusuario) {
-                results = results.filter(Usuario =>
-                    Usuario.nombreusuario.toLowerCase().includes(filters.nombreusuario.toLowerCase())
+                results = results.filter(usuario =>
+                    usuario.nombreusuario.toLowerCase().includes(filters.nombreusuario.toLowerCase())
                 );
             }
+    
             if (filters.username) {
-                results = results.filter(Usuario =>
-                    Usuario.username.toLowerCase().includes(filters.username.toLowerCase())
+                results = results.filter(usuario =>
+                    usuario.username.toLowerCase().includes(filters.username.toLowerCase())
                 );
             }
+    
             if (filters.email) {
-                results = results.filter(Usuario =>
-                    Usuario.email.toLowerCase().includes(filters.email.toLowerCase())
+                results = results.filter(usuario =>
+                    usuario.email.toLowerCase().includes(filters.email.toLowerCase())
                 );
             }
-
+    
             setFilteredUsuarios(results);
             setCurrentPage(1); // Reiniciar a la primera página al filtrar
         };
-
+    
         applyFilters();
     }, [filters, Usuario]);
+    
 
     // Calcular los índices de los elementos a mostrar
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -112,7 +120,7 @@ export function BuscarUsuarios() {
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
                 {currentItems.map((Usuario) => (
-                    <UsuarioCard Usuario={Usuario} />
+                    <UsuarioCard Usuario={Usuario} key={Usuario._id} />
                 ))}
             </div>
 

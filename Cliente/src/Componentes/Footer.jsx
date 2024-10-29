@@ -21,12 +21,10 @@ export function Footer() {
                                 <li>
                                     <Link to="/Profile"> Perfil </Link>
                                 </li>
+                                <li>
+                                    <Link to="/BuscarUsuarios"> Buscar amigos </Link>
+                                </li>
                             </>
-                        )}
-                        {Usuario.nivelPermiso >= 0 && (
-                            <li>
-                                <Link to="/BuscarUsuarios"> Buscar amigos </Link>
-                            </li>
                         )}
                     </>
                 ) : (

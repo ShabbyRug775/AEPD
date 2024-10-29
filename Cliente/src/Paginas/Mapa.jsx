@@ -22,7 +22,7 @@ export function Mapa() {
     }, [params.id, consulDepor]);
 
     return (
-        <body className="bg-lime-100 p-10 mt-20 flex flex-col items-center gap-10 h-dvh">
+        <body className="bg-lime-100 p-10 mt-20 flex flex-col items-center gap-10 h-max">
             {Deportivo ? (
                 <>
                     <DeportivoCard_idv Deportivo={Deportivo} key={Deportivo._id} />

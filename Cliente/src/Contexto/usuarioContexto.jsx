@@ -105,8 +105,14 @@ export const UsuarioProvider = ({ children }) => {
   };
   //Consultar Usuarios
   const consulsUsuarios = async () => {
-    const res = await consulsUsuariosRequest();
-    setUser(res.data);
+    try {
+      const res = await consulsUsuariosRequest();
+      setUser(res.data);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.log(error);
+    }
+
   };
 
   return (
@@ -121,7 +127,7 @@ export const UsuarioProvider = ({ children }) => {
         errors,
         loading,
         Profile,
-        consulsUsuarios,
+        consulsUsuarios
       }}
     >
       {children}
