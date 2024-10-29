@@ -21,7 +21,7 @@ export function EspDepPage() {
 
   // Estado para los deportivos filtrados
   const [filteredDeportivos, setFilteredDeportivos] = useState([]);
-  
+
   // Estado para la paginación
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(2); // Inicialmente 6 elementos por página
@@ -78,7 +78,7 @@ export function EspDepPage() {
       // Filtrar por gradas
       if (filters.gradas) {
         results = results.filter(Deportivo =>
-          Deportivo.canchas.some(canchas => canchas.gradas) 
+          Deportivo.canchas.some(canchas => canchas.gradas)
         );
       }
       // Filtrar por tipo de suelo

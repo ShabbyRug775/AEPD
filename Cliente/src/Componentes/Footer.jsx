@@ -23,6 +23,11 @@ export function Footer() {
                                 </li>
                             </>
                         )}
+                        {Usuario.nivelPermiso >= 0 && (
+                            <li>
+                                <Link to="/BuscarUsuarios"> Buscar amigos </Link>
+                            </li>
+                        )}
                     </>
                 ) : (
                     <>

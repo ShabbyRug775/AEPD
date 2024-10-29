@@ -40,31 +40,29 @@ const userSchema = new mongoose.Schema(
             min: 0,
             max: 5,
             default: 0
-        }
-        /*
-                solAmistad: [
-                    {
-                        type: mongoose.Schema.Types.ObjectId,
-                        ref: 'User' // Referencia a otros usuarios que enviaron solicitud
-                    }
-                ],
-        
-                amigos: [
-                    {
-                        type: mongoose.Schema.Types.ObjectId,
-                        ref: 'User' // Referencia a usuarios que son amigos
-                    }
-                ]
-        
-                
-                partidasCreadas: [
-                {
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Partida' // Referencia a partidas creadas por el usuario
-                }
-                ] 
-        */
-    }
+        },
+        solEnviadas: [
+            {
+                ID: { type: String, trim: true },
+                nombreusuario: { type: String, trim: true },
+            },
+        ],
+
+        solRecibidas: [
+            {
+                ID: { type: String, trim: true },
+                nombreusuario: { type: String, trim: true },
+            },
+        ],
+
+        amigos: [
+            {
+                ID: { type: String, trim: true },
+                nombreusuario: { type: String, trim: true },
+                username: { type: String, trim: true },
+            },
+        ],
+    },
 );
 
 /*El modelo indica como se guardan los datos en MongoDB

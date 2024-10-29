@@ -21,6 +21,8 @@ import SignInUpPage from "./Paginas/SignInUpPage";
 import { LogInPage } from "./Paginas/LogInPage";
 //Ruta Perfil Usuario
 import { Profile } from './Paginas/Profile';
+//Ruta Buscar Usuario
+import { BuscarUsuarios } from './Paginas/BuscarUsuarios';
 
 /*** Rutas para espacios deportivos ***/
 // Ruta para las consultas de espacios deportivos
@@ -54,6 +56,7 @@ function App() {
                                 <Route element={<RutaProtegida />}>
                                     <Route path="/Profile" element={<Profile />} />
                                     <Route path="/EspDepUpdate/:id" element={<EspDepUpdate />} />
+                                    <Route path="/BuscarUsuarios" element={<BuscarUsuarios />} />
                                 </Route>
                             </Routes>
                             <Footer />
