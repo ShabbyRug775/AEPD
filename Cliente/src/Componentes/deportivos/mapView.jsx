@@ -1,22 +1,14 @@
-// MapView.jsx
 import React from "react";
 import { MapContainer, TileLayer, Polygon } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Markers from "./Markers";
 
-const MapView = ({ lat, lng, name, canchaCoordinates }) => {
+const MapView = ({ lat, lng, name, canchas }) => {
     const center = { lat, lng };
     const zoom = 17;
 
-    // Usar las coordenadas de la cancha si están disponibles
-    const canchaPolygon = canchaCoordinates 
-        ? [
-            [canchaCoordinates.latitud + 0.0001, canchaCoordinates.longitud - 0.0001],
-            [canchaCoordinates.latitud + 0.0001, canchaCoordinates.longitud + 0.0001],
-            [canchaCoordinates.latitud - 0.0001, canchaCoordinates.longitud + 0.0001],
-            [canchaCoordinates.latitud - 0.0001, canchaCoordinates.longitud - 0.0001]
-        ]
-        : null;
+    // Lista de colores para alternar entre canchas
+    const colors = ["blue", "green", "red", "purple", "orange"];
 
     return (
         <div className="w-full h-dvh">
@@ -27,8 +19,29 @@ const MapView = ({ lat, lng, name, canchaCoordinates }) => {
                 />
                 <Markers lat={lat} lng={lng} name={name} />
                 
-                {/* Dibujar el polígono de la cancha */}
-                {canchaPolygon && <Polygon positions={canchaPolygon} color="blue" />}
+                {/* Dibujar polígonos para cada cancha, variando el color */}
+                {canchas && canchas.map((cancha, index) => {
+                    const ubicacion = cancha.ubicacionGeografica;
+                    
+                    // Definir el polígono de la cancha
+                    const canchaPolygon = [
+                        [ubicacion.lat_1, ubicacion.lng_1],
+                        [ubicacion.lat_2, ubicacion.lng_2],
+                        [ubicacion.lat_3, ubicacion.lng_3],
+                        [ubicacion.lat_4, ubicacion.lng_4]
+                    ];
+
+                    // Alternar el color en función del índice
+                    const color = colors[index % colors.length];
+
+                    return (
+                        <Polygon 
+                            key={index} 
+                            positions={canchaPolygon} 
+                            color={color} 
+                        />
+                    );
+                })}
             </MapContainer>
         </div>
     );

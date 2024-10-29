@@ -30,8 +30,8 @@ export function Mapa() {
                         lat={Deportivo.ubicacionGeografica.latitud} 
                         lng={Deportivo.ubicacionGeografica.longitud} 
                         name={Deportivo.nombre}
-                        canchaCoordinates={Deportivo.canchas[0]?.ubicacionGeografica}
-                    />
+                        canchas={Deportivo.canchas} 
+/>
                 </>
             ) : (
                 <p>Cargando...</p>
