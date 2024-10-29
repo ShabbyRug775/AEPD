@@ -5,8 +5,8 @@
     },
     "nombre": "Parque de los Venados",
     "ubicacionGeografica": {
-      "latitud": 19.372057,
-      "longitud": -99.195703
+      "latitud": 19.372133,
+      "longitud": -99.156081
     },
     "direccion": "Av. Universidad 1000, Ciudad de México",
     "alcaldia": "Benito Juárez",
@@ -51,8 +51,14 @@
         "baños": false,
         "vestidores": false,
         "ubicacionGeografica": {
-          "latitud": 0,
-          "longitud": 0
+          "lat_1": 19.3734828,
+          "lng_1": -99.1547233,
+          "lat_2": 19.3734639,
+          "lng_2": -99.1545959,
+          "lat_3": 19.3732197,
+          "lng_3": -99.1546375,
+          "lat_4": 19.373245,
+          "lng_4": -99.1547716
         }
       }
     ],
