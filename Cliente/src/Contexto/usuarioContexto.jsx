@@ -1,7 +1,7 @@
 // Rutas de react, api y cookies
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
-import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest } from "../Api/usuario";
+import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest, consulsUsuariosRequest } from "../Api/usuario";
 import Cookies from "js-cookie";
 
 // Se crea un contexto de react
@@ -103,6 +103,11 @@ export const UsuarioProvider = ({ children }) => {
       console.log(error);
     }
   };
+  //Consultar Usuarios
+  const consulsUsuarios = async () => {
+    const res = await consulsUsuariosRequest();
+    setUser(res.data);
+  };
 
   return (
 
@@ -116,6 +121,7 @@ export const UsuarioProvider = ({ children }) => {
         errors,
         loading,
         Profile,
+        consulsUsuarios,
       }}
     >
       {children}

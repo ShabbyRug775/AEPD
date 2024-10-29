@@ -35,7 +35,6 @@ export function Profile() {
 
                 <div className="flex justify-between mt-6">
                     <ButtonLink to="/editar-perfil">Editar Perfil</ButtonLink>
-                    <ButtonLink to="/solicitar-amistad">Enviar Solicitud de Amistad</ButtonLink>
                 </div>
             </Card>
         </div>

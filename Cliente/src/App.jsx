@@ -10,7 +10,6 @@ import { UsuarioProvider } from "./Contexto/usuarioContexto";
 import { DeportivoProvider } from "./Contexto/deportivoContexto";
 // Ruta protegida
 import { RutaProtegida } from "./Rutas/Rutas";
-
 // Ruta de home
 import HomePage from "./Paginas/HomePage";
 // Ruta de registro de usuario
@@ -25,6 +24,8 @@ import { Mapa } from "./Paginas/Mapa";
 import EspDepList from "./Paginas/EspDepList";
 //Ruta Perfil Usuario
 import { Profile } from './Paginas/Profile';
+//Ruta Buscar Usuario
+import { BuscarUsuarios } from './Paginas/BuscarUsuarios';
 
 
 //Creamos las rutas en la funcion
@@ -47,6 +48,7 @@ function App() {
                                 <Route path="/EspDepList" element={<EspDepList />} />
                                 <Route element={<RutaProtegida />}>
                                     <Route path="/Profile" element={<Profile />} />
+                                    <Route path="/BuscarUsuarios" element={<BuscarUsuarios />} />
                                 </Route>
                             </Routes>
                             <Footer />
