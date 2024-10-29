@@ -23,6 +23,8 @@ import { EspDepPage } from "./Paginas/EspDepPage";
 import { Mapa } from "./Paginas/Mapa";
 // Ruta lista de espacios deportivos
 import EspDepList from "./Paginas/EspDepList";
+//Ruta Perfil Usuario
+import { Profile } from './Paginas/Profile';
 
 
 //Creamos las rutas en la funcion
@@ -43,6 +45,9 @@ function App() {
                                 <Route path="/Mapa" element={<Mapa />} />
                                 <Route path="/deportivos/:id" element={<Mapa />} />
                                 <Route path="/EspDepList" element={<EspDepList />} />
+                                <Route element={<RutaProtegida />}>
+                                    <Route path="/Profile" element={<Profile />} />
+                                </Route>
                             </Routes>
                             <Footer />
                         </main>

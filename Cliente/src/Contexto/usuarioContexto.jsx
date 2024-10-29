@@ -1,7 +1,7 @@
 // Rutas de react, api y cookies
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
-import { LogInRequest, SigInUpRequest, verifyTokenRequest } from "../Api/usuario";
+import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest } from "../Api/usuario";
 import Cookies from "js-cookie";
 
 // Se crea un contexto de react
@@ -10,11 +10,11 @@ const UsuarioContexto = createContext();
 // Constante para usar el usuario
 export const usarUsuario = () => {
 
-    const context = useContext(UsuarioContexto);
+  const context = useContext(UsuarioContexto);
 
-    if (!context) throw new Error("usarUsuario debe ser utilizado dentro de un usuarioProvider");
+  if (!context) throw new Error("usarUsuario debe ser utilizado dentro de un usuarioProvider");
 
-    return context;
+  return context;
 
 };
 
@@ -84,7 +84,7 @@ export const UsuarioProvider = ({ children }) => {
         setIsAuthenticated(true);
         setUser(res.data);
         setLoading(false);
-        
+
       } catch (error) {
         console.log(error);
         setIsAuthenticated(false);
@@ -93,9 +93,19 @@ export const UsuarioProvider = ({ children }) => {
     };
     checkLogin();
   }, []);
+  // Consultar Perfil (datos usuario)
+  const Profile = async (Usuario) => {
+    try {
+      const res = await ProfileRequest(Usuario);
+      setUser(res.data);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    
+
     <UsuarioContexto.Provider
       value={{
         Usuario,
@@ -105,6 +115,7 @@ export const UsuarioProvider = ({ children }) => {
         isAuthenticated,
         errors,
         loading,
+        Profile,
       }}
     >
       {children}

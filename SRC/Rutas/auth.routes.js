@@ -3,12 +3,17 @@
 
 import { Router } from 'express';
 //Importamos desde auth.routes.js
-import { 
+import {
 
-    SignInUp, 
-    LogIn, 
-    LogOut, 
-    verifyToken
+    SignInUp,
+    LogIn,
+    LogOut,
+    verifyToken,
+    Profile
+    /*
+    SendFriendRequest 
+    UpdateProfile,
+    DeleteProfile*/
 
 } from '../Controladores/auth.controller.js';
 
@@ -18,6 +23,8 @@ import {
 import { validarEsquema } from '../Middlewares/validador.middleware.js';
 //Importamos el esquema de validaciones de auth.esquema.js
 import { SignInUpEsquema, LogInEsquema } from '../Esquemas/auth.schema.js';
+//Importamos middleware para permisos de usuario
+import { Usuario } from '../Middlewares/auth.middleware.js';
 
 //Se guarda el objeto en router para peticiones post, get, delete etc
 const router = Router();
@@ -30,7 +37,12 @@ router.get("/verifyToken", verifyToken);
 //Post logout usuario
 router.post('/LogOut', verifyToken, LogOut);
 //Get Perfil usuario
-//Primero valida token antes de pasar al perfil
-//router.get('/perfil', authRequired, perfil);
+router.get('/Profile', Usuario, Profile); //Primero valida sesion antes de pasar al perfil
+/*Update Perfil usuario
+router.put('/Profile', verifyToken, UpdateProfile);
+//Delete Perfil usuario
+router.delete('/Profile', verifyToken, DeleteProfile); 
+//Post sol de amistad
+router.post('/SendFriendRequest', verifyToken, authRequired(0), SendFriendRequest); */
 
 export default router;
