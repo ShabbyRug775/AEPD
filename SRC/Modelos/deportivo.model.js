@@ -25,6 +25,11 @@ const deportivoSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    // Alcaldía del espacio deportivo
+    alcaldia: {
+      type: String,
+      required: true,
+    },
     // Foto principal del espacio deportivo
     fotoPrincipal: {
       type: String,
@@ -63,11 +68,31 @@ const deportivoSchema = mongoose.Schema(
     },
     // Horarios de operación
     horario: {
-      lunesViernes: {
+      lunes: {
         type: String,
         default: "",
       },
-      sabadoDomingo: {
+      martes: {
+        type: String,
+        default: "",
+      },
+      miércoles: {
+        type: String,
+        default: "",
+      },
+      jueves: {
+        type: String,
+        default: "",
+      },
+      viernes: {
+        type: String,
+        default: "",
+      },
+      sábado: {
+        type: String,
+        default: "",
+      },
+      domingo: {
         type: String,
         default: "",
       },

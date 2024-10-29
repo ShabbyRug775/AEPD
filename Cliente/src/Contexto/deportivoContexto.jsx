@@ -4,8 +4,11 @@ import { createContext, useContext, useState } from "react";
 import {
 
   consulsDeporRequest,
-  consulDeporRequest
-  
+  consulDeporRequest,
+  altaDeporRequest,
+  bajaDeporRequest,
+  modDeporRequest
+
 } from "../Api/deportivo";
 
 // Se crea un contexto de react
@@ -22,7 +25,7 @@ export const usarDeportivo = () => {
 };
 
 export function DeportivoProvider({ children }) {
-  
+
   const [Deportivos, setPark] = useState([]);
 
   // Consultas de deportivos
@@ -41,13 +44,45 @@ export function DeportivoProvider({ children }) {
     }
   };
 
+  // Alta de deportivo
+  const altaDepor = async (Deportivo) => {
+    try {
+      const res = await altaDeporRequest(Deportivo);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Baja de deportivo
+  const bajaDepor = async (id) => {
+    try {
+      const res = await bajaDeporRequest(id);
+      if (res.status === 204) setPark(Deportivos.filter((Deportivo) => Deportivo._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Modificar deportivo
+  const modDepor = async (id, Deportivo) => {
+    try {
+      await modDeporRequest(id, Deportivo);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
 
     <DeportivoContexto.Provider
       value={{
         Deportivos,
         consulsDepor,
-        consulDepor
+        consulDepor,
+        altaDepor,
+        bajaDepor,
+        modDepor
       }}
     >
       {children}

@@ -11,20 +11,26 @@ import { DeportivoProvider } from "./Contexto/deportivoContexto";
 // Ruta protegida
 import { RutaProtegida } from "./Rutas/Rutas";
 
-// Ruta de home
+// Ruta de home (página principal)
 import HomePage from "./Paginas/HomePage";
+
+/*** Rutas para usuarios ***/
 // Ruta de registro de usuario
 import SignInUpPage from "./Paginas/SignInUpPage";
-// Ruta de LogIn
+// Ruta de LogIn de usuario
 import { LogInPage } from "./Paginas/LogInPage";
-// Ruta para las consultas
-import { EspDepPage } from "./Paginas/EspDepPage";
-// Ruta Mapa
-import { Mapa } from "./Paginas/Mapa";
-// Ruta lista de espacios deportivos
-import EspDepList from "./Paginas/EspDepList";
 //Ruta Perfil Usuario
 import { Profile } from './Paginas/Profile';
+
+/*** Rutas para espacios deportivos ***/
+// Ruta para las consultas de espacios deportivos
+import { EspDepPage } from "./Paginas/EspDepPage";
+// Ruta para actualizar o eliminar espacio deportivo
+import { EspDepUpdate } from "./Paginas/EspDepUpdate";
+// Ruta Mapa de espacio deportivo
+import { Mapa } from "./Paginas/Mapa";
+// Ruta lista de espacios deportivos (hay que quitarlo a futuro)
+import EspDepList from "./Paginas/EspDepList"; // Recordatorio de verificar si funciona
 
 
 //Creamos las rutas en la funcion
@@ -47,6 +53,7 @@ function App() {
                                 <Route path="/EspDepList" element={<EspDepList />} />
                                 <Route element={<RutaProtegida />}>
                                     <Route path="/Profile" element={<Profile />} />
+                                    <Route path="/EspDepUpdate/:id" element={<EspDepUpdate />} />
                                 </Route>
                             </Routes>
                             <Footer />

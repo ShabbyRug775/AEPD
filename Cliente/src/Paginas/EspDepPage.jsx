@@ -3,6 +3,7 @@ import { usarDeportivo } from "../Contexto/deportivoContexto";
 import { ParqueCard } from "../Componentes/deportivos/DeportivoCard";
 import { ImFileEmpty } from "react-icons/im";
 import { Input, Select, Checkbox } from "../Componentes/UI";
+import { alcaldias, costos } from "../Componentes/deportivos/listasDesp";
 
 export function EspDepPage() {
   const { Deportivos, consulsDepor } = usarDeportivo();
@@ -23,15 +24,15 @@ export function EspDepPage() {
   
   // Estado para la paginación
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(6); // Inicialmente 6 elementos por página
+  const [itemsPerPage, setItemsPerPage] = useState(2); // Inicialmente 6 elementos por página
 
   useEffect(() => {
     // Ajustar el número de elementos por página según el tamaño de la ventana
     const updateItemsPerPage = () => {
       if (window.innerWidth >= 768) {
-        setItemsPerPage(6); // 2 elementos por página en pantallas grandes
+        setItemsPerPage(3); // 3 elementos por página en pantallas grandes
       } else {
-        setItemsPerPage(2); // 6 elementos por página en pantallas pequeñas
+        setItemsPerPage(2); // 2 elementos por página en pantallas pequeñas
       }
     };
 
@@ -46,31 +47,6 @@ export function EspDepPage() {
   useEffect(() => {
     consulsDepor();
   }, []);
-
-  // Lista de alcaldías
-  const alcaldias = [
-    "Álvaro Obregón",
-    "Azcapotzalco",
-    "Benito Juárez",
-    "Coyoacán",
-    "Cuajimalpa de Morelos",
-    "Cuauhtémoc",
-    "Gustavo A. Madero",
-    "Iztacalco",
-    "Iztapalapa",
-    "Magdalena Contreras",
-    "Miguel Hidalgo",
-    "Milpa Alta",
-    "Tlalpan",
-    "Tláhuac",
-    "Venustiano Carranza",
-    "Xochimilco"
-  ];
-
-  const costos = [
-    "gratuito",
-    "pago"
-  ];
 
   useEffect(() => {
     // Filtrar los deportivos basándose en los filtros

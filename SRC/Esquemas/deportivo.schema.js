@@ -19,6 +19,10 @@ export const crearDeportivoSchema = z.object({
   direccion: z.string({
     required_error: "Se requiere una dirección",
   }),
+  // Alcaldia del espacio deportivo
+  alcaldia: z.string({
+    required_error: "Se requiere una alcaldia",
+  }),
   // Foto principal del espacio deportivo
   fotoPrincipal: z.string().optional(),
   // Fotos secundarias del espacio deportivo
@@ -43,13 +47,29 @@ export const crearDeportivoSchema = z.object({
   aceptaMascotas: z.boolean(),
   // Horarios de funcionamiento
   horario: z.object({
-    lunesViernes: z.string({
-      required_error: "Se requiere un horario para lunes a viernes",
+    lunes: z.string({
+      required_error: "Se requiere un horario para lunes",
     }),
-    sabadoDomingo: z.string({
-      required_error: "Se requiere un horario para sábado y domingo",
+    martes: z.string({
+      required_error: "Se requiere un horario para martes",
+    }),
+    miércoles: z.string({
+      required_error: "Se requiere un horario para miércoles",
+    }),
+    jueves: z.string({
+      required_error: "Se requiere un horario para jueves",
+    }),
+    viernes: z.string({
+      required_error: "Se requiere un horario para viernes",
+    }),
+    sábado: z.string({
+      required_error: "Se requiere un horario para sábado",
+    }),
+    domingo: z.string({
+      required_error: "Se requiere un horario para domingo",
     }),
   }),
+
   // Costo del uso del espacio deportivo
   costo: z.string(),
   // Información de las canchas

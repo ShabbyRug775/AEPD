@@ -21,7 +21,7 @@ export function Profile() {
     if (!perfil) return <div>Cargando perfil...</div>;
 
     return (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center bg-lime-50 p-10 mt-20">
             <Card>
                 <h1 className="text-xl font-bold text-center mb-4">Perfil de Usuario</h1>
                 <Label htmlFor="nombreusuario">Nombre de usuario</Label>

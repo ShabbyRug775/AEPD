@@ -17,9 +17,11 @@ export function Footer() {
                         </li>
                         {/* Agregar nivel necesario para que el usuario visuzalice esa página de acuerdo con su nivel de usauario */}
                         {Usuario.nivelPermiso >= 0 && (
-                            <li>
-                                <Link to="/Profile"> Perfil </Link>
-                            </li>
+                            <>
+                                <li>
+                                    <Link to="/Profile"> Perfil </Link>
+                                </li>
+                            </>
                         )}
                     </>
                 ) : (
