@@ -3,7 +3,7 @@ import { usarDeportivo } from "../Contexto/deportivoContexto";
 import { ParqueCard } from "../Componentes/deportivos/DeportivoCard";
 import { ImFileEmpty } from "react-icons/im";
 import { Input, Select, Checkbox } from "../Componentes/UI";
-import { alcaldias, costos } from "../Componentes/deportivos/listasDesp";
+import { alcaldias, costos, deportes } from "../Componentes/deportivos/listasDesp";
 
 export function EspDepPage() {
   const { Deportivos, consulsDepor } = usarDeportivo();
@@ -67,7 +67,7 @@ export function EspDepPage() {
       if (filters.deporte) {
         results = results.filter(Deportivo =>
           Deportivo.canchas.some(canchas =>
-            canchas.deporte.toLowerCase() === filters.deporte.toLowerCase()
+            canchas.deporte === filters.deporte
           )
         );
       }
@@ -134,13 +134,16 @@ export function EspDepPage() {
               <option key={index} value={alcaldia}>{alcaldia}</option>
             ))}
           </Select>
-          <Input
-            type="text"
-            placeholder="Deporte"
+          <Select
             value={filters.deporte}
             onChange={(e) => setFilters({ ...filters, deporte: e.target.value })}
             className="border border-gray-300 p-2"
-          />
+          >
+            <option value="">Seleccione Deporte</option>
+            {deportes.map((deporte, index) => (
+              <option key={index} value={deporte}>{deporte}</option>
+            ))}
+          </Select>
           <Select
             value={filters.costo}
             onChange={(e) => setFilters({ ...filters, costo: e.target.value })}

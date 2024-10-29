@@ -206,18 +206,17 @@ export const Profile = async (req, res) => {
 
 export const consulsUsuarios = async (req, res) => {
     try {
+        // Obtenemos el ID del usuario autenticado desde `req.user`
+        const userId = req.Usuario.id;
 
-        // Lógica para consultar los deportes
-        const usuarios = await Usuario.find(); // Busca los usuarios en la BD
-        return res.status(200).json(usuarios);    // Encuentra datos en la BD
+        // Buscamos usuarios excluyendo al usuario autenticado actual
+        const usuarios = await Usuario.find({ _id: { $ne: userId } });
 
+        return res.status(200).json(usuarios);
     } catch (error) {
-
         // Imprime el error en la consola del servidor
         console.error('Error al obtener los usuarios:', error);
 
         return res.status(500).json({ message: error.message }); // Manejo de errores
     }
 };
-
-

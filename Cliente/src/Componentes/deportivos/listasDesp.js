@@ -25,3 +25,18 @@ export const costos = ["gratuito", "pago"];
 
 // Lista de días
 export const days = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+
+// Lista de deportes
+export const deportes = [
+    'Fútbol',
+    'Básquetbol',
+    'Voleibol',
+    'Tenis',
+    'Natación',
+    'Béisbol',
+    'Atletismo',
+    'Ciclismo',
+    'Boxeo',
+    'Gimnasia',
+  ];
+  
