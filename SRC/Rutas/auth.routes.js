@@ -24,7 +24,7 @@ import { validarEsquema } from '../Middlewares/validador.middleware.js';
 //Importamos el esquema de validaciones de auth.esquema.js
 import { SignInUpEsquema, LogInEsquema } from '../Esquemas/auth.schema.js';
 //Importamos middleware para permisos de usuario
-import { authRequired } from '../Middlewares/auth.middleware.js';
+import { Usuario } from '../Middlewares/auth.middleware.js';
 
 //Se guarda el objeto en router para peticiones post, get, delete etc
 const router = Router();
@@ -37,7 +37,7 @@ router.get("/verifyToken", verifyToken);
 //Post logout usuario
 router.post('/LogOut', verifyToken, LogOut);
 //Get Perfil usuario
-router.get('/Profile', authRequired(0), Profile); //Primero valida token antes de pasar al perfil
+router.get('/Profile', Usuario, Profile); //Primero valida sesion antes de pasar al perfil
 /*Update Perfil usuario
 router.put('/Profile', verifyToken, UpdateProfile);
 //Delete Perfil usuario

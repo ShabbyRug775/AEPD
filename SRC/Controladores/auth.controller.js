@@ -19,7 +19,7 @@ export const SignInUp = async (req, res) => {
         y lo metemos ne un try ctach porque es asincrono y
         debemos asegurar que se guarde el usuario*/
         //Creamos el objeto que contiene los datos(los definidos en user.model.js)
-        const { nombreusuario, username, email, password } = req.body;
+        const { nombreusuario, username, email, password, nivelPermiso } = req.body;
         // Se busca si hay un usuario con un correo ya usado
         const usarioEncontrado = await Usuario.findOne({ email });
         // Si lo encuentra manda un mensaje
@@ -60,6 +60,7 @@ export const SignInUp = async (req, res) => {
         res.json({
 
             id: usuarioGuardado._id,
+            nombreusuario: usuarioGuardado.nombreusuario,
             username: usuarioGuardado.username,
             email: usuarioGuardado.email,
             nivelPermiso: usuarioGuardado.nivelPermiso,
@@ -118,6 +119,7 @@ export const LogIn = async (req, res) => {
 
             id: usuarioFound._id,
             username: usuarioFound.username,
+            nombreusuario: usuarioFound.nombreusuario,
             email: usuarioFound.email,
             nivelPermiso: usuarioFound.nivelPermiso,
 
@@ -157,6 +159,7 @@ export const verifyToken = async (req, res) => {
 
             id: usarioEncontrado._id,
             nombreusuario: usarioEncontrado.nombreusuario,
+            username: usarioEncontrado.nombreusuario,
             email: usarioEncontrado.email,
             nivelPermiso: usarioEncontrado.nivelPermiso,
 
@@ -193,6 +196,7 @@ export const Profile = async (req, res) => {
             nombreusuario: usuario.nombreusuario,
             username: usuario.username,
             email: usuario.email,
+            nivelPermiso: usuario.nivelPermiso,
 
         });
     } catch (error) {

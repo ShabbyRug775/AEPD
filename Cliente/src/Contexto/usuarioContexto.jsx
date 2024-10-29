@@ -1,7 +1,7 @@
 // Rutas de react, api y cookies
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
-import { LogInRequest, SigInUpRequest, verifyTokenRequest } from "../Api/usuario";
+import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest } from "../Api/usuario";
 import Cookies from "js-cookie";
 
 // Se crea un contexto de react
@@ -93,6 +93,16 @@ export const UsuarioProvider = ({ children }) => {
     };
     checkLogin();
   }, []);
+  // Consultar Perfil (datos usuario)
+  const Profile = async (Usuario) => {
+    try {
+      const res = await ProfileRequest(Usuario);
+      setUser(res.data);
+      setIsAuthenticated(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
 
@@ -105,6 +115,7 @@ export const UsuarioProvider = ({ children }) => {
         isAuthenticated,
         errors,
         loading,
+        Profile,
       }}
     >
       {children}

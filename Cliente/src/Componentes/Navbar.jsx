@@ -53,7 +53,9 @@ export function Navbar() {
               <li>
                 <ButtonLink to="/deportivos"> Deportivos </ButtonLink>
               </li>
-              {/*SE MUESTRAN LAS PAGINAS DE ACUERDO AL PERMISO DEL USUARIO*/}
+              {/*SE MUESTRAN LAS PAGINAS DE ACUERDO AL PERMISO DEL USUARIO (Cambiar numero para el nivel de permiso)
+              Compara el nivel de permiso del usuario (dato tipo number) con el que requiere la página
+              para mostrarse*/}
               {Usuario.nivelPermiso >= 0 && (
                 <li>
                   <ButtonLink to="/Profile"> Perfil </ButtonLink>
@@ -61,7 +63,7 @@ export function Navbar() {
               )}
               {/*Usuario.nivelPermiso >= 0 && (
                 <li>
-                  <ButtonLink to="/Solamistad"> Deportivos </ButtonLink>
+                  <ButtonLink to="/Solamistad"> Amigos </ButtonLink>
                 </li>
               )*/}
               <li>
@@ -95,6 +97,13 @@ export function Navbar() {
             <li>
               <ButtonLink to="/deportivos"> Deportivos </ButtonLink>
             </li>
+            {/* Igualmente agregar las páginas con sus respectivos permisos */}
+            {/* El permiso lo obtiene del contexto de usuario */}
+            {Usuario.nivelPermiso >= 0 && (
+              <li>
+                <ButtonLink to="/Profile"> Perfil </ButtonLink>
+              </li>
+            )}
             <li>
               <Link to="/" onClick={() => LogOut()}>
                 Cerrar sesión

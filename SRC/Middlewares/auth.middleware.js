@@ -36,14 +36,3 @@ export const Usuario = (req, res, next) => {
 
     }
 };
-
-export const authRequired = (nivelRequerido) => (req, res, next) => {
-    if (!req.Usuario) {
-        return res.status(401).json({ message: "Usuario no autenticado." });
-    }
-    if (req.Usuario.nivelPermiso < nivelRequerido) {
-        return res.status(403).json({ message: "No tienes permiso para acceder a este módulo." });
-    }
-    next();
-};
-
