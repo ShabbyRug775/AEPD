@@ -98,17 +98,17 @@ export const UsuarioProvider = ({ children }) => {
     try {
       const res = await ProfileRequest(Usuario);
       setUser(res.data);
-      setIsAuthenticated(true);
+      //setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
     }
   };
   //Consultar Usuarios
-  const consulsUsuarios = async () => {
+  const consulsUsuarios = async (Usuario) => {
     try {
-      const res = await consulsUsuariosRequest();
+      const res = await consulsUsuariosRequest(Usuario);
       setUser(res.data);
-      setIsAuthenticated(true);
+      //setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
     }

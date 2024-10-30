@@ -3,9 +3,23 @@ import { usarUsuario } from "../Contexto/usuarioContexto";
 import { UsuarioCard } from "../Componentes/usuarios/UsuariosCard";
 import { ImFileEmpty } from "react-icons/im";
 import { Input, Select, Checkbox } from "../Componentes/UI";
+import { consulsUsuariosRequest } from "../Api/usuario";
 
 export function BuscarUsuarios() {
-    const { Usuario, consulsUsuarios } = usarUsuario();
+
+    const [usuarios, setUsuarios] = useState(null);
+
+    useEffect(() => {
+        async function consulsUsuarios() {
+            try {
+                const res = await consulsUsuariosRequest();
+                setUsuarios(res.data);
+            } catch (error) {
+                console.log("Error al cargar usuarios:", error);
+            }
+        }
+        consulsUsuarios();
+    }, []);
 
     //Filtrado de usuarios
     const [filters, setFilters] = useState({
@@ -40,14 +54,10 @@ export function BuscarUsuarios() {
     }, []);
 
     useEffect(() => {
-        consulsUsuarios();
-    }, []);
-
-    useEffect(() => {
         const applyFilters = () => {
-            let results = Usuario; // Asegúrate de que esto sea un array
+            let results = usuarios; // Asegúrate de que esto sea un array
     
-            console.log('Usuario:', Usuario); // Verifica qué contiene Usuario
+            console.log('Usuario:', usuarios); // Verifica qué contiene Usuario
     
             if (!Array.isArray(results)) {
                 results = []; // Asegúrate de que results sea un array
@@ -55,20 +65,20 @@ export function BuscarUsuarios() {
     
             // Filtrado por nombre usuario
             if (filters.nombreusuario) {
-                results = results.filter(usuario =>
-                    usuario.nombreusuario.toLowerCase().includes(filters.nombreusuario.toLowerCase())
+                results = results.filter(usuarios =>
+                    usuarios.nombreusuario.toLowerCase().includes(filters.nombreusuario.toLowerCase())
                 );
             }
     
             if (filters.username) {
-                results = results.filter(usuario =>
-                    usuario.username.toLowerCase().includes(filters.username.toLowerCase())
+                results = results.filter(usuarios =>
+                    usuarios.username.toLowerCase().includes(filters.username.toLowerCase())
                 );
             }
     
             if (filters.email) {
-                results = results.filter(usuario =>
-                    usuario.email.toLowerCase().includes(filters.email.toLowerCase())
+                results = results.filter(usuarios =>
+                    usuarios.email.toLowerCase().includes(filters.email.toLowerCase())
                 );
             }
     
@@ -77,7 +87,7 @@ export function BuscarUsuarios() {
         };
     
         applyFilters();
-    }, [filters, Usuario]);
+    }, [filters, usuarios]);
     
 
     // Calcular los índices de los elementos a mostrar
@@ -94,7 +104,7 @@ export function BuscarUsuarios() {
     return (
         <div className="bg-lime-50 p-10 mt-20">
             <div className="mb-5">
-                <h2 className="text-xl font-bold text-lime-900">Filtrar Espacios Deportivos</h2>
+                <h2 className="text-xl font-bold text-lime-900">Filtrar Usuarios por nombre</h2>
                 <div className="flex flex-col md:flex-row gap-4">
                     <Input
                         type="text"
@@ -119,8 +129,8 @@ export function BuscarUsuarios() {
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
-                {currentItems.map((Usuario) => (
-                    <UsuarioCard Usuario={Usuario} key={Usuario._id} />
+                {currentItems.map((usuarios) => (
+                    <UsuarioCard usuarios={usuarios} key={usuarios._id} />
                 ))}
             </div>
 
