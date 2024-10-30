@@ -5,8 +5,8 @@
     },
     "nombre": "Parque de los Venados",
     "ubicacionGeografica": {
-      "latitud": 19.372133,
-      "longitud": -99.156081
+      "latitud": 19.372040,
+      "longitud": -99.155983
     },
     "direccion": "Av. Universidad 1000, Ciudad de México",
     "alcaldia": "Benito Juárez",
@@ -37,10 +37,10 @@
     "canchas": [
       {
         "etiqueta": "",
-        "deporte": "",
+        "deporte": "Fútbol",
         "medidas": {
-          "largo": "",
-          "ancho": ""
+          "largo": "23.10 m",
+          "ancho": "10.70 m"
         },
         "tipodesuelo": "",
         "senalamientos": "",
@@ -59,6 +59,58 @@
           "lng_3": -99.1546375,
           "lat_4": 19.373245,
           "lng_4": -99.1547716
+        }
+      },
+      {
+        "etiqueta": "",
+        "deporte": "Fútbol",
+        "medidas": {
+          "largo": "0 m",
+          "ancho": "0 m"
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "lat_1": 19.3735205,
+          "lng_1": -99.1549465,
+          "lat_2": 19.3735001,
+          "lng_2": -99.1547431,
+          "lat_3": 19.3733882,
+          "lng_3": -99.1547601,
+          "lat_4": 19.3734100,
+          "lng_4": -99.1549588
+        }
+      },
+      {
+        "etiqueta": "",
+        "deporte": "Básquetbol",
+        "medidas": {
+          "largo": "0 m",
+          "ancho": "0 m"
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "lat_1": 19.3735365,
+          "lng_1": -99.1551206,
+          "lat_2": 19.3735161,
+          "lng_2": -99.1549742,
+          "lat_3": 19.3734158,
+          "lng_3": -99.1549834,
+          "lat_4": 19.3734347,
+          "lng_4": -99.1551313
         }
       }
     ],
@@ -125,10 +177,10 @@
     "_id": {
       "$oid": "6710b8a2ffedfa515b83a111"
     },
-    "nombre": "Parque de Chapultepec",
+    "nombre": "Centro Deportivo Chapultepec, A.C.",
     "ubicacionGeografica": {
-      "latitud": 19.419161,
-      "longitud": -99.184464
+      "latitud": 19.426641,
+      "longitud": -99.179909
     },
     "direccion": "Av. Paseo de la Reforma, Ciudad de México",
     "alcaldia": "Miguel Hidalgo",
@@ -159,10 +211,10 @@
     "canchas": [
       {
         "etiqueta": "",
-        "deporte": "",
+        "deporte": "Tenis",
         "medidas": {
-          "largo": "",
-          "ancho": ""
+          "largo": "0 m",
+          "ancho": "0 m"
         },
         "tipodesuelo": "",
         "senalamientos": "",
@@ -173,8 +225,40 @@
         "baños": false,
         "vestidores": false,
         "ubicacionGeografica": {
-          "latitud": 0,
-          "longitud": 0
+          "lat_1": 19.4272416,
+          "lng_1": -99.1799580,
+          "lat_2": 19.4272352,
+          "lng_2": -99.1797436,
+          "lat_3": 19.4268911,
+          "lng_3": -99.1797551,
+          "lat_4": 19.4268974,
+          "lng_4": -99.1799695
+        }
+      },
+      {
+        "etiqueta": "",
+        "deporte": "Tenis",
+        "medidas": {
+          "largo": "0 m",
+          "ancho": "0 m"
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "lat_1": 19.4277047,
+          "lng_1": -99.1801039,
+          "lat_2": 19.4276973,
+          "lng_2": -99.1799372,
+          "lat_3": 19.4273360,
+          "lng_3": -99.1799553,
+          "lat_4": 19.4273434,
+          "lng_4": -99.1801219
         }
       }
     ],

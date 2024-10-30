@@ -7,7 +7,7 @@ export function DeportivoCard_idv({ Deportivo }) {
       <header className="flex justify-between">
         <h1 className="text-2xl font-bold">{Deportivo.nombre}</h1>
       </header>
-
+      <br/>
       <p className="text-lime-950">Dirección: {Deportivo.direccion}</p>
       <p className="text-lime-950">Alcaldía: {Deportivo.alcaldia}</p>
       <p className="text-lime-950">Fecha de Registro: {Deportivo.fechaDeRegistro}</p>

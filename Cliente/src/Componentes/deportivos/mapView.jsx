@@ -5,7 +5,7 @@ import Markers from "./Markers";
 
 const MapView = ({ lat, lng, name, canchas }) => {
     const center = { lat, lng };
-    const zoom = 17;
+    const zoom = 16;
 
     // Lista de colores para alternar entre canchas
     const colors = ["blue", "green", "red", "purple", "orange"];
