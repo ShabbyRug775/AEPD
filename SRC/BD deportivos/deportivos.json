@@ -327,8 +327,7 @@
     },
     "nombre": "Parque Tezozómoc",
     "ubicacionGeografica": {
-      "latitud": 19.35344,
-      "longitud": -99.169905
+      "latitud": 19.49953,
     },
     "direccion": "Av. Tezozómoc, Ciudad de México",
     "alcaldia": "Azcapotzalco",
@@ -357,6 +356,60 @@
     },
     "costo": "gratuito",
     "canchas": [],
+    "canchas": [
+      {
+        "etiqueta": "",
+        "deporte": "Básquetbol",
+        "medidas": {
+          "largo": "0 m",
+          "ancho": "0 m"
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "lat_1": 19.5018161,
+          "lng_1": -99.2118838,
+          "lat_2": 19.5017730,
+          "lng_2": -99.2117471,
+          "lat_3": 19.5015164,
+          "lng_3": -99.2118381,
+          "lat_4": 19.5015595,
+          "lng_4": -99.2119749
+        }
+      },
+      {
+        "etiqueta": "",
+        "deporte": "Básquetbol",
+        "medidas": {
+          "largo": "0 m",
+          "ancho": "0 m"
+        },
+        "tipodesuelo": "",
+        "senalamientos": "",
+        "equipamiento": [],
+        "iluminacion": false,
+        "techado": false,
+        "gradas": false,
+        "baños": false,
+        "vestidores": false,
+        "ubicacionGeografica": {
+          "lat_1": 19.5017577,
+          "lng_1": -99.2117017,
+          "lat_2": 19.5017146,
+          "lng_2": -99.2115650,
+          "lat_3": 19.5014579,
+          "lng_3": -99.2116561,
+          "lat_4": 19.5015010,
+          "lng_4": -99.2117928
+        }
+      }
+    ],
     "negocios": [],
     "cursosYTorneos": [],
     "partidas": []
