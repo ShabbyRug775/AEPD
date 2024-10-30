@@ -41,11 +41,15 @@ const MapView = ({ lat, lng, name, canchas }) => {
                         const color = colors[index % colors.length];
 
                         return (
-                            <Polygon 
-                                key={index} 
-                                positions={canchaPolygon} 
+                            <>
+                                <Polygon
+                                key={index}
+                                positions={canchaPolygon}
                                 color={color} 
-                            />
+                                />
+                                <Markers lat={ubicacion.lat_1} lng={ubicacion.lng_1} name={"Cancha #"+index}/>
+                            </>
+                            
                         );
                     }
 

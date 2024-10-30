@@ -39,12 +39,12 @@
         "etiqueta": "",
         "deporte": "Fútbol",
         "medidas": {
-          "largo": "23.10 m",
-          "ancho": "10.70 m"
+          "largo": "23.44 m",
+          "ancho": "11.12 m"
         },
         "tipodesuelo": "",
         "senalamientos": "",
-        "equipamiento": [],
+        "equipamiento": ["portería de fútbol"],
         "iluminacion": false,
         "techado": false,
         "gradas": false,
