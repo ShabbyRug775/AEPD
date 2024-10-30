@@ -29,6 +29,8 @@ import { BuscarUsuarios } from './Paginas/BuscarUsuarios';
 import { EspDepPage } from "./Paginas/EspDepPage";
 // Ruta para actualizar o eliminar espacio deportivo
 import { EspDepUpdate } from "./Paginas/EspDepUpdate";
+// Ruta para añadir espacio deportivo
+import EspDepAdd from "./Paginas/EspDepAdd";
 // Ruta Mapa de espacio deportivo
 import { Mapa } from "./Paginas/Mapa";
 // Ruta lista de espacios deportivos (hay que quitarlo a futuro)
@@ -57,6 +59,7 @@ function App() {
                                     <Route path="/Profile" element={<Profile />} />
                                     <Route path="/EspDepUpdate/:id" element={<EspDepUpdate />} />
                                     <Route path="/BuscarUsuarios" element={<BuscarUsuarios />} />
+                                    <Route path="/EspDepAdd" element={<EspDepAdd />} />
                                 </Route>
                             </Routes>
                             <Footer />

@@ -8,12 +8,8 @@ export const crearDeportivoSchema = z.object({
   }),
   // Ubicación geográfica del espacio deportivo
   ubicacionGeografica: z.object({
-    latitud: z.number({
-      required_error: "Se requiere una latitud",
-    }),
-    longitud: z.number({
-      required_error: "Se requiere una longitud",
-    }),
+    latitud: z.number(),
+    longitud: z.number()
   }),
   // Dirección del espacio deportivo
   direccion: z.string({

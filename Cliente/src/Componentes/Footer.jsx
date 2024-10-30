@@ -26,6 +26,13 @@ export function Footer() {
                                 </li>
                             </>
                         )}
+                        {Usuario.nivelPermiso == 5 && (
+                            <>
+                                <li>
+                                    <Link to="/EspDepAdd"> Agregar espacios deportivos </Link>
+                                </li>
+                            </>
+                        )}
                     </>
                 ) : (
                     <>

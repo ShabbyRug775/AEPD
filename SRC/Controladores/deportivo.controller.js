@@ -51,9 +51,11 @@ export const altaDeport = async (req, res) => {
     // para canchas, negocios, cursos y torneos, y partidas
     const nuevoDep = new Deportivo({
       nombre,
-      ubicacionGeografica,
+      ubicacionGeografica: [],
       direccion,
       alcaldia,
+      fotoPrincipal: [],
+      fotosSecundarias: [],
       tipoDeEspacio,
       servicios,
       puertasDeEntrada,
