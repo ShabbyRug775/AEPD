@@ -328,6 +328,7 @@
     "nombre": "Parque Tezozómoc",
     "ubicacionGeografica": {
       "latitud": 19.49953,
+      "longitud":-99.206425
     },
     "direccion": "Av. Tezozómoc, Ciudad de México",
     "alcaldia": "Azcapotzalco",
@@ -355,7 +356,6 @@
       "domingo": "08:00 - 17:00"
     },
     "costo": "gratuito",
-    "canchas": [],
     "canchas": [
       {
         "etiqueta": "",

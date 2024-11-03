@@ -1,7 +1,20 @@
 // DeportivoCardIndividual.jsx
 import { ButtonLink, Card } from "../UI";
+import { useState } from "react";
 
 export function DeportivoCard_idv({ Deportivo }) {
+
+  // Estados para los filtros
+  const [filtroDeporte, setFiltroDeporte] = useState("");
+  const [filtroSuelo, setFiltroSuelo] = useState("");
+
+  // Función para aplicar los filtros
+  const canchasFiltradas = Deportivo.canchas.filter((cancha) => {
+    const cumpleDeporte = filtroDeporte ? cancha.deporte === filtroDeporte : true;
+    const cumpleSuelo = filtroSuelo ? cancha.tipoDeSuelo === filtroSuelo : true;
+    return cumpleDeporte && cumpleSuelo;
+  });
+
   return (
     <Card>
       <header className="flex justify-between">
@@ -49,6 +62,55 @@ export function DeportivoCard_idv({ Deportivo }) {
             foto && <img key={index} src={foto} alt={`Foto secundaria ${index + 1}`} className="w-1/2 h-auto" />
           ))}
         </div>
+      </section>
+
+      {/* Filtros */}
+      <section className="mt-4">
+        <h2 className="text-xl font-semibold">Filtros</h2>
+        <label>
+          Deporte:
+          <select value={filtroDeporte} onChange={(e) => setFiltroDeporte(e.target.value)}>
+            <option value="">Todos</option>
+            <option value="Fútbol">Fútbol</option>
+            <option value="Básquetbol">Básquetbol</option>
+            {/* Agregar más deportes según sea necesario */}
+          </select>
+        </label>
+        <label>
+          Tipo de Suelo:
+          <select value={filtroSuelo} onChange={(e) => setFiltroSuelo(e.target.value)}>
+            <option value="">Todos</option>
+            <option value="Césped">Césped</option>
+            <option value="Concreto">Concreto</option>
+            {/* Agregar más tipos de suelo según sea necesario */}
+          </select>
+        </label>
+      </section>
+
+      {/* Lista de Canchas */}
+      <section className="mt-4">
+        <h2 className="text-xl font-semibold">Canchas</h2>
+        {canchasFiltradas.map((cancha, index) => {
+          const ubicacion = cancha.ubicacionGeografica;
+
+          // Verificar que la cancha tiene todas las coordenadas necesarias
+          if (
+            ubicacion.lat_1 !== undefined && ubicacion.lng_1 !== undefined &&
+            ubicacion.lat_2 !== undefined && ubicacion.lng_2 !== undefined &&
+            ubicacion.lat_3 !== undefined && ubicacion.lng_3 !== undefined &&
+            ubicacion.lat_4 !== undefined && ubicacion.lng_4 !== undefined
+          ) {
+            return (
+              <div key={index} className="border-b border-gray-300 py-2">
+                <h3 className="font-semibold">Cancha #{index + 1}</h3>
+                <p>Deporte: {cancha.deporte}</p>
+                <p>Coordenadas: {ubicacion.lat_1}, {ubicacion.lng_1}</p>
+                <button className="mt-2 bg-blue-500 text-white py-1 px-2 rounded">Agregar un evento</button>
+              </div>
+            );
+          }
+          return null; // No mostrar si faltan coordenadas
+        })}
       </section>
     </Card>
   );
