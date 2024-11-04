@@ -24,6 +24,12 @@ export function Footer() {
                                 <li>
                                     <Link to="/BuscarUsuarios"> Buscar amigos </Link>
                                 </li>
+                                <li>
+                                    <Link to="/SolicitudesAmistad"> Ver Solicitudes </Link>
+                                </li>
+                                <li>
+                                    <Link to="/VerAmigos"> Ver Amigos </Link>
+                                </li>
                             </>
                         )}
                         {Usuario.nivelPermiso == 5 && (

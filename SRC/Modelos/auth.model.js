@@ -45,6 +45,8 @@ const userSchema = new mongoose.Schema(
             {
                 ID: { type: String, trim: true },
                 nombreusuario: { type: String, trim: true },
+                username: { type: String, trim: true },
+                email: { type: String, trim: true },
             },
         ],
 
@@ -52,6 +54,8 @@ const userSchema = new mongoose.Schema(
             {
                 ID: { type: String, trim: true },
                 nombreusuario: { type: String, trim: true },
+                username: { type: String, trim: true },
+                email: { type: String, trim: true },
             },
         ],
 
@@ -60,6 +64,7 @@ const userSchema = new mongoose.Schema(
                 ID: { type: String, trim: true },
                 nombreusuario: { type: String, trim: true },
                 username: { type: String, trim: true },
+                email: { type: String, trim: true },
             },
         ],
     },

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { usarUsuario } from "../Contexto/usuarioContexto";
 import { UsuarioCard } from "../Componentes/usuarios/UsuariosCard";
 import { ImFileEmpty } from "react-icons/im";
 import { Input, Select, Checkbox } from "../Componentes/UI";
@@ -23,9 +22,7 @@ export function BuscarUsuarios() {
 
     //Filtrado de usuarios
     const [filters, setFilters] = useState({
-        nombreusuario: "",
-        username: "",
-        email: "",
+        search: "", //campo que implicará nombreusuario, username y email
     });
 
     //Estado para los Usuarios filtrados
@@ -52,43 +49,24 @@ export function BuscarUsuarios() {
             window.removeEventListener('resize', updateItemsPerPage); // Limpiar el listener al desmontar
         };
     }, []);
-
+    //Filtrar por nombreusuario, username, email
     useEffect(() => {
         const applyFilters = () => {
-            let results = usuarios; // Asegúrate de que esto sea un array
-    
-            console.log('Usuario:', usuarios); // Verifica qué contiene Usuario
-    
-            if (!Array.isArray(results)) {
-                results = []; // Asegúrate de que results sea un array
-            }
-    
-            // Filtrado por nombre usuario
-            if (filters.nombreusuario) {
-                results = results.filter(usuarios =>
-                    usuarios.nombreusuario.toLowerCase().includes(filters.nombreusuario.toLowerCase())
-                );
-            }
-    
-            if (filters.username) {
-                results = results.filter(usuarios =>
-                    usuarios.username.toLowerCase().includes(filters.username.toLowerCase())
-                );
-            }
-    
-            if (filters.email) {
-                results = results.filter(usuarios =>
-                    usuarios.email.toLowerCase().includes(filters.email.toLowerCase())
-                );
-            }
-    
-            setFilteredUsuarios(results);
+            let results = usuarios || []; // Asegúrate de que esto sea un array
+
+            const filteredResults = results.filter(usuario =>
+                usuario.nombreusuario.toLowerCase().includes(filters.search.toLowerCase()) ||
+                usuario.username.toLowerCase().includes(filters.search.toLowerCase()) ||
+                usuario.email.toLowerCase().includes(filters.search.toLowerCase())
+            );
+
+            setFilteredUsuarios(filteredResults);
             setCurrentPage(1); // Reiniciar a la primera página al filtrar
         };
-    
+
         applyFilters();
-    }, [filters, usuarios]);
-    
+    }, [filters.search, usuarios]);
+
 
     // Calcular los índices de los elementos a mostrar
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -109,8 +87,8 @@ export function BuscarUsuarios() {
                     <Input
                         type="text"
                         placeholder="Nombre"
-                        value={filters.nombreusuario}
-                        onChange={(e) => setFilters({ ...filters, nombreusuario: e.target.value })}
+                        value={filters.search}
+                        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                         className="border border-lime-500 p-2 rounded-md bg-lime-100"
                     />
 

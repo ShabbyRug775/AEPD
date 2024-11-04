@@ -10,9 +10,12 @@ import {
     LogOut,
     verifyToken,
     Profile,
-    consulsUsuarios
+    consulsUsuarios,
+    enviarSolicitudAmistad,
+    obtenerSolicitudesRecibidas,
+    aceptarSolicitudAmistad,
+    obtenerAmigos,
     /*
-    SendFriendRequest 
     UpdateProfile,
     DeleteProfile*/
 
@@ -45,7 +48,15 @@ router.get('/consulsUsuarios', Usuario, consulsUsuarios);//Para buscar usuarios 
 router.put('/Profile', verifyToken, UpdateProfile);
 //Delete Perfil usuario
 router.delete('/Profile', verifyToken, DeleteProfile); 
-//Post sol de amistad
-router.post('/SendFriendRequest', verifyToken, authRequired(0), SendFriendRequest); */
+//Post sol de amistad */
+router.post("/solicitud", Usuario, enviarSolicitudAmistad);
+//Get solicitudes de amistad recibidas
+router.get('/solicitudesRecibidas', Usuario, obtenerSolicitudesRecibidas);
+//Post para aceptar solicitudes de amistad (agregar amigo)
+router.post('/aceptarSolicitud', Usuario, aceptarSolicitudAmistad);
+//Get para obtener todos los amigos de un usuario
+router.get('/amigos', Usuario, obtenerAmigos);
+
+
 
 export default router;

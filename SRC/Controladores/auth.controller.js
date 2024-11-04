@@ -206,11 +206,25 @@ export const Profile = async (req, res) => {
 
 export const consulsUsuarios = async (req, res) => {
     try {
-        // Obtenemos el ID del usuario autenticado desde `req.user`
+        // Obtenemos el ID del usuario autenticado desde `req.Usuario`
         const userId = req.Usuario.id;
 
-        // Buscamos usuarios excluyendo al usuario autenticado actual
-        const usuarios = await Usuario.find({ _id: { $ne: userId } });
+        // Buscamos al usuario para acceder a todos sus datos completos (amigos, solicitudes enviadas y recibidas)
+        const usuarioAutenticado = await Usuario.findById(userId);
+        if (!usuarioAutenticado) {
+            return res.status(400).json({ message: "Usuario no encontrado" });
+        }
+
+        // Extraemos los IDs de amigos, solicitudes enviadas y recibidas del usuario autenticado
+        const amigosId = usuarioAutenticado.amigos.map(amigo => amigo.ID);
+        const solicitudesEnviadasId = usuarioAutenticado.solEnviadas.map(sol => sol.ID);
+        const solicitudesRecibidasId = usuarioAutenticado.solRecibidas.map(sol => sol.ID);
+
+        // Creamos una lista de todos los IDs a excluir
+        const idsAExcluir = [userId, ...amigosId, ...solicitudesEnviadasId, ...solicitudesRecibidasId];
+
+        // Buscamos usuarios excluyendo al usuario autenticado actual, sus amigos y aquellos a quienes ya envió o recibió solicitudes
+        const usuarios = await Usuario.find({ _id: { $nin: idsAExcluir } });
 
         return res.status(200).json(usuarios);
     } catch (error) {
@@ -218,5 +232,134 @@ export const consulsUsuarios = async (req, res) => {
         console.error('Error al obtener los usuarios:', error);
 
         return res.status(500).json({ message: error.message }); // Manejo de errores
+    }
+};
+
+export const enviarSolicitudAmistad = async (req, res) => {
+    try {
+        const { idUsuarioReceptor } = req.body; // ID del usuario de la card
+
+        // ID del usuario autenticado (el que envía la solicitud)
+        const idUsuarioEmisor = req.Usuario.id;
+
+        // Buscar ambos usuarios en la base de datos
+        const usuarioEmisor = await Usuario.findById(idUsuarioEmisor);
+        const usuarioReceptor = await Usuario.findById(idUsuarioReceptor);
+
+        if (!usuarioEmisor || !usuarioReceptor) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        // Verificar si la solicitud ya existe
+        const solicitudExistente = usuarioEmisor.solEnviadas.some(
+            solicitud => solicitud.ID === idUsuarioReceptor
+        );
+        if (solicitudExistente) {
+            return res.status(400).json({ message: "Solicitud ya enviada" });
+        }
+
+        // Agregar la solicitud en el usuario emisor
+        usuarioEmisor.solEnviadas.push({
+            ID: idUsuarioReceptor,
+            nombreusuario: usuarioReceptor.nombreusuario,
+            username: usuarioReceptor.username,
+            email: usuarioReceptor.email,
+        });
+
+        // Agregar la solicitud en el usuario receptor
+        usuarioReceptor.solRecibidas.push({
+            ID: idUsuarioEmisor,
+            nombreusuario: usuarioEmisor.nombreusuario,
+            username: usuarioEmisor.username,
+            email: usuarioEmisor.email,
+        });
+
+        // Guardar los cambios
+        await usuarioEmisor.save();
+        await usuarioReceptor.save();
+
+        return res.status(200).json({ message: "Solicitud de amistad enviada" });
+    } catch (error) {
+        console.error("Error al enviar solicitud de amistad:", error);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+export const obtenerSolicitudesRecibidas = async (req, res) => {
+    try {
+        const userId = req.Usuario.id;//Obtenemos id del usuario actual que esta activo
+        const usuario = await Usuario.findById(userId).select("solRecibidas");//Busca sus solicitudes recibidas
+        if (!usuario) {
+            return res.status(400).json({ message: "Usuario no encontrado" });
+        }
+        return res.status(200).json(usuario.solRecibidas);
+    } catch (error) {
+        console.error("Error al obtener solicitudes recibidas:", error);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+export const aceptarSolicitudAmistad = async (req, res) => {
+    try {
+        const userId = req.Usuario.id;
+        const { solicitudId } = req.body; // ID del usuario que envió la solicitud
+
+        const usuario = await Usuario.findById(userId);
+        const usuarioSolicitante = await Usuario.findById(solicitudId);
+
+        if (!usuario || !usuarioSolicitante) {
+            return res.status(400).json({ message: "Usuario no encontrado" });
+        }
+
+        // Verificamos que la solicitud esté en la lista de solicitudes recibidas
+        const solicitudRecibida = usuario.solRecibidas.find(solicitud => solicitud.ID === solicitudId);
+        if (!solicitudRecibida) {
+            return res.status(400).json({ message: "Solicitud no encontrada" });
+        }
+
+        // Agregamos a ambos usuarios en la lista de amigos del otro
+        usuario.amigos.push({
+            ID: solicitudId,
+            nombreusuario: usuarioSolicitante.nombreusuario,
+            username: usuarioSolicitante.username,
+            email: usuarioSolicitante.email,
+        });
+        usuarioSolicitante.amigos.push({
+            ID: userId,
+            nombreusuario: usuario.nombreusuario,
+            username: usuario.username,
+            email: usuario.email,
+        });
+
+        // Eliminamos la solicitud de amistad de `solRecibidas` en el usuario actual
+        usuario.solRecibidas = usuario.solRecibidas.filter(solicitud => solicitud.ID !== solicitudId);
+
+        // Eliminamos la solicitud de amistad de `solEnviadas` en el usuario que envió la solicitud
+        usuarioSolicitante.solEnviadas = usuarioSolicitante.solEnviadas.filter(solicitud => solicitud.ID !== userId);
+
+        // Guardamos los cambios en ambos usuarios
+        await usuario.save();
+        await usuarioSolicitante.save();
+
+        return res.status(200).json({ message: "Solicitud de amistad aceptada" });
+    } catch (error) {
+        console.error("Error al aceptar solicitud de amistad:", error);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+export const obtenerAmigos = async (req, res) => {
+    try {
+        const userId = req.Usuario.id;
+        const usuario = await Usuario.findById(userId).select("amigos");
+
+        if (!usuario) {
+            return res.status(400).json({ message: "Usuario no encontrado" });
+        }
+
+        return res.status(200).json(usuario.amigos);
+    } catch (error) {
+        console.error("Error al obtener amigos:", error);
+        return res.status(500).json({ message: error.message });
     }
 };
