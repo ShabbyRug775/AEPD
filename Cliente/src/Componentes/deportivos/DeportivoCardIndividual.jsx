@@ -69,7 +69,7 @@ export function DeportivoCard_idv({ Deportivo }) {
         <h2 className="text-xl font-semibold">Filtros</h2>
         <label>
           Deporte:
-          <select value={filtroDeporte} onChange={(e) => setFiltroDeporte(e.target.value)}>
+          <select className="bg-lime-100 p-2 w-full rounded-md" value={filtroDeporte} onChange={(e) => setFiltroDeporte(e.target.value)}>
             <option value="">Todos</option>
             <option value="Fútbol">Fútbol</option>
             <option value="Básquetbol">Básquetbol</option>
@@ -78,7 +78,7 @@ export function DeportivoCard_idv({ Deportivo }) {
         </label>
         <label>
           Tipo de Suelo:
-          <select value={filtroSuelo} onChange={(e) => setFiltroSuelo(e.target.value)}>
+          <select className="bg-lime-100 w-full p-2 rounded-md" value={filtroSuelo} onChange={(e) => setFiltroSuelo(e.target.value)}>
             <option value="">Todos</option>
             <option value="Césped">Césped</option>
             <option value="Concreto">Concreto</option>
@@ -105,7 +105,19 @@ export function DeportivoCard_idv({ Deportivo }) {
                 <h3 className="font-semibold">Cancha #{index + 1}</h3>
                 <p>Deporte: {cancha.deporte}</p>
                 <p>Coordenadas: {ubicacion.lat_1}, {ubicacion.lng_1}</p>
-                <button className="mt-2 bg-blue-500 text-white py-1 px-2 rounded">Agregar un evento</button>
+                <p>Medidas
+                  <p>Largo: {cancha.medidas.largo}</p>
+                  <p>Ancho: {cancha.medidas.ancho}</p>
+                </p>
+                <p>Tipo de suelo: {cancha.tipodesuelo}</p>
+                <p>Señalamientos: {cancha.senalamientos}</p>
+                <p>Equipamiento: {cancha.equipamiento}</p>
+                <p>Iluminación: {cancha.iluminacion ? "Sí" : "No"}</p>
+                <p>Techado: {cancha.techado ? "Sí" : "No"}</p>
+                <p>Gradas: {cancha.gradas ? "Sí" : "No"}</p>
+                <p>Baños: {cancha.baños ? "Sí" : "No"}</p>
+                <p>Vestidores: {cancha.vestidores ? "Sí" : "No"}</p>
+                <button className="bg-lime-800 mt-2 bg-blue-500 text-white py-1 px-2 rounded">Agregar un evento</button>
               </div>
             );
           }
