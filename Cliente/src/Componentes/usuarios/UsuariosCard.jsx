@@ -6,7 +6,7 @@ export function UsuarioCard({ usuarios }) {
         try {
             await enviarSolicitudAmistadRequest(usuarios._id);
             alert("Solicitud enviada");
-
+            window.location.reload(); // Recarga la página después de enviar la solicitud
         } catch (error) {
             console.error("Error al enviar la solicitud de amistad:", error);
             alert("Error al enviar la solicitud");
@@ -18,8 +18,12 @@ export function UsuarioCard({ usuarios }) {
             <header className="flex justify-between">
                 <h1 className="text-2xl font-bold">{usuarios.nombreusuario}</h1>
             </header>
-            <p className="text-lime-950"><h4 className="text-lg">Username: </h4>{usuarios.username}</p>
-            <p className="text-lime-950"><h4 className="text-lg">Correo: </h4>{usuarios.email}</p>
+            <p className="text-lime-950">
+                <h4 className="text-lg">Username: </h4>{usuarios.username}
+            </p>
+            <p className="text-lime-950">
+                <h4 className="text-lg">Correo: </h4>{usuarios.email}
+            </p>
             <div className="flex gap-x-2 items-center">
                 <Button onClick={handleEnviarSolicitud} className="btn btn-primary">
                     Enviar Solicitud
