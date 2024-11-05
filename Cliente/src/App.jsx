@@ -23,6 +23,10 @@ import { LogInPage } from "./Paginas/LogInPage";
 import { Profile } from './Paginas/Profile';
 //Ruta Buscar Usuario
 import { BuscarUsuarios } from './Paginas/BuscarUsuarios';
+//Ruta Aceptar Amigo
+import { SolicitudesAmistad } from './Paginas/SolicitudesAmistad';
+//Ruta Ver Amigos
+import { VerAmigos } from './Paginas/VerAmigos';
 
 /*** Rutas para espacios deportivos ***/
 // Ruta para las consultas de espacios deportivos
@@ -60,6 +64,8 @@ function App() {
                                     <Route path="/EspDepUpdate/:id" element={<EspDepUpdate />} />
                                     <Route path="/BuscarUsuarios" element={<BuscarUsuarios />} />
                                     <Route path="/EspDepAdd" element={<EspDepAdd />} />
+                                    <Route path='/SolicitudesAmistad' element={<SolicitudesAmistad />} />
+                                    <Route path='/VerAmigos' element={<VerAmigos />} />
                                 </Route>
                             </Routes>
                             <Footer />

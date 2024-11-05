@@ -1,6 +1,17 @@
-import { ButtonLink, Card } from "../UI";
+import { enviarSolicitudAmistadRequest } from "../../Api/usuario";
+import { Button, Card } from "../UI";
 
 export function UsuarioCard({ usuarios }) {
+    const handleEnviarSolicitud = async () => {
+        try {
+            await enviarSolicitudAmistadRequest(usuarios._id);
+            alert("Solicitud enviada");
+
+        } catch (error) {
+            console.error("Error al enviar la solicitud de amistad:", error);
+            alert("Error al enviar la solicitud");
+        }
+    };
 
     return (
         <Card>
@@ -8,12 +19,11 @@ export function UsuarioCard({ usuarios }) {
                 <h1 className="text-2xl font-bold">{usuarios.nombreusuario}</h1>
             </header>
             <p className="text-lime-950"><h4 className="text-lg">Username: </h4>{usuarios.username}</p>
-            <p className="text-lime-950"><h4 className="text-lg">Correo: </h4>{usuarios.email}</p>{/*
-            <p className="text-lime-950"><h4 className="text-lg">ward</h4>{Usuario.nombreusuario}</p>
-            <p className="text-lime-950"><h4 className="text-lg">ward </h4>{Usuario.nombreusuario}</p>
-            <p className="text-lime-950"><h4 className="text-lg">ward</h4>{Usuario.nombreusuario}</p> */}
+            <p className="text-lime-950"><h4 className="text-lg">Correo: </h4>{usuarios.email}</p>
             <div className="flex gap-x-2 items-center">
-                <ButtonLink to={``}> Enviar Solicitud </ButtonLink>
+                <Button onClick={handleEnviarSolicitud} className="btn btn-primary">
+                    Enviar Solicitud
+                </Button>
             </div>
         </Card>
     );

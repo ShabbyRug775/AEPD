@@ -51,7 +51,7 @@ function SignInUpPage() {
 
         <form onSubmit={handleSubmit(onSubmit)}>
 
-          <Label htmlFor="nombreusuario"> Nombre de usuario: </Label>
+          <Label htmlFor="nombreusuario"> Nombre: </Label>
 
           <Input
             type="text"
