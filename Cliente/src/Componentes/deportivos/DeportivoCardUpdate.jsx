@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button, ButtonDelete, Card, Card_cancha_mod, Label, Input, Select, Checkbox } from "../UI";
 import { usarDeportivo } from "../../Contexto/deportivoContexto";
+import { usarUsuario } from "../../Contexto/usuarioContexto";
 import { useNavigate, useParams } from "react-router-dom";
 import { alcaldias, costos, days } from "./listasDesp";
 
 export function DeportivoCard_Update({ Deportivo }) {
+    const { isAuthenticated, Usuario } = usarUsuario();
     const { bajaDepor, modDepor } = usarDeportivo();
     const navigate = useNavigate();
     const { id: paramId } = useParams();
@@ -291,7 +293,13 @@ export function DeportivoCard_Update({ Deportivo }) {
                 ) : (
                     <>
                         <Button onClick={handleEdit}>Editar</Button>
-                        <ButtonDelete onClick={handleDelete}>Eliminar</ButtonDelete>
+                        {isAuthenticated ? (
+                            <>
+                                {Usuario.nivelPermiso == 5 && (
+                                    <ButtonDelete onClick={handleDelete}>Eliminar</ButtonDelete>
+                                )}
+                            </>
+                        ) : (<> </>)}
                     </>
                 )}
             </div>

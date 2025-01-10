@@ -85,9 +85,11 @@ export function ParqueCard({ Deportivo }) {
       <div className="flex gap-x-2 items-center">
         {isAuthenticated ? (
           <>
-            {Usuario.nivelPermiso == 5 && (
+            {(Usuario.nivelPermiso === 5 || Usuario.nivelPermiso === 4) && (
               <>
-                <ButtonLink to={`/EspDepUpdate/${Deportivo._id}`}> Actualizar espacio deportivo </ButtonLink>
+                <ButtonLink to={`/EspDepUpdate/${Deportivo._id}`}>
+                  Actualizar espacio deportivo
+                </ButtonLink>
               </>
             )}
             <ButtonLink to={`/deportivos/${Deportivo._id}`}> Visualizar </ButtonLink>
