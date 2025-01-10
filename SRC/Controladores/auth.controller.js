@@ -478,4 +478,43 @@ const eliminarReferenciasUsuario = async (userId) => {
         console.error("Error al eliminar referencias de usuario:", error);
     }
 };
+/*Registrar representante de espacio */
+export const RegistrarRep = async (req, res) => {
+    try {
+        const { nombreusuario, username, email, password } = req.body;
 
+        // Verificar si el correo ya está registrado
+        const usuarioExistente = await Usuario.findOne({ email });
+        if (usuarioExistente) {
+            return res.status(400).json({ message: ["Este correo ya está en uso"] });
+        }
+
+        // Encriptar la contraseña
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Crear un nuevo usuario con nivelPermiso 4
+        const nuevoUsuario = new Usuario({
+            nombreusuario,
+            username,
+            email,
+            password: hashedPassword,
+            nivelPermiso: 4,
+        });
+
+        // Guardar el usuario en la base de datos
+        const usuarioGuardado = await nuevoUsuario.save();
+
+        // Devolver los detalles del usuario registrado 
+        res.json({
+            id: usuarioGuardado._id,
+            nombreusuario: usuarioGuardado.nombreusuario,
+            username: usuarioGuardado.username,
+            email: usuarioGuardado.email,
+            nivelPermiso: usuarioGuardado.nivelPermiso,
+        });
+
+    } catch (error) {
+        console.error("Error al registrar usuario:", error);
+        res.status(500).json({ message: error.message });
+    }
+};

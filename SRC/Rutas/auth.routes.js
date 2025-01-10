@@ -19,9 +19,7 @@ import {
     eliminarAmigo,
     actualizarPerfil,
     eliminarCuenta,
-    /*
-    UpdateProfile,
-    DeleteProfile*/
+    RegistrarRep,
 
 } from '../Controladores/auth.controller.js';
 
@@ -68,7 +66,7 @@ router.post('/eliminarAmigo', Usuario, eliminarAmigo);
 router.put('/actualizarPerfil', Usuario, actualizarPerfil);
 //Delete para eliminar cuenta
 router.delete("/eliminarCuenta", Usuario, eliminarCuenta);
-
-
+//Post para registrar representante
+router.post('/RegistrarRep', validarEsquema(SignInUpEsquema), RegistrarRep);
 
 export default router;

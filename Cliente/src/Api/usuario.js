@@ -36,7 +36,8 @@ export const eliminarCuentaRequest = async (data) => {
         throw error;
     }
 };
-
+//Request para registrar representante
+export const RegistrarRepRequest = async (Usuario) => axios.post("/usuario/RegistrarRep", Usuario);
 
 
 

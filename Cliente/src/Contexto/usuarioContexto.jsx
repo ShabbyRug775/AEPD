@@ -1,7 +1,7 @@
 // Rutas de react, api y cookies
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
-import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest, consulsUsuariosRequest } from "../Api/usuario";
+import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest, consulsUsuariosRequest, RegistrarRepRequest } from "../Api/usuario";
 import Cookies from "js-cookie";
 
 // Se crea un contexto de react
@@ -42,6 +42,19 @@ export const UsuarioProvider = ({ children }) => {
       if (res.status === 200) {
         setUser(res.data);
         setIsAuthenticated(true);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      setErrors(error.response.data.message);
+    }
+  };
+
+  // Alta de usuario nivel 4
+  const RegistrarRep = async (Usuario) => {
+    try {
+      const res = await RegistrarRepRequest(Usuario);
+      if (res.status === 200) {
+        setUser(res.data);
       }
     } catch (error) {
       console.log(error.response.data);
@@ -121,6 +134,7 @@ export const UsuarioProvider = ({ children }) => {
       value={{
         Usuario,
         SignInUp,
+        RegistrarRep,
         LogIn,
         LogOut,
         isAuthenticated,
