@@ -46,6 +46,7 @@ export function Profile() {
                 password: formulario.password,
             });
             alert("Perfil actualizado con éxito.");
+            window.location.reload(); // Refresca la página
             setEditando(false);
         } catch (error) {
             console.log("Error al actualizar perfil:", error);

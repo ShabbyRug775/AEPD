@@ -1,9 +1,11 @@
 import { Button, Card } from "../UI";
 
-export function AceptarCard({ usuarios, onAceptar }) {
+export function AceptarCard({ usuarios, onAceptar, onRechazar }) {
     const handleAceptarClick = () => {
         if (onAceptar) {
             onAceptar();
+        } else if (onRechazar) {
+            onRechazar();
         }
         window.location.reload(); // Recarga la página
     };
