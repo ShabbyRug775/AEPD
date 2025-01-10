@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AceptarCard } from "../Componentes/usuarios/AceptarCard";
-import { obtenerSolicitudesRecibidasRequest, aceptarSolicitudRequest } from "../Api/usuario";
+import { obtenerSolicitudesRecibidasRequest, aceptarSolicitudRequest, rechazarSolicitudRequest } from "../Api/usuario";
 
 export function SolicitudesAmistad() {
     const [solicitudes, setSolicitudes] = useState([]);
@@ -18,15 +18,24 @@ export function SolicitudesAmistad() {
         cargarSolicitudes();
     }, []);
 
-    const aceptarSolicitud = async (solicitudId) => {
+    async function aceptarSolicitud(idUsuarioEmisor) {
         try {
-            await aceptarSolicitudRequest(solicitudId);
-            setSolicitudes(prevSolicitudes => prevSolicitudes.filter(solicitud => solicitud.ID !== solicitudId));
-            alert("Solicitud aceptada");
+            await aceptarSolicitudRequest(idUsuarioEmisor);
+            setSolicitudes(solicitudes.filter(solicitud => solicitud._id !== idUsuarioEmisor));
         } catch (error) {
-            console.log("Error al aceptar solicitud de amistad:", error);
+            console.error("Error al aceptar solicitud:", error);
         }
-    };
+    }
+
+    async function rechazarSolicitud(idUsuarioEmisor) {
+        try {
+            await rechazarSolicitudRequest(idUsuarioEmisor);
+            setSolicitudes(solicitudes.filter(solicitud => solicitud._id !== idUsuarioEmisor));
+        } catch (error) {
+            console.error("Error al rechazar solicitud:", error);
+        }
+    }
+
 
     return (
         <div className="bg-lime-50 p-10 mt-20">
@@ -38,10 +47,12 @@ export function SolicitudesAmistad() {
                     solicitudes.map((solicitud) => (
                         <AceptarCard
                             usuarios={solicitud}
-                            key={solicitud.ID}
-                            onAceptar={() => aceptarSolicitud(solicitud.ID)}
+                            key={solicitud._id} // Cambiar si es necesario
+                            onAceptar={() => aceptarSolicitud(solicitud._id)}
+                            onRechazar={() => rechazarSolicitud(solicitud._id)}
                         />
                     ))
+
                 )}
             </div>
         </div>

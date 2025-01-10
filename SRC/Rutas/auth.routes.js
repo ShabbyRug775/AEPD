@@ -14,7 +14,10 @@ import {
     enviarSolicitudAmistad,
     obtenerSolicitudesRecibidas,
     aceptarSolicitudAmistad,
+    rechazarSolicitudAmistad,
     obtenerAmigos,
+    eliminarAmigo,
+    actualizarPerfil,
     /*
     UpdateProfile,
     DeleteProfile*/
@@ -54,9 +57,14 @@ router.post("/solicitud", Usuario, enviarSolicitudAmistad);
 router.get('/solicitudesRecibidas', Usuario, obtenerSolicitudesRecibidas);
 //Post para aceptar solicitudes de amistad (agregar amigo)
 router.post('/aceptarSolicitud', Usuario, aceptarSolicitudAmistad);
+//Post para rechazar solicitudes de amistad
+router.post('/rechazarSolicitud', Usuario, rechazarSolicitudAmistad);
 //Get para obtener todos los amigos de un usuario
 router.get('/amigos', Usuario, obtenerAmigos);
-
+//Post para eliminar un amigo
+router.post('/eliminarAmigo', Usuario, eliminarAmigo);
+//Put para actualizar perfil
+router.put('/actualizarPerfil', Usuario, actualizarPerfil);
 
 
 export default router;

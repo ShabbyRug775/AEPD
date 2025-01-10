@@ -25,6 +25,11 @@ export function AceptarCard({ usuarios, onAceptar }) {
                         Aceptar Solicitud
                     </Button>
                 )}
+                {onRechazar && (
+                    <Button onClick={onRechazar} className="px-3 py-1 bg-red-500 text-white rounded-md">
+                        Rechazar Solicitud
+                    </Button>
+                )}
             </div>
         </Card>
     );

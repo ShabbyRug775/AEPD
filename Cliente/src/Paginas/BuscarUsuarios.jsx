@@ -67,7 +67,6 @@ export function BuscarUsuarios() {
         applyFilters();
     }, [filters.search, usuarios]);
 
-
     // Calcular los índices de los elementos a mostrar
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

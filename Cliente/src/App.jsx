@@ -23,7 +23,7 @@ import { LogInPage } from "./Paginas/LogInPage";
 import { Profile } from './Paginas/Profile';
 //Ruta Buscar Usuario
 import { BuscarUsuarios } from './Paginas/BuscarUsuarios';
-//Ruta Aceptar Amigo
+//Ruta Ver solicitudes de Amigos
 import { SolicitudesAmistad } from './Paginas/SolicitudesAmistad';
 //Ruta Ver Amigos
 import { VerAmigos } from './Paginas/VerAmigos';
