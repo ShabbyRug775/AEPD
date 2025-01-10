@@ -32,6 +32,7 @@ export function VerAmigos() {
             await eliminarAmigoRequest(amigoId);
             setAmigos((prevAmigos) => prevAmigos.filter((amigo) => amigo._id !== amigoId));
             alert("Amigo eliminado correctamente");
+            window.location.reload();
         } catch (error) {
             console.log("Error al eliminar amigo:", error);
         }

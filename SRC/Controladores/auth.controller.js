@@ -255,6 +255,7 @@ export const enviarSolicitudAmistad = async (req, res) => {
         await usuarioReceptor.save();
 
         return res.status(200).json({ message: "Solicitud de amistad enviada" });
+
     } catch (error) {
         console.error("Error al enviar solicitud de amistad:", error);
         return res.status(500).json({ message: error.message });
@@ -379,7 +380,7 @@ export const obtenerAmigos = async (req, res) => {
 
 /* Eliminar amigo de lista de amigos */
 export const eliminarAmigo = async (req, res) => {
-    const { amigoId } = req.body; // El ID del amigo a eliminar
+    const { amigoId } = req.body;
     const usuarioId = req.Usuario.id;
     console.log('amigoId recibido:', amigoId);
 
@@ -404,7 +405,7 @@ export const eliminarAmigo = async (req, res) => {
 /*Editar datos del usuario*/
 export const actualizarPerfil = async (req, res) => {
     try {
-        const userId = req.Usuario.id; // ID del usuario autenticado
+        const userId = req.Usuario.id;
         const { nombreusuario, username, password } = req.body;
 
         // Buscar al usuario en la base de datos por su ID
@@ -424,13 +425,57 @@ export const actualizarPerfil = async (req, res) => {
         usuario.nombreusuario = nombreusuario || usuario.nombreusuario;
         usuario.username = username || usuario.username;
 
-        // Guardar los cambios en la base de datos
         await usuario.save();
 
         return res.status(200).json({ message: "Perfil actualizado correctamente." });
     } catch (error) {
         console.error("Error al actualizar perfil:", error);
         return res.status(500).json({ message: error.message });
+    }
+};
+
+/*Eliminar cuenta */
+export const eliminarCuenta = async (req, res) => {
+    try {
+        const userId = req.Usuario.id;
+        const { password } = req.body;
+
+        // Buscar al usuario en la base de datos por su ID
+        const usuario = await Usuario.findById(userId);
+        if (!usuario) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+
+        // Comparar la contraseña proporcionada con la almacenada
+        const passwordValida = await bcrypt.compare(password, usuario.password);
+        if (!passwordValida) {
+            return res.status(401).json({ message: "Contraseña incorrecta." });
+        }
+
+        // Eliminar el usuario de la base de datos
+        await Usuario.findByIdAndDelete(userId);
+
+        // Limpiar la ID de amigos, solEnviadas, solRecibidas
+        await eliminarReferenciasUsuario(userId);
+
+        return res.status(200).json({ message: "Cuenta eliminada correctamente." });
+    } catch (error) {
+        console.error("Error al eliminar cuenta:", error);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+/* Eliminar usuario de la faz de la tierra */
+const eliminarReferenciasUsuario = async (userId) => {
+    try {
+        // Eliminar el usuario de las solicitudes enviadas y recibidas
+        await Solicitudes.deleteMany({ $or: [{ usuarioEmisor: userId }, { usuarioReceptor: userId }] });
+
+        // Eliminar el usuario de los amigos
+        await Amigos.deleteMany({ $or: [{ usuario1: userId }, { usuario2: userId }] });
+
+    } catch (error) {
+        console.error("Error al eliminar referencias de usuario:", error);
     }
 };
 

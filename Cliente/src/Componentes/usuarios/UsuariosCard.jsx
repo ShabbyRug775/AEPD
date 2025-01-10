@@ -6,7 +6,7 @@ export function UsuarioCard({ usuarios }) {
         try {
             await enviarSolicitudAmistadRequest(usuarios._id);
             alert("Solicitud enviada");
-
+            window.location.reload();
         } catch (error) {
             console.error("Error al enviar la solicitud de amistad:", error);
             alert("Error al enviar la solicitud");

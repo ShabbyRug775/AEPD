@@ -22,6 +22,7 @@ export function SolicitudesAmistad() {
         try {
             await aceptarSolicitudRequest(idUsuarioEmisor);
             setSolicitudes(solicitudes.filter(solicitud => solicitud._id !== idUsuarioEmisor));
+            window.location.reload();
         } catch (error) {
             console.error("Error al aceptar solicitud:", error);
         }

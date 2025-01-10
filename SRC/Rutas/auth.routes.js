@@ -18,6 +18,7 @@ import {
     obtenerAmigos,
     eliminarAmigo,
     actualizarPerfil,
+    eliminarCuenta,
     /*
     UpdateProfile,
     DeleteProfile*/
@@ -65,6 +66,9 @@ router.get('/amigos', Usuario, obtenerAmigos);
 router.post('/eliminarAmigo', Usuario, eliminarAmigo);
 //Put para actualizar perfil
 router.put('/actualizarPerfil', Usuario, actualizarPerfil);
+//Delete para eliminar cuenta
+router.delete("/eliminarCuenta", Usuario, eliminarCuenta);
+
 
 
 export default router;

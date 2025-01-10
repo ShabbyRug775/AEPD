@@ -39,6 +39,7 @@ import EspDepAdd from "./Paginas/EspDepAdd";
 import { Mapa } from "./Paginas/Mapa";
 // Ruta lista de espacios deportivos (hay que quitarlo a futuro)
 import EspDepList from "./Paginas/EspDepList"; // Recordatorio de verificar si funciona
+import { EliminarCuenta } from './Paginas/EliminarCuenta';
 
 
 //Creamos las rutas en la funcion
@@ -66,6 +67,7 @@ function App() {
                                     <Route path="/EspDepAdd" element={<EspDepAdd />} />
                                     <Route path='/SolicitudesAmistad' element={<SolicitudesAmistad />} />
                                     <Route path='/VerAmigos' element={<VerAmigos />} />
+                                    <Route path="/EliminarCuenta" element={<EliminarCuenta />} />
                                 </Route>
                             </Routes>
                             <Footer />
