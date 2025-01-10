@@ -49,10 +49,15 @@ function HomePage() {
                     <ul className="lg:flex lg:flex-wrap lg:items-center lg:justify-between py-5">
                         {categoriaDeportivos.enlaces.map((enlace) => (
                             <li
-                                className="border border-lime-900 rounded-lg bg-lime-900 text-lime-50 text-xl m-2 p-2 hover:bg-lime-100 hover:text-lime-900"
+                                className="m-2"
                                 key={enlace.to}
                             >
-                                <Link to={enlace.to}>{enlace.label}</Link>
+                                <Link
+                                    to={enlace.to}
+                                    className="block border border-lime-900 rounded-lg bg-lime-900 text-lime-50 text-xl p-4 hover:bg-lime-100 hover:text-lime-900 text-center"
+                                >
+                                    {enlace.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -73,10 +78,15 @@ function HomePage() {
                                 .filter((enlace) => Usuario.nivelPermiso >= enlace.nivelMinimo)
                                 .map((enlace) => (
                                     <li
-                                        className="border border-lime-900 rounded-lg bg-lime-900 text-lime-50 text-xl m-2 p-2 hover:bg-lime-100 hover:text-lime-900 w-full text-center"
+                                        className="w-full"
                                         key={enlace.to}
                                     >
-                                        <Link to={enlace.to}>{enlace.label}</Link>
+                                        <Link
+                                            to={enlace.to}
+                                            className="block border border-lime-900 rounded-lg bg-lime-900 text-lime-50 text-xl p-4 hover:bg-lime-100 hover:text-lime-900 text-center"
+                                        >
+                                            {enlace.label}
+                                        </Link>
                                     </li>
                                 ))}
                         </ul>
