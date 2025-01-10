@@ -44,27 +44,18 @@ const userSchema = new mongoose.Schema(
         solEnviadas: [
             {
                 ID: { type: String, trim: true },
-                nombreusuario: { type: String, trim: true },
-                username: { type: String, trim: true },
-                email: { type: String, trim: true },
             },
         ],
 
         solRecibidas: [
             {
                 ID: { type: String, trim: true },
-                nombreusuario: { type: String, trim: true },
-                username: { type: String, trim: true },
-                email: { type: String, trim: true },
             },
         ],
 
         amigos: [
             {
                 ID: { type: String, trim: true },
-                nombreusuario: { type: String, trim: true },
-                username: { type: String, trim: true },
-                email: { type: String, trim: true },
             },
         ],
     },

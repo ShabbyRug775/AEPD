@@ -1,6 +1,6 @@
 import { Button, Card } from "../UI";
 
-export function AceptarCard({ usuarios, onAceptar }) {
+export function AceptarCard({ usuarios, onAceptar, onRechazar }) {
     return (
         <Card>
             <header className="flex justify-between">
@@ -12,6 +12,11 @@ export function AceptarCard({ usuarios, onAceptar }) {
                 {onAceptar && (
                     <Button onClick={onAceptar} className="px-3 py-1 bg-lime-500 text-white rounded-md">
                         Aceptar Solicitud
+                    </Button>
+                )}
+                {onRechazar && (
+                    <Button onClick={onRechazar} className="px-3 py-1 bg-red-500 text-white rounded-md">
+                        Rechazar Solicitud
                     </Button>
                 )}
             </div>

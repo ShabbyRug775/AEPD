@@ -15,7 +15,16 @@ export const consulsUsuariosRequest = async () => axios.get("/usuario/consulsUsu
 export const enviarSolicitudAmistadRequest = async (idUsuarioReceptor) => axios.post("/usuario/solicitud", { idUsuarioReceptor });
 //Request de obtener solicitudes recibidas
 export const obtenerSolicitudesRecibidasRequest = async () => axios.get("/usuario/solicitudesRecibidas");
-//Request de aceptar sol amistad
-export const aceptarSolicitudRequest = async (solicitudId) => axios.post("/usuario/aceptarSolicitud", { solicitudId });
+//Request para aceptar solicitud
+export const aceptarSolicitudRequest = async (idUsuarioEmisor) => axios.post("/usuario/aceptarSolicitud", { idUsuarioEmisor });
+//Request para rechazar solicitud
+export const rechazarSolicitudRequest = async (idUsuarioEmisor) => axios.post("/usuario/rechazarSolicitud", { idUsuarioEmisor });
 //Request para obtener amigos de un usuario
 export const obtenerAmigosRequest = async () => axios.get("/usuario/amigos");
+//Request para eliminar un amigo
+export const eliminarAmigoRequest = async (amigoId) => axios.post("/usuario/eliminarAmigo", { amigoId });
+//Request para actualizar perfil
+export const actualizarPerfilRequest = async (datos) => axios.put("/usuario/actualizarPerfil", datos);
+
+
+
