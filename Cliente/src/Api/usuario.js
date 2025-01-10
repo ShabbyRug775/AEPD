@@ -25,6 +25,20 @@ export const obtenerAmigosRequest = async () => axios.get("/usuario/amigos");
 export const eliminarAmigoRequest = async (amigoId) => axios.post("/usuario/eliminarAmigo", { amigoId });
 //Request para actualizar perfil
 export const actualizarPerfilRequest = async (datos) => axios.put("/usuario/actualizarPerfil", datos);
+//Request para eliminar cuenta
+export const eliminarCuentaRequest = async (data) => {
+    try {
+        const res = await axios.delete("/usuario/eliminarCuenta", {
+            data, // Enviar ID y contraseña
+        });
+        return res.data;
+    } catch (error) {
+        throw error;
+    }
+};
+//Request para registrar representante
+export const RegistrarRepRequest = async (Usuario) => axios.post("/usuario/RegistrarRep", Usuario);
+
 
 
 

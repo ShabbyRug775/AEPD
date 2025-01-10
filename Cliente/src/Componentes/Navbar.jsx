@@ -61,11 +61,11 @@ export function Navbar() {
                   <ButtonLink to="/Profile"> Perfil </ButtonLink>
                 </li>
               )}
-              {/*Usuario.nivelPermiso >= 0 && (
+              {Usuario.nivelPermiso >= 5 && (
                 <li>
-                  <ButtonLink to="/Solamistad"> Amigos </ButtonLink>
+                  <ButtonLink to="/RegistrarRep"> Registrar Representante </ButtonLink>
                 </li>
-              )*/}
+              )}
               <li>
                 <Link to="/" onClick={() => LogOut()}>
                   Cerrar sesión

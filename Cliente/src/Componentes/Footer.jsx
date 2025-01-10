@@ -37,6 +37,9 @@ export function Footer() {
                                 <li>
                                     <Link to="/EspDepAdd"> Agregar espacios deportivos </Link>
                                 </li>
+                                <li>
+                                    <Link to="/RegistrarRep"> Registrar Representante </Link>
+                                </li>
                             </>
                         )}
                     </>

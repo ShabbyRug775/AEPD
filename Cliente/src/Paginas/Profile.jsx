@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Input, Card, Label, Button } from "../Componentes/UI";
 import { ProfileRequest, actualizarPerfilRequest } from "../Api/usuario";
 
@@ -10,6 +11,7 @@ export function Profile() {
         password: "",
     });
     const [editando, setEditando] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function cargarPerfil() {
@@ -48,6 +50,7 @@ export function Profile() {
             alert("Perfil actualizado con éxito.");
             window.location.reload(); // Refresca la página
             setEditando(false);
+            window.location.reload();
         } catch (error) {
             console.log("Error al actualizar perfil:", error);
             alert("Error al actualizar perfil. Verifica tu contraseña.");
@@ -110,13 +113,22 @@ export function Profile() {
                                 </Button>
                             </>
                         ) : (
-                            <Button
-                                type="button"
-                                className="bg-lime-500 text-white"
-                                onClick={() => setEditando(true)}
-                            >
-                                Editar Perfil
-                            </Button>
+                            <>
+                                <Button
+                                    type="button"
+                                    className="bg-lime-500 text-white"
+                                    onClick={() => setEditando(true)}
+                                >
+                                    Editar Perfil
+                                </Button>
+                                <Button
+                                    type="button"
+                                    className="bg-red-500 text-white"
+                                    onClick={() => navigate("/EliminarCuenta")}
+                                >
+                                    Eliminar Cuenta
+                                </Button>
+                            </>
                         )}
                     </div>
                 </form>
@@ -124,4 +136,3 @@ export function Profile() {
         </div>
     );
 }
-
