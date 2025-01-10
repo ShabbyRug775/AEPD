@@ -7,31 +7,33 @@ const deportivoSchema = mongoose.Schema(
     // Nombre del espacio deportivo
     nombre: {
       type: String,
-      required: true,
+      required: true
     },
     // Ubicación geográfica del espacio deportivo
     ubicacionGeografica: {
       latitud: {
         type: Number,
         required: true,
+        default: 1  // Valor por defecto si no se proporciona
       },
       longitud: {
         type: Number,
         required: true,
+        default: 1  // Valor por defecto si no se proporciona
       },
-    },
+    },    
     // Dirección del espacio deportivo
     direccion: {
       type: String,
-      required: true,
+      required: true
     },
     // Alcaldía del espacio deportivo
     alcaldia: {
       type: String,
-      required: true,
+      required: true
     },
     // Foto principal del espacio deportivo
-    fotoPrincipal: {
+    /*fotoPrincipal: {
       type: String,
       default: "",
     },
@@ -39,16 +41,11 @@ const deportivoSchema = mongoose.Schema(
     fotosSecundarias: {
       type: [String],
       default: ["", ""],
-    },
-    // Fecha de registro
-    fechaDeRegistro: {
-      type: String,
-      default: "2024-01-01",
-    },
+    },*/  
     // Tipo de espacio deportivo
     tipoDeEspacio: {
       type: String,
-      required: true,
+      required: true
     },
     // Servicios disponibles
     servicios: {
@@ -59,48 +56,56 @@ const deportivoSchema = mongoose.Schema(
     // Número de puertas de entrada
     puertasDeEntrada: {
       type: Number,
-      default: 1,
+      default: 1
     },
     // Acepta mascotas
     aceptaMascotas: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // Horarios de operación
     horario: {
       lunes: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       martes: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       miércoles: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       jueves: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       viernes: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       sábado: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
       domingo: {
         type: String,
-        default: "",
+        default: "06:00 - 20:00",
+        required: true
       },
     },
     // Costo del uso del espacio deportivo
     costo: {
       type: String,
-      default: "Gratis",
+      default: "gratuito",
+      required: true
     },
     // Información sobre las canchas disponibles
     canchas: [
@@ -113,20 +118,20 @@ const deportivoSchema = mongoose.Schema(
         },
         tipodesuelo: { type: String, default: "" },
         senalamientos: { type: String, default: "" },
-        equipamiento: { type: [String], default: [] },
+        equipamiento: { type: String, default: "" },
         iluminacion: { type: Boolean, default: false },
         techado: { type: Boolean, default: false },
         gradas: { type: Boolean, default: false },
         baños: { type: Boolean, default: false },
         vestidores: { type: Boolean, default: false },
         ubicacionGeografica: {
-          latitud: { type: Number, default: 0 },
-          longitud: { type: Number, default: 0 },
-        },
-      },
-    ],
+          latitud: { type: Number, default: 1 },
+          longitud: { type: Number, default: 1 },
+        }
+      }
+    ]
     // Información sobre negocios en el espacio deportivo
-    negocios: [
+    /*negocios: [
       {
         nombre: { type: String, default: "" },
         dueno: { type: String, default: "" },
@@ -181,7 +186,7 @@ const deportivoSchema = mongoose.Schema(
           indicaciones: { type: [String], default: [""] },
         },
       },
-    ],
+    ],*/
   },
   {
     // Agrega automáticamente `createdAt` y `updatedAt`

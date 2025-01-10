@@ -45,24 +45,24 @@ export const altaDeport = async (req, res) => {
     // Constantes para guardar los datos del deportivo
     const { nombre, ubicacionGeografica, direccion, alcaldia,
       tipoDeEspacio, servicios, puertasDeEntrada, aceptaMascotas,
-      horario, costo } = req.body;
+      horario, costo, canchas } = req.body;
 
     // Creación de nuevo deportivo con los campos básicos y arrays vacíos 
     // para canchas, negocios, cursos y torneos, y partidas
     const nuevoDep = new Deportivo({
       nombre,
-      ubicacionGeografica: [],
+      ubicacionGeografica,
       direccion,
       alcaldia,
-      fotoPrincipal: [],
-      fotosSecundarias: [],
+      fotoPrincipal: [], // Array vacío
+      fotosSecundarias: [], // Array vacío
       tipoDeEspacio,
       servicios,
       puertasDeEntrada,
       aceptaMascotas,
       horario,
       costo,
-      canchas: [], // Array vacío
+      canchas,
       negocios: [], // Array vacío
       cursosYTorneos: [], // Array vacío
       partidas: [] // Array vacío
@@ -110,7 +110,7 @@ export const modDeport = async (req, res) => {
     // Constantes para actualizar el deportivo
     const { nombre, ubicacionGeografica, direccion, alcaldia, 
       tipoDeEspacio, servicios, puertasDeEntrada, aceptaMascotas, 
-      horario, costo } = req.body;
+      horario, costo, canchas } = req.body;
 
     // Busca y actualiza el deportivo
     const modDep = await Deportivo.findOneAndUpdate(
@@ -126,7 +126,7 @@ export const modDeport = async (req, res) => {
         aceptaMascotas,
         horario,
         costo,
-        canchas: [], // Array vacío
+        canchas,
         negocios: [], // Array vacío
         cursosYTorneos: [], // Array vacío
         partidas: [] // Array vacío

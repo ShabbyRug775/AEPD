@@ -117,7 +117,7 @@ export function DeportivoCard_idv({ Deportivo }) {
                 <p>Gradas: {cancha.gradas ? "Sí" : "No"}</p>
                 <p>Baños: {cancha.baños ? "Sí" : "No"}</p>
                 <p>Vestidores: {cancha.vestidores ? "Sí" : "No"}</p>
-                <button className="bg-lime-800 mt-2 bg-blue-500 text-white py-1 px-2 rounded">Agregar un evento</button>
+                <button className="bg-lime-800 mt-2 text-white py-1 px-2 rounded">Agregar un evento</button>
               </div>
             );
           }
