@@ -104,7 +104,7 @@ export function Navbar() {
                 <ButtonLink to="/Profile"> Perfil </ButtonLink>
               </li>
             )}
-            <li>
+            <li className=" hover:font-semibold hover:text-lime-100">
               <Link to="/" onClick={() => LogOut()}>
                 Cerrar sesión
               </Link>

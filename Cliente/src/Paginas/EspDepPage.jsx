@@ -113,21 +113,21 @@ export function EspDepPage() {
   const totalPages = Math.ceil(filteredDeportivos.length / itemsPerPage);
 
   return (
-    <div className="bg-lime-50 p-10 mt-20">
+    <div className="bg-lime-100 p-5 mt-20">
       <div className="mb-5">
-        <h2 className="text-xl font-bold text-lime-900">Filtrar Espacios Deportivos</h2>
+        <h2 className="text-2xl my-5 font-bold text-lime-900">Filtrar Espacios Deportivos</h2>
         <div className="flex flex-col md:flex-row gap-4">
           <Input
             type="text"
             placeholder="Nombre"
             value={filters.nombre}
             onChange={(e) => setFilters({ ...filters, nombre: e.target.value })}
-            className="border border-lime-500 p-2 rounded-md bg-lime-100"
+            className="p-2 rounded-md bg-lime-100"
           />
           <Select
             value={filters.alcaldia}
             onChange={(e) => setFilters({ ...filters, alcaldia: e.target.value })}
-            className="border border-gray-300 p-2"
+            className="p-2"
           >
             <option value="">Seleccione Alcaldía</option>
             {alcaldias.map((alcaldia, index) => (
@@ -137,7 +137,7 @@ export function EspDepPage() {
           <Select
             value={filters.deporte}
             onChange={(e) => setFilters({ ...filters, deporte: e.target.value })}
-            className="border border-gray-300 p-2"
+            className="p-2"
           >
             <option value="">Seleccione Deporte</option>
             {deportes.map((deporte, index) => (
@@ -158,6 +158,7 @@ export function EspDepPage() {
             label="Tiene Gradas"
             checked={filters.gradas}
             onChange={(e) => setFilters({ ...filters, gradas: e.target.checked })}
+            className="bg-lime-900"
           />
           <Input
             type="text"
@@ -197,7 +198,7 @@ export function EspDepPage() {
           <button
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            className="mx-1 px-3 py-1 bg-lime-900 text-white rounded-md disabled:opacity-50"
+            className="mx-1 px-3 py-1 bg-lime-900 text-white rounded-md disabled:opacity-50 hover:bg-lime-500"
           >
             Anterior
           </button>
@@ -205,7 +206,7 @@ export function EspDepPage() {
             <button
               key={index}
               onClick={() => paginate(index + 1)}
-              className={`mx-1 px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-lime-700 text-white' : 'bg-lime-200'}`}
+              className={`mx-1 px-3 py-1 rounded-md hover:bg-lime-500 ${currentPage === index + 1 ? 'bg-lime-700 text-white' : 'bg-lime-200'}`}
             >
               {index + 1}
             </button>
@@ -213,7 +214,7 @@ export function EspDepPage() {
           <button
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="mx-1 px-3 py-1 bg-lime-900 text-white rounded-md disabled:opacity-50"
+            className="mx-1 px-3 py-1 bg-lime-900 text-white rounded-md disabled:opacity-50 hover:bg-lime-500"
           >
             Siguiente
           </button>

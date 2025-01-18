@@ -54,7 +54,7 @@ export function DeportivoCardCancha({ Deportivo }) {
         <button
           key={i}
           onClick={() => irAPagina(i)}
-          className={`text-lg py-2 px-4 rounded ${paginaActual === i ? "bg-lime-900 text-white" : "bg-lime-100 text-lime-900"}`}
+          className={`text-lg py-2 px-4 rounded hover:bg-lime-500 ${paginaActual === i ? "bg-lime-900 text-white" : "bg-lime-100 text-lime-900"}`}
         >
           {i + 1}
         </button>
@@ -98,8 +98,8 @@ export function DeportivoCardCancha({ Deportivo }) {
             </p>
             <p className="text-lime-950 font-semibold text-xl my-1">
               Dimensiones: <span className="font-normal">
-                Largo: {canchasParaMostrar[0].medidas.largo} m <br />
-                Ancho: {canchasParaMostrar[0].medidas.ancho} m
+                Largo: {canchasParaMostrar[0].medidas.largo} m (metros)<br />
+                Ancho: {canchasParaMostrar[0].medidas.ancho} m (metros)
               </span>
             </p>
             <p className="text-lime-950 font-semibold text-xl my-1">
@@ -116,7 +116,7 @@ export function DeportivoCardCancha({ Deportivo }) {
           <div className="flex justify-center gap-2 mt-4">
             <button
               onClick={irAPaginaAnterior}
-              className="py-2 px-4 rounded bg-lime-100 text-lime-900 disabled:opacity-50"
+              className="py-2 px-4 rounded bg-lime-100 text-lime-900 disabled:opacity-50 hover:bg-lime-900 hover:text-lime-100"
               disabled={paginaActual === 0}
             >
               Anterior
@@ -124,7 +124,7 @@ export function DeportivoCardCancha({ Deportivo }) {
             {renderPaginas()}
             <button
               onClick={irAPaginaSiguiente}
-              className="py-2 px-4 rounded bg-lime-100 text-lime-900 disabled:opacity-50"
+              className="py-2 px-4 rounded bg-lime-100 text-lime-900 disabled:opacity-50 hover:bg-lime-900 hover:text-lime-100"
               disabled={paginaActual === totalPaginas - 1}
             >
               Siguiente

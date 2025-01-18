@@ -9,35 +9,35 @@ export function Footer() {
             <ul className="flex flex-col md:flex-row gap-x-2 justify-center items-center">
                 {isAuthenticated ? (
                     <>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/HomePage"> Inicio </Link>
                         </li>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/deportivos"> Deportivos </Link>
                         </li>
                         {/* Agregar nivel necesario para que el usuario visuzalice esa página de acuerdo con su nivel de usauario */}
                         {Usuario.nivelPermiso >= 0 && (
                             <>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/Profile"> Perfil </Link>
                                 </li>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/BuscarUsuarios"> Buscar amigos </Link>
                                 </li>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/SolicitudesAmistad"> Ver Solicitudes </Link>
                                 </li>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/VerAmigos"> Ver Amigos </Link>
                                 </li>
                             </>
                         )}
                         {Usuario.nivelPermiso == 5 && (
                             <>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/EspDepAdd"> Agregar espacios deportivos </Link>
                                 </li>
-                                <li>
+                                <li className="hover:text-lime-200 hover:font-semibold">
                                     <Link to="/RegistrarRep"> Registrar Representante </Link>
                                 </li>
                             </>
@@ -45,16 +45,16 @@ export function Footer() {
                     </>
                 ) : (
                     <>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/HomePage"> Inicio </Link>
                         </li>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/deportivos"> Deportivos </Link>
                         </li>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/LogInPage"> Iniciar sesión </Link>
                         </li>
-                        <li>
+                        <li className="hover:text-lime-200 hover:font-semibold">
                             <Link to="/SignInUpPage"> Registrarse </Link>
                         </li>
                     </>
