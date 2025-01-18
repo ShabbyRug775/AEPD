@@ -6,38 +6,38 @@ export function DeportivoCard_idv({ Deportivo }) {
 
   return (
     <Card>
-      <header className="flex justify-between">
-        <h1 className="text-2xl font-bold">{Deportivo.nombre}</h1>
+      <header className="flex justify-center my-5">
+        <h1 className="text-5xl font-bold">{Deportivo.nombre}</h1>
       </header>
       <br />
-      <p className="text-lime-950">Dirección: {Deportivo.direccion}</p>
-      <p className="text-lime-950">Alcaldía: {Deportivo.alcaldia}</p>
-      <p className="text-lime-950">Tipo de Espacio: {Deportivo.tipoDeEspacio}</p>
-      <p className="text-lime-950">Costo: {Deportivo.costo}</p>
+      <p className="text-lime-950 font-bold text-xl"> Dirección: <span className="font-normal">{Deportivo.direccion}</span></p>
+      <p className="text-lime-950 font-bold text-xl"> Alcaldía: <span className="font-normal">{Deportivo.alcaldia}</span></p>
+      <p className="text-lime-950 font-bold text-xl"> Tipo de Espacio: <span className="font-normal">{Deportivo.tipoDeEspacio}</span></p>
+      <p className="text-lime-950 font-bold text-xl"> Costo: <span className="font-normal">{Deportivo.costo}</span></p>
 
       {/* Ubicación Geográfica */}
       <section className="mt-4">
-        <h2 className="text-xl font-semibold">Ubicación Geográfica</h2>
-        <p className="text-lime-950">Latitud: {Deportivo.ubicacionGeografica.latitud}</p>
-        <p className="text-lime-950">Longitud: {Deportivo.ubicacionGeografica.longitud}</p>
+        <h2 className="text-2xl font-bold text-lime-600">Ubicación Geográfica</h2>
+        <p className="text-lime-950 font-bold text-xl"> Latitud: <span  className="font-normal"> {Deportivo.ubicacionGeografica.latitud}</span></p>
+        <p className="text-lime-950 font-bold text-xl"> Longitud:<span className="font-normal"> {Deportivo.ubicacionGeografica.longitud}</span></p>
       </section>
 
       {/* Servicios */}
       <section className="mt-4">
-        <h2 className="text-xl font-semibold">Servicios</h2>
-        <p className="text-lime-950">Baños: {Deportivo.servicios.baños ? "Sí" : "No"}</p>
-        <p className="text-lime-950">Comercios: {Deportivo.servicios.comercios ? "Sí" : "No"}</p>
-        <p className="text-lime-950">Vigilancia: {Deportivo.servicios.vigilancia ? "Sí" : "No"}</p>
-        <p className="text-lime-950">Puertas de Entrada: {Deportivo.servicios.puertasDeEntrada}</p>
-        <p className="text-lime-950">Acepta Mascotas: {Deportivo.servicios.aceptaMascotas ? "Sí" : "No"}</p>
+        <h2 className="text-2xl font-bold text-lime-600">Servicios</h2>
+        <p className="text-lime-950 font-bold text-xl"> Baños: <span className="font-normal">{Deportivo.servicios.baños ? "Sí" : "No"}</span></p>
+        <p className="text-lime-950 font-bold text-xl"> Comercios: <span className="font-normal">{Deportivo.servicios.comercios ? "Sí" : "No"}</span></p>
+        <p className="text-lime-950 font-bold text-xl"> Vigilancia: <span className="font-normal">{Deportivo.servicios.vigilancia ? "Sí" : "No"}</span></p>
+        <p className="text-lime-950 font-bold text-xl"> Puertas de Entrada: <span className="font-normal">{Deportivo.servicios.puertasDeEntrada}</span></p>
+        <p className="text-lime-950 font-bold text-xl"> Acepta Mascotas: <span className="font-normal">{Deportivo.servicios.aceptaMascotas ? "Sí" : "No"}</span></p>
       </section>
 
       {/* Horario */}
       <section className="mt-4">
-        <h2 className="text-xl font-semibold">Horario</h2>
-        <p className="text-lime-950">Lunes a Viernes: {Deportivo.horario.lunes}</p>
-        <p className="text-lime-950">Sábado: {Deportivo.horario.sábado}</p>
-        <p className="text-lime-950">Domingo: {Deportivo.horario.domingo}</p>
+        <h2 className="text-2xl font-bold text-lime-600">Horario</h2>
+        <p className="text-lime-950 font-bold text-xl">Lunes a Viernes: <span className="font-normal">{Deportivo.horario.lunes}</span></p>
+        <p className="text-lime-950 font-bold text-xl">Sábado: <span className="font-normal">{Deportivo.horario.sábado}</span></p>
+        <p className="text-lime-950 font-bold text-xl">Domingo: <span className="font-normal">{Deportivo.horario.domingo}</span></p>
       </section>
 
       {/* Fotos */}
@@ -57,22 +57,23 @@ export function DeportivoCard_idv({ Deportivo }) {
 
       {/* Lista de Canchas */}
       <section className="mt-4">
-        <h2 className="text-xl font-semibold">Canchas</h2>
+        <h2 className="text-2xl font-bold text-lime-600">Canchas</h2>
         <ul>
           {Deportivo.canchas.map((cancha, index) => (
             <li key={index} className="text-lime-950">
-              <p>Nombre: {cancha.etiqueta}</p>
-              <p>Deporte: {cancha.deporte}</p>
-              <p>Dimensiones: {cancha.medidas.largo} x {cancha.medidas.ancho}</p>
-              <p>Tipo de Suelo: {cancha.tipodesuelo}</p>
-              <p>Señalamientos: {cancha.senalamientos}</p>
-              <p>Equipamiento: {cancha.equipamiento}</p>
-              <p>Iluminación: {cancha.iluminacion ? 'Sí' : 'No'}</p>
-              <p>Techado: {cancha.techado ? 'Sí' : 'No'}</p>
-              <p>Gradas: {cancha.gradas ? 'Sí' : 'No'}</p>
-              <p>Baños: {cancha.baños ? 'Sí' : 'No'}</p>
-              <p>Vestidores: {cancha.vestidores ? 'Sí' : 'No'}</p>
-              <p>Ubicación Geográfica: Latitud: {cancha.ubicacionGeografica.latitud}, Longitud: {cancha.ubicacionGeografica.longitud}</p>
+              <br></br>
+              <p className="text-lime-950 font-semibold text-xl my-1">Nombre: <span className="font-normal">{cancha.etiqueta}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Deporte: <span className="font-normal">{cancha.deporte}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Dimensiones: <span className="font-normal"> <br></br>Largo: {cancha.medidas.largo} m (metros) <br></br> Ancho: {cancha.medidas.ancho} m (metros)</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Tipo de Suelo: <span className="font-normal">{cancha.tipodesuelo}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Señalamientos: <span className="font-normal">{cancha.senalamientos}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Equipamiento: <span className="font-normal">{cancha.equipamiento}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Iluminación: <span className="font-normal">{cancha.iluminacion ? 'Sí' : 'No'}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Techado: <span className="font-normal">{cancha.techado ? 'Sí' : 'No'}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Gradas: <span className="font-normal">{cancha.gradas ? 'Sí' : 'No'}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Baños: <span className="font-normal">{cancha.baños ? 'Sí' : 'No'}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Vestidores: <span className="font-normal">{cancha.vestidores ? 'Sí' : 'No'}</span></p>
+              <p className="text-lime-950 font-semibold text-xl my-1">Ubicación Geográfica: Latitud: <span className="font-normal">{cancha.ubicacionGeografica.latitud}, Longitud: {cancha.ubicacionGeografica.longitud}</span></p>
             </li>
           ))}
         </ul>

@@ -5,6 +5,7 @@ import { usarDeportivo } from "../Contexto/deportivoContexto";
 import { DeportivoCard_idv } from "../Componentes/deportivos/DeportivoCardIndividual";
 import MapView from "../Componentes/deportivos/mapView";
 import '../App.css';
+import {Card_cancha} from "../Componentes/UI/Card_cancha"
 
 export function Mapa() {
     const { consulDepor } = usarDeportivo();
@@ -22,7 +23,7 @@ export function Mapa() {
     }, [params.id, consulDepor]);
 
     return (
-        <body className="bg-lime-100 p-10 mt-20 flex flex-col items-center gap-10 h-max">
+        <body className="bg-lime-100 p-2 mt-20 flex flex-col items-center gap-2">
             {Deportivo ? (
                 <>
                     <DeportivoCard_idv Deportivo={Deportivo} key={Deportivo._id} />

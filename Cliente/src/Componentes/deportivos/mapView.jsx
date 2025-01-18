@@ -11,7 +11,7 @@ const MapView = ({ lat, lng, name, canchas }) => {
     const colors = ["blue", "green", "red", "purple", "orange"];
 
     return (
-        <div className="w-full h-dvh">
+        <div className="h-vhd h-96 w-full text-5xl">
             <MapContainer center={center} zoom={zoom}>
                 <TileLayer 
                     url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" 

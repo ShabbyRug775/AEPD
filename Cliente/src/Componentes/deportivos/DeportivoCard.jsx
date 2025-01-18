@@ -65,24 +65,24 @@ export function ParqueCard({ Deportivo }) {
 
   return (
     <Card className="w-full h-dvh">
-      <header className="flex justify-between">
-        <h1 className="text-2xl font-bold">{Deportivo.nombre}</h1>
+      <header className="flex justify-center">
+        <h1 className="text-4xl font-bold mb-5 text-center">{Deportivo.nombre}</h1>
       </header>
-      <p className="text-lime-950"><h4 className="text-lg">Dirección: </h4>{Deportivo.direccion}</p>
-      <p className="text-lime-950"><h4 className="text-lg">Alcaldía: </h4>{Deportivo.alcaldia}</p>
-      <p className="text-lime-950"><h4 className="text-lg">Costo: </h4>{Deportivo.costo}</p>
-      <p className="text-lime-950"><h4 className="text-lg">Horario: </h4></p>
+      <p className="text-lime-950 text-xl"><h4 className="text-2xl font-bold">Dirección: </h4>{Deportivo.direccion}</p>
+      <p className="text-lime-950 text-xl"><h4 className="text-2xl font-bold">Alcaldía: </h4>{Deportivo.alcaldia}</p>
+      <p className="text-lime-950 text-xl"><h4 className="text-2xl font-bold">Costo: </h4>{Deportivo.costo}</p>
+      <p className="text-lime-950 text-xl"><h4 className="text-2xl font-bold">Horario: </h4></p>
       {isOpen && (
-        <p className="text-lime-900 font-bold">
-          Abierto ahora. Cierra a las: {closingTime}
+        <p className="text-lime-700 text-2xl font-bold text-center my-5">
+          Abierto ahora<br></br> <span className="text-lime-950">Cierra a las: {closingTime}</span>
         </p>
       )}
       {!isOpen && nextOpening && nextDay && (
-        <p className="text-amber-700 font-bold">
-          Cerrado, abre a las: {nextOpening} el {nextDay.charAt(0).toUpperCase() + nextDay.slice(1)}.
+        <p className="text-red-800 text-2xl font-bold text-center my-5">
+          Cerrado ahora <br></br> <span className="text-lime-950">Abre a las: {nextOpening} el {nextDay.charAt(0).toLowerCase() + nextDay.slice(1)}.</span>
         </p>
       )}
-      <div className="flex gap-x-2 items-center">
+      <div className="flex gap-x-2 items-center text-xl justify-center">
         {isAuthenticated ? (
           <>
             {(Usuario.nivelPermiso === 5 || Usuario.nivelPermiso === 4) && (
