@@ -4,6 +4,17 @@ import { useState } from "react";
 
 export function DeportivoCard_idv({ Deportivo }) {
 
+  // Estados para los filtros
+  const [filtroDeporte, setFiltroDeporte] = useState("");
+
+  // Función para aplicar los filtros
+  const canchasFiltradas = Deportivo.canchas.filter((cancha) => {
+    return filtroDeporte ? cancha.deporte === filtroDeporte : true;
+  });
+
+  // Lista de deportes disponibles para el filtro
+  const deportesDisponibles = Array.from(new Set(Deportivo.canchas.map((cancha) => cancha.deporte)));
+
   return (
     <Card>
       <header className="flex justify-center my-5">
@@ -54,31 +65,6 @@ export function DeportivoCard_idv({ Deportivo }) {
             </div>
           </section>
           */}
-
-      {/* Lista de Canchas */}
-      <section className="mt-4">
-        <h2 className="text-2xl font-bold text-lime-600">Canchas</h2>
-        <ul>
-          {Deportivo.canchas.map((cancha, index) => (
-            <li key={index} className="text-lime-950">
-              <br></br>
-              <p className="text-lime-950 font-semibold text-xl my-1">Nombre: <span className="font-normal">{cancha.etiqueta}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Deporte: <span className="font-normal">{cancha.deporte}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Dimensiones: <span className="font-normal"> <br></br>Largo: {cancha.medidas.largo} m (metros) <br></br> Ancho: {cancha.medidas.ancho} m (metros)</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Tipo de Suelo: <span className="font-normal">{cancha.tipodesuelo}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Señalamientos: <span className="font-normal">{cancha.senalamientos}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Equipamiento: <span className="font-normal">{cancha.equipamiento}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Iluminación: <span className="font-normal">{cancha.iluminacion ? 'Sí' : 'No'}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Techado: <span className="font-normal">{cancha.techado ? 'Sí' : 'No'}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Gradas: <span className="font-normal">{cancha.gradas ? 'Sí' : 'No'}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Baños: <span className="font-normal">{cancha.baños ? 'Sí' : 'No'}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Vestidores: <span className="font-normal">{cancha.vestidores ? 'Sí' : 'No'}</span></p>
-              <p className="text-lime-950 font-semibold text-xl my-1">Ubicación Geográfica: Latitud: <span className="font-normal">{cancha.ubicacionGeografica.latitud}, Longitud: {cancha.ubicacionGeografica.longitud}</span></p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
     </Card>
   );
 }
