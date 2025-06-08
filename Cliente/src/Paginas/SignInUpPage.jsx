@@ -46,31 +46,50 @@ function SignInUpPage() {
         {registerErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
+        
+        <div className="justify-self-center ">
+          <div className="justify-self-center">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke=" rgb(101 163 13)"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+            </svg>
+          </div>
+          
+          <h1 className="text-3xl  mb-10 font-bold uppercase"> Crear cuenta </h1>
+          
+        </div>
 
-        <h1 className="text-3xl font-bold"> Registro de usuario </h1>
+        <form className="text-xl" onSubmit={handleSubmit(onSubmit)}>
+            <Label htmlFor="nombreusuario">Nombre: </Label>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-
-          <Label htmlFor="nombreusuario"> Nombre: </Label>
-
-          <Input
-            type="text"
-            name="nombreusuario"
-            placeholder="Escribe tu nombre"
-            {...register("nombreusuario")}
-            autoFocus
-          />
+            <Input
+              type="text"
+              name="nombreusuario"
+              placeholder="Escribe tu nombre completo"
+              {...register("nombreusuario")}
+              autoFocus
+            />
 
           {errors.nombre_usuario?.message && (
             <p className="text-red-500">{errors.nombreusuario?.message}</p>
           )}
 
-          <Label htmlFor="username"> Nombre de usuario: </Label>
+          <Label htmlFor="username">Nombre de usuario: </Label>
 
           <Input
             type="text"
             name="username"
-            placeholder="Escribe tu nombre de usuario"
+            placeholder="Escribe un nombre de usuario"
             {...register("username")}
             autoFocus
           />
@@ -79,18 +98,18 @@ function SignInUpPage() {
             <p className="text-red-500">{errors.username?.message}</p>
           )}
 
-          <Label htmlFor="email"> Correo: </Label>
+          <Label htmlFor="email">Correo electrónico: </Label>
 
           <Input
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Escribe tu correo electrónico"
             {...register("email")}
           />
           {errors.email?.message && (
             <p className="text-red-500">{errors.email?.message}</p>
           )}
 
-          <Label htmlFor="password"> Contraseña: </Label>
+          <Label htmlFor="password">Contraseña:  </Label>
 
           <Input
             type="password"
@@ -102,7 +121,7 @@ function SignInUpPage() {
             <p className="text-red-500">{errors.password?.message}</p>
           )}
 
-          <Label htmlFor="confirmPassword"> Confirmar contraseña: </Label>
+          <Label htmlFor="confirmPassword">Confirmar contraseña:</Label>
           <Input
             type="password"
             name="confirmPassword"
@@ -112,12 +131,14 @@ function SignInUpPage() {
           {errors.confirmPassword?.message && (
             <p className="text-red-500">{errors.confirmPassword?.message}</p>
           )}
-          <Button> Registrar </Button>
+          <div className="mt-10 justify-self-center">
+            <Button>Crear cuenta </Button>
+          </div>
         </form>
         <p className="flex gap-x-2 justify-between">
           ¿Ya tienes una cuenta?
-          <Link className="text-lime-800" to="/LogInPage">
-            Iniciar Sesión
+          <Link className="text-lime-800 hover:underline hover:font-bold" to="/LogInPage">
+            Iniciar sesión
           </Link>
         </p>
 

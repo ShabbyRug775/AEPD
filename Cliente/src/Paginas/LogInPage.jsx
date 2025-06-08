@@ -46,7 +46,25 @@ export function LogInPage() {
                   <Message message={error} key={i} />
                 ))}
 
-                <h1 className="text-2xl font-bold"> Inicio de Sesión </h1>
+                <div className="justify-self-center ">
+                  <div className="justify-self-center">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="80"
+                    height="80"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke=" rgb(101 163 13)"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                    <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                    </svg>
+                  </div>
+                  <h1 className="text-3xl  mb-10 font-bold uppercase">Iniciar sesión</h1>
+                </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -72,12 +90,14 @@ export function LogInPage() {
                     />
 
                     <p>{errors.password?.message}</p>
-
-                    <Button> Iniciar Sesión </Button>
+                    <div className="mt-10 justify-self-center">
+                      <Button> Iniciar Sesión </Button>
+                    </div>
+                    
                 </form>
 
                 <p className="flex gap-x-2 justify-between">
-                    ¿No tienes una cuenta? <Link to="/SignInUpPage" className="text-lime-800"> Crear cuenta </Link>
+                    ¿No tienes una cuenta? <Link to="/SignInUpPage" className="text-lime-800 hover:underline hover:font-bold"> Crear cuenta </Link>
                 </p>
 
             </Card>

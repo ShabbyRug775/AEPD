@@ -115,21 +115,23 @@ export function EspDepPage() {
   return (
     <div className="bg-lime-100 p-5 mt-20">
       <div className="mb-5">
-        <h2 className="text-2xl my-5 font-bold text-lime-900">Filtrar Espacios Deportivos</h2>
-        <div className="flex flex-col md:flex-row gap-4">
-          <Input
+        <h2 className="text-2xl my-5 font-bold text-lime-900 uppercase">Filtrar espacios deportivos</h2>
+        <div className="flex flex-col xl:flex-row gap-4">
+          <div className=" sm:min-w-96">
+            <Input
             type="text"
             placeholder="Nombre"
             value={filters.nombre}
             onChange={(e) => setFilters({ ...filters, nombre: e.target.value })}
-            className="p-2 rounded-md bg-lime-100"
           />
+          </div>
+          
           <Select
             value={filters.alcaldia}
             onChange={(e) => setFilters({ ...filters, alcaldia: e.target.value })}
             className="p-2"
           >
-            <option value="">Seleccione Alcaldía</option>
+            <option value="">Alcaldía</option>
             {alcaldias.map((alcaldia, index) => (
               <option key={index} value={alcaldia}>{alcaldia}</option>
             ))}
@@ -139,7 +141,7 @@ export function EspDepPage() {
             onChange={(e) => setFilters({ ...filters, deporte: e.target.value })}
             className="p-2"
           >
-            <option value="">Seleccione Deporte</option>
+            <option value="">Deporte</option>
             {deportes.map((deporte, index) => (
               <option key={index} value={deporte}>{deporte}</option>
             ))}
@@ -147,26 +149,13 @@ export function EspDepPage() {
           <Select
             value={filters.costo}
             onChange={(e) => setFilters({ ...filters, costo: e.target.value })}
-            className="border border-gray-300 p-2"
+            className="border border-gray-300"
           >
             <option value="">Costo</option>
             {costos.map((costo, index) => (
               <option key={index} value={costo}>{costo}</option>
             ))}
           </Select>
-          <Checkbox
-            label="Tiene Gradas"
-            checked={filters.gradas}
-            onChange={(e) => setFilters({ ...filters, gradas: e.target.checked })}
-            className="bg-lime-900"
-          />
-          <Input
-            type="text"
-            placeholder="Tipo de suelo"
-            value={filters.tipodesuelo}
-            onChange={(e) => setFilters({ ...filters, tipodesuelo: e.target.value })}
-            className="border border-gray-300 p-2"
-          />
           <Checkbox
             label="Acepta Mascotas"
             checked={filters.aceptaMascotas}

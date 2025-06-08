@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { usarUsuario } from "../Contexto/usuarioContexto";
+import { Label } from "../Componentes/UI";
 
 function HomePage() {
     const { isAuthenticated, Usuario } = usarUsuario();
@@ -17,10 +18,17 @@ function HomePage() {
                 { to: "/Profile", label: "Perfil", nivelMinimo: 0 },
                 { to: "/BuscarUsuarios", label: "Buscar amigos", nivelMinimo: 0 },
                 { to: "/SolicitudesAmistad", label: "Ver Solicitudes", nivelMinimo: 0 },
-                { to: "/VerAmigos", label: "Ver Amigos", nivelMinimo: 0 },
+                { to: "/VerAmigos", label: "Ver Amigos", nivelMinimo: 0},
             ],
         },
         {
+            titulo: "Director general",
+            enlaces:[
+                {to:"/RegistrarRep", label:"Registrar representante", nivelMinimo: 5},
+                {to:"/EspDepAdd", label:"Agregar espacio deportivo", nivelMinimo: 5},
+            ]
+        }
+        /*{
             titulo: "Negocios",
             enlaces: [
                 { to: "/Negocios", label: "Directorio de Negocios", nivelMinimo: 0 },
@@ -33,7 +41,7 @@ function HomePage() {
                 { to: "/Cursos", label: "Ver Cursos", nivelMinimo: 0 },
                 { to: "/CrearTorneo", label: "Crear Torneo", nivelMinimo: 5 },
             ],
-        },
+        },*/
     ];
 
     const renderCategorias = () => {
