@@ -4,6 +4,7 @@ import { ParqueCard } from "../Componentes/deportivos/DeportivoCard";
 import { ImFileEmpty } from "react-icons/im";
 import { Input, Select, Checkbox } from "../Componentes/UI";
 import { alcaldias, costos, deportes } from "../Componentes/deportivos/listasDesp";
+import { usarUsuario } from "../Contexto/usuarioContexto";
 
 export function EspDepPage() {
   const { Deportivos, consulsDepor } = usarDeportivo();
@@ -18,6 +19,9 @@ export function EspDepPage() {
     tipodesuelo: "",
     aceptaMascotas: false,
   });
+
+  // Contexto del usuario
+  const { isAuthenticated, Usuario } = usarUsuario();
 
   // Estado para los deportivos filtrados
   const [filteredDeportivos, setFilteredDeportivos] = useState([]);

@@ -1,31 +1,33 @@
-// Rutas de react, api y cookies
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
-import { LogInRequest, SigInUpRequest, verifyTokenRequest, ProfileRequest, consulsUsuariosRequest, RegistrarRepRequest } from "../Api/usuario";
+import {
+  LogInRequest,
+  SigInUpRequest,
+  verifyTokenRequest,
+  ProfileRequest,
+  consulsUsuariosRequest,
+  RegistrarRepRequest,
+} from "../Api/usuario";
 import Cookies from "js-cookie";
 
-// Se crea un contexto de react
 const UsuarioContexto = createContext();
 
-// Constante para usar el usuario
 export const usarUsuario = () => {
-
   const context = useContext(UsuarioContexto);
-
-  if (!context) throw new Error("usarUsuario debe ser utilizado dentro de un usuarioProvider");
-
+  if (!context)
+    throw new Error(
+      "usarUsuario debe ser utilizado dentro de un UsuarioProvider"
+    );
   return context;
-
 };
 
 export const UsuarioProvider = ({ children }) => {
-
   const [Usuario, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]); // Siempre un array para poder mapearlo
   const [loading, setLoading] = useState(true);
 
-  // clear errors after 5 seconds
+  // Limpiar errores automáticamente después de 5 segundos
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
@@ -35,49 +37,62 @@ export const UsuarioProvider = ({ children }) => {
     }
   }, [errors]);
 
-  // Alta de usuario
+  // Registro de usuario
   const SignInUp = async (Usuario) => {
     try {
       const res = await SigInUpRequest(Usuario);
       if (res.status === 200) {
         setUser(res.data);
         setIsAuthenticated(true);
+        setErrors([]);
       }
     } catch (error) {
-      console.log(error.response.data);
-      setErrors(error.response.data.message);
+      console.log(error.response?.data);
+      const mensaje = error.response?.data?.message;
+      setErrors(Array.isArray(mensaje) ? mensaje : [mensaje || "Error en registro"]);
     }
   };
 
-  // Alta de usuario nivel 4
+  // Registro nivel 4
   const RegistrarRep = async (Usuario) => {
     try {
       const res = await RegistrarRepRequest(Usuario);
       if (res.status === 200) {
         setUser(res.data);
+        setErrors([]);
       }
     } catch (error) {
-      console.log(error.response.data);
-      setErrors(error.response.data.message);
+      console.log(error.response?.data);
+      const mensaje = error.response?.data?.message;
+      setErrors(
+        Array.isArray(mensaje) ? mensaje : [mensaje || "Error en registro nivel 4"]
+      );
     }
   };
 
   // Login de usuario
   const LogIn = async (Usuario) => {
+    setErrors([]); // limpiar errores antes
     try {
       const res = await LogInRequest(Usuario);
       setUser(res.data);
       setIsAuthenticated(true);
+      setErrors([]);
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
+      const mensaje =
+        error.response?.data?.message || "Correo o contraseña incorrectos";
+      setErrors(Array.isArray(mensaje) ? mensaje : [mensaje]);
+      setIsAuthenticated(false);
     }
   };
 
-  // Cerrar sesion
+  // Cerrar sesión
   const LogOut = () => {
     Cookies.remove("token");
     setUser(null);
     setIsAuthenticated(false);
+    setErrors([]);
   };
 
   useEffect(() => {
@@ -92,44 +107,40 @@ export const UsuarioProvider = ({ children }) => {
 
       try {
         const res = await verifyTokenRequest(cookies.token);
-        console.log(res);
         if (!res.data) return setIsAuthenticated(false);
         setIsAuthenticated(true);
         setUser(res.data);
         setLoading(false);
-
       } catch (error) {
         console.log(error);
         setIsAuthenticated(false);
         setLoading(false);
       }
-    };
+    }
     checkLogin();
   }, []);
-  // Consultar Perfil (datos usuario)
+
+  // Consultar perfil
   const Profile = async (Usuario) => {
     try {
       const res = await ProfileRequest(Usuario);
       setUser(res.data);
-      //setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
     }
   };
-  //Consultar Usuarios
+
+  // Consultar usuarios
   const consulsUsuarios = async (Usuario) => {
     try {
       const res = await consulsUsuariosRequest(Usuario);
       setUser(res.data);
-      //setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
     }
-
   };
 
   return (
-
     <UsuarioContexto.Provider
       value={{
         Usuario,
@@ -141,15 +152,12 @@ export const UsuarioProvider = ({ children }) => {
         errors,
         loading,
         Profile,
-        consulsUsuarios
+        consulsUsuarios,
       }}
     >
       {children}
     </UsuarioContexto.Provider>
-
   );
-
 };
 
-// Se exporta el contexto de usuario
 export default UsuarioContexto;

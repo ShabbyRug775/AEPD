@@ -1,8 +1,10 @@
 import { Input, Label, Button, Select, Checkbox } from ".";
 import { deportes } from "../deportivos/listasDesp";
+import { usarUsuario } from "../../Contexto/usuarioContexto";
 
 export function Card_cancha({ index, onRemove, register }) {
-
+  const { isAuthenticated, Usuario } = usarUsuario();
+  
   return (
 
     <div className="bg-lime-400 max-w-md w-full p-10 rounded-md mb-4">
@@ -121,6 +123,8 @@ export function Card_cancha({ index, onRemove, register }) {
       />
 
       <Label htmlFor={`canchas[${index}].ubicacionGeografica.longitud`}>Longitud:</Label>
+
+      
       
       <Input
         type="number"
@@ -130,7 +134,12 @@ export function Card_cancha({ index, onRemove, register }) {
         {...register(`canchas[${index}].ubicacionGeografica.longitud`, {
           setValueAs: (value) => parseFloat(value)
         })}
+
+        
       />
+      
+          
+        
     </div>
   );
 }

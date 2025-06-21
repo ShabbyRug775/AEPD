@@ -22,7 +22,7 @@ function HomePage() {
             ],
         },
         {
-            titulo: "Director general",
+            titulo: "Director general", nivelMinimo:5,
             enlaces:[
                 {to:"/RegistrarRep", label:"Registrar representante", nivelMinimo: 5},
                 {to:"/EspDepAdd", label:"Agregar espacio deportivo", nivelMinimo: 5},
@@ -81,7 +81,7 @@ function HomePage() {
                         className="bg-lime-100 p-5 rounded-lg shadow flex-grow lg:w-1/4 m-2"
                     >
                         <h2 className="text-2xl font-semibold text-center">{categoria.titulo}</h2>
-                        <ul className="flex flex-col items-center py-5 space-y-2">
+                        <ul className="flex flex-col items-center py-5 space-y-4">
                             {categoria.enlaces
                                 .filter((enlace) => Usuario.nivelPermiso >= enlace.nivelMinimo)
                                 .map((enlace) => (
