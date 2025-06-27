@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <h1 align="center">Sistema para Aprovechamiento de Espacios Públicos Deportivos</h1>
-  <h2 align="center">MARYR</h2>
+  <h2 align="center">Ingeniería de software 6CM2</h2>
 </div>
 
 
