@@ -104,10 +104,7 @@ Para instalar los archivos necesarios del cliente
 ## INTEGRANTES
 
 <ol>
-<li> Aguilar Ibarra Moisés</li>
-<li> Leyva Martínez Román Esteban</li>
 <li> Lopez Mata Alan Enrique</li>
-<li> Rivero Flores Roman</li>
 </ol>
 
 ##
